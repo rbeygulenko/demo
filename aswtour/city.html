@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>City Page</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow"> 
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">    
+    <link href="assets/style.min.css" rel="preload" as="style">
+    <link href="assets/style.min.css" rel="stylesheet"> 
+</head>
+<body class="inner-page">
+<!-- layout -->
+<div class="layout"> 
+    <!--header-->
+<header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__col header__col--logo"> 
+            <a href="index.html" class="logo">
+                <span class="logo__img"></span> 
+                <span class="logo__txt"> 
+                    <span class="logo__txt--main">YOURTOUR</span> 
+                    <span class="logo__txt--second">search your best tour</span> 
+                </span> 
+            </a> 
+        </div>
+        <div class="header__col header__col--catalog"> <span class="catalog__link js-menu-toggle i-menu"></span> </div>
+        <div class="header__col header__col--search">
+          <div class="search__wrapper">
+            <div class="search__btn--toggle js-search-toggle i-search"></div>
+            <div class="search">
+              <form action="resort.html" class="search__form">
+                <input type="text" class="input form-control search__input" placeholder="Where do you want to go?">
+                <div class="search__btn js-minisearch-submit i-search"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="header__col header__col--mobile none"> 
+            <div class="i-search item item--search js-search-toggle"></div> 
+            <a href="tel:88000000000" class="i-phone item item--phone"></a> 
+            <div class="i-menu item item--menu js-menu-toggle"></div> 
+        </div>
+        <div class="header__col header__col--contacts">
+          <div class="contacts">
+            <div class="contact__item contact__item--phone"><a class="phone__link" href="tel:88000000000">8 (800) 000-00-00</a></div>
+            <div class="contact__item contact__item--callback"><span class="callback__link" data-popup="callback">Request a callback</span></div>
+          </div>
+        </div>
+        <div class="header__col header__col--usercab"> <a href="" class="btn">User cabinet</a> </div>
+      </div>
+    </div>
+  </header>
+  <!--header end-->
+
+ 
+     
+    <main class="content-wrap">
+
+ 
+      
+
+
+        <!--mainbox-->  
+<div class="mainBox lazyload" data-bg="assets/index-mainbox-bg-1--original.jpg">
+    <!--
+        <div class="mainBox__slider js-mainbox-slider"> 
+          <div class="mainBox__slider-item mainBox__slider-item--0 lazyload is-shown" data-bg="assets/index-mainbox-bg-1--original.jpg"></div>
+          <div class="mainBox__slider-item mainBox__slider-item--1 lazyload" data-bg="assets/index-mainbox-bg-2--original.jpg"></div>
+        </div>
+        -->
+        <div class="container mainBox__container">
+            <div class="mainBox__inner">
+              <div class="mainBox__title">Austria Tours</div>
+              <div class="mainBox__content">
+
+                <div class="adv-popup adv-popup--search">
+                    <div class="adv-popup_header none">
+                      <div class="adv-popup_header-title">О городе Ялта</div>
+                      <div class="adv-popup_header-close js-clear-handlers i-close"></div>
+                    </div>
+                    <div class="adv-popup_inner">
+                        <!--main-box search--> 
+<div class="mainBox__search none">
+    <form action="index.html">
+      <div class="search">
+        <input type="text" class="input form-control search__input" placeholder="Where do you want to go? Enter destination or hotel name">
+        <div class="search__btn js-search-submit i-search"></div>
+      </div>
+    </form>
+  </div>
+  <!--main-box search END--> 
+  <!--adv-search-->
+  <div class="adv__search adv__search--index">
+    <form action="resort.html" class="adv__form">
+      <div class="adv__content">
+        <div class="adv__cols">
+          <div class="adv__col adv__col--sbox">
+            <div class="sbox sbox--radio">
+              <div class="sbox__selected">
+                <div class="selected__label i-direction">Country</div>
+                <div class="selected__value"><span>not chosen</span></div>
+              </div>
+              <div class="sbox__dd">
+                <div class="sbox__items">
+                  <div class="item">
+                    <input class="item__value" id="sel_radio_01" type="radio" name="direction">
+                    <label class="item__label" for="sel_radio_01">Кавказские Минеральные Воды</label>
+                  </div>
+                  <div class="item">
+                    <input class="item__value" id="sel_radio_02" type="radio" name="direction">
+                    <label class="item__label" for="sel_radio_02">Краснодарский край</label>
+                  </div>
+                  <div class="item">
+                    <input class="item__value" id="sel_radio_03" type="radio" name="direction">
+                    <label class="item__label" for="sel_radio_03">Алтайский край</label>
+                  </div>
+                  <div class="item">
+                    <input class="item__value" id="sel_radio_04" type="radio" name="direction">
+                    <label class="item__label" for="sel_radio_04">Крым</label>
+                  </div>
+                  <div class="item">
+                    <input class="item__value" id="sel_radio_05" type="radio" name="direction">
+                    <label class="item__label" for="sel_radio_05">Абхазия</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="adv__col adv__col--sbox">
+            <div class="sbox sbox--check">
+              <div class="sbox__selected">
+                <div class="selected__label i-location">Destionation</div>
+                <div class="selected__value"><span>all destionations</span></div>
+              </div>
+              <div class="sbox__dd">
+                <div class="sbox__items">
+                  <div class="item form-check">
+                    <input class="form-control item__value js-select--all" id="sel_check_1" checked="checked" type="checkbox" name="direction">
+                    <label class="form-check__label item__label" for="sel_check_1"> <span class="form-check__input"></span> <span class="form-check__name">Все</span> </label>
+                  </div>
+                  <div class="item form-check">
+                    <input class="form-control item__value js-select--other" id="sel_check_2" type="checkbox" name="direction">
+                    <label class="form-check__label item__label" for="sel_check_2"> <span class="form-check__input"></span> <span class="form-check__name">Краснодар</span> </label>
+                  </div>
+                  <div class="item form-check">
+                    <input class="form-control item__value js-select--other" id="sel_check_3" type="checkbox" name="direction">
+                    <label class="form-check__label item__label" for="sel_check_3"> <span class="form-check__input"></span> <span class="form-check__name">Геленджик</span> </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="adv__col adv__col--sbox adv__col--date">
+            <div class="sbox sbox--date">
+              <div class="sbox__selected">
+                <div class="selected__label i-date">Check-in - Check-out</div>
+                <input type="hidden" id="calendar-1--value">
+                <div class="selected__value"><span id="calendar-1--selected">not chosen</span></div>
+              </div>
+              <div class="sbox__dd" id="calendar-1"> </div>
+            </div>
+          </div>
+          <div class="adv__col adv__col--sbox">
+            <div class="sbox sbox-qty">
+              <div class="sbox__selected">
+                <div class="selected__label i-people">Persons</div>
+                <input type="hidden" class="js-search--qty-value">
+                <div class="selected__value"><span>not chosen</span></div>
+              </div>
+              <div class="sbox__dd">
+                <div class="form-group form-group--qty">
+                  <div class="qty js-qty--input">
+                    <div class="qty_label">Adult</div>
+                    <div class="qty_inputs">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--minus js-qty--minus"></button>
+                      <input type="text" data-allow="num" class="input form-control qty_inputs-value js-qty-value--adult" value="0">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--plus js-qty--plus"></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group form-group--qty">
+                  <div class="qty js-qty--input">
+                    <div class="qty_label">Children</div>
+                    <div class="qty_inputs">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--minus js-qty--minus"></button>
+                      <input type="text" data-allow="num"  class="input form-control qty_inputs-value js-qty-value--children" value="0">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--plus js-qty--plus"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="adv__submit">
+          <button type="submit" class="btn btn-2">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--adv-search END--> 
+                    </div>
+                  </div>
+                  <!--mainbox-links-->
+                  <div class="nav mainBox__links">
+                    <div class="nav__item"><a href="" class="nav__link">About City</a></div>
+                    <div class="nav__item"><a href="" class="nav__link">Need help booking?</a></div>
+                  </div>
+                  <!--mainbox-links END-->
+              </div>
+            </div>
+          </div>
+        </div> 
+        <!--mainbox END--> 
+        
+      
+        
+
+         <!--section direction-->
+ <div class="section section--direction section--direction-2">
+    <div class="container"> 
+      <div class="section__content">
+        <div class="row directions__list">      
+            <!--item-->
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+    <div class="direction">
+      <div class="direction__img lazyload" data-bg="assets/direction-img-1.jpg"></div>
+      <div class="direction__prices">
+        <div class="price__label">Start from</div>
+        <div class="price">$1200</div>
+      </div>
+      <div class="direction__description">
+        <div class="direction__title"><a href="" class="direction__link">Austria</a></div>
+        <div class="direction__stats">Top destinations for Austria city trips</div>
+        <div class="nav">
+          <div class="nav__item"><a href="" class="nav__link">Austria</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Salzburg</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Schwechat</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Innsbruck</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Graz</a></div>
+          <div class="nav__item"><a href="" class="nav__link">see all</a></div>
+        </div>
+      </div>
+    </div>
+ </div>
+            <!--item END-->
+            <!--item-->
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+    <div class="direction">
+      <div class="direction__img lazyload" data-bg="assets/direction-img-1.jpg"></div>
+      <div class="direction__prices">
+        <div class="price__label">Start from</div>
+        <div class="price">$1200</div>
+      </div>
+      <div class="direction__description">
+        <div class="direction__title"><a href="" class="direction__link">Austria</a></div>
+        <div class="direction__stats">Top destinations for Austria city trips</div>
+        <div class="nav">
+          <div class="nav__item"><a href="" class="nav__link">Austria</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Salzburg</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Schwechat</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Innsbruck</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Graz</a></div>
+          <div class="nav__item"><a href="" class="nav__link">see all</a></div>
+        </div>
+      </div>
+    </div>
+ </div>
+            <!--item END-->
+            <!--item-->
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+    <div class="direction">
+      <div class="direction__img lazyload" data-bg="assets/direction-img-1.jpg"></div>
+      <div class="direction__prices">
+        <div class="price__label">Start from</div>
+        <div class="price">$1200</div>
+      </div>
+      <div class="direction__description">
+        <div class="direction__title"><a href="" class="direction__link">Austria</a></div>
+        <div class="direction__stats">Top destinations for Austria city trips</div>
+        <div class="nav">
+          <div class="nav__item"><a href="" class="nav__link">Austria</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Salzburg</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Schwechat</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Innsbruck</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Graz</a></div>
+          <div class="nav__item"><a href="" class="nav__link">see all</a></div>
+        </div>
+      </div>
+    </div>
+ </div>
+            <!--item END-->
+            <!--item-->
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+    <div class="direction">
+      <div class="direction__img lazyload" data-bg="assets/direction-img-1.jpg"></div>
+      <div class="direction__prices">
+        <div class="price__label">Start from</div>
+        <div class="price">$1200</div>
+      </div>
+      <div class="direction__description">
+        <div class="direction__title"><a href="" class="direction__link">Austria</a></div>
+        <div class="direction__stats">Top destinations for Austria city trips</div>
+        <div class="nav">
+          <div class="nav__item"><a href="" class="nav__link">Austria</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Salzburg</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Schwechat</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Innsbruck</a></div>
+          <div class="nav__item"><a href="" class="nav__link">Graz</a></div>
+          <div class="nav__item"><a href="" class="nav__link">see all</a></div>
+        </div>
+      </div>
+    </div>
+ </div>
+            <!--item END-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--section direction END--> 
+
+
+
+ 
+<div class="container"> 
+
+
+  <!-- other destinations -->
+  <div class="otherDestionations__list">
+    <div class="otherDestionations__btnWrap"><div class="otherDestionations__btn js-other-resorts--toggle">Другие курорты Крыма</div></div>
+    <div class="items__list">
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Алушта</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Балаклава</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Бахчисарай</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Береговое</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Гаспра</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Гурзуф</span></a></div> 
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Береговое</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Гаспра</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Гурзуф</span></a></div> 
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Бахчисарай</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Береговое</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Гаспра</span></a></div>
+      <div class="item"><a href="city.html" class="item__link"><span class="item__name">Гурзуф</span></a></div> 
+    </div>
+  </div>
+  <!-- other destinations END -->
+
+       <!--filter results-->
+      <div class="filter-search_results">
+        <div class="filter-search_results-toggle none">
+          <button type="button" class="btn btn-arrow btn-arrow--r js-filter-toggle">Sort by parameters</button>
+        </div>
+        <div class="filter-search_results-label">Sort by parameters</div>
+        <div class="filter-search_results-text"> <a href="index.html" class="filter-search_results-btn btn btn-4 btn-arrow btn-arrow--l none"></a>
+          <div class="filter-search_results-value">Санатории Ялты: найдено 20 предложений</div>
+        </div>
+      </div>
+      <!--filter results END-->
+
+
+      <!--page-columns-->
+      <div class="page__columns page__columns--2col float-sidebar ">
+        <!--page-sidebar-->
+        <div class="page__sidebar">
+          <div class="sidebar">
+            <!--adv-popup-->
+            <div class="adv-popup adv-popup--filter">
+              <!--adv-popup header-->
+              <div class="adv-popup_header none">
+                <div class="adv-popup_header-title">Sort by parameters</div>
+                <div class="adv-popup_header-close js-clear-handlers i-close"></div>
+              </div>
+              <!--adv-popup header END-->
+              <div class="adv-popup_inner">
+                 <!--sideBox-->
+                <div class="sideBox">
+                  <div class="filter filter--choose-resort is-shadow">
+                    <div class="filter__group">
+                      <div class="filter__title js-toggle">Выбрать курорт Крыма</div>
+                      <div class="filter__content">
+                        <!--filter__item-->
+                        <div class="filter__item">
+                          <div class="form__check">
+                            <input type="checkbox" class="form__control" value="" id="check_224">
+                            <label class="checkbox__label" for="check_224"> <span class="checkbox__icon"></span> <span class="checkbox__text">Пятигорск</span> </label>
+                          </div>
+                        </div>
+                        <!--filter__item END-->
+                        <!--filter__item-->
+                        <div class="filter__item">
+                          <div class="form__check">
+                            <input type="checkbox" class="form__control" value="" id="check_235">
+                            <label class="checkbox__label" for="check_235"> <span class="checkbox__icon"></span> <span class="checkbox__text">Кисловодск</span> </label>
+                          </div>
+                        </div>
+                        <!--filter__item END-->
+                        <!--filter__item-->
+                        <div class="filter__item">
+                          <div class="form__check">
+                            <input type="checkbox" class="form__control" value="" id="check_446">
+                            <label class="checkbox__label" for="check_446"> <span class="checkbox__icon"></span> <span class="checkbox__text">Ессентуки</span> </label>
+                          </div>
+                        </div>
+                        <!--filter__item END-->
+                        <!--filter__item-->
+                        <div class="filter__item">
+                          <div class="form__check">
+                            <input type="checkbox" class="form__control" value="" id="check_54">
+                            <label class="checkbox__label" for="check_54"> <span class="checkbox__icon"></span> <span class="checkbox__text">Железноводск</span> </label>
+                          </div>
+                        </div>
+                        <!--filter__item END--> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 <!--sideBox END-->
+                 <!--sideBox-->
+                <div class="sideBox">
+                  <div class="filter">
+                    <div class="filter__prices is-shadow">
+                      <div class="filter__title">Цена за сутки:</div>
+                      <div class="row filter__content">
+                        <div class="col-6">
+                          <div class="form__control-wrap">
+                            <input type="text" class="input form__control" placeholder="100">
+                            <div class="form-hint">от (руб.)</div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form__control-wrap">
+                            <input type="text" class="input form__control" placeholder="8 000">
+                            <div class="form-hint">до (руб.)</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="filter__params is-shadow">
+                      <!--filter__group-->
+                      <div class="filter__group">
+                        <div class="filter__title js-toggle"> Профиль лечения </div>
+                        <div class="filter__content"> 
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_221">
+                              <label class="checkbox__label" for="check_221"> <span class="checkbox__icon"></span> <span class="checkbox__text">С бассейном</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END-->
+                           <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_232">
+                              <label class="checkbox__label" for="check_232"> <span class="checkbox__icon"></span> <span class="checkbox__text">SPA процедуры</span> </label>
+                            </div>
+                          </div>
+                          <!--filter__item END-->
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_243">
+                              <label class="checkbox__label" for="check_243"> <span class="checkbox__icon"></span> <span class="checkbox__text">Питание Шведский стол</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END--> 
+                        </div>
+                      </div>
+                       <!--filter__group END-->
+                      <!--filter__group-->
+                      <div class="filter__group">
+                        <div class="filter__title js-toggle">Рейтинг</div>
+                        <div class="filter__content"> 
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_122">
+                              <label class="checkbox__label" for="check_122"> <span class="checkbox__icon"></span> <span class="checkbox__text">С бассейном</span> </label>
+                            </div>
+                          </div> 
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_323">
+                              <label class="checkbox__label" for="check_323"> <span class="checkbox__icon"></span> <span class="checkbox__text">SPA процедуры</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END-->
+                           <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_324">
+                              <label class="checkbox__label" for="check_324"> <span class="checkbox__icon"></span> <span class="checkbox__text">Питание Шведский стол</span> </label>
+                            </div>
+                          </div>
+                          <!--filter__item END--> 
+                        </div>
+                      </div>
+                      <!--filter__group END-->
+                      <!--filter__group-->
+                      <div class="filter__group">
+                        <div class="filter__title js-toggle">Тип санатория</div>
+                        <div class="filter__content"> 
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_422">
+                              <label class="checkbox__label" for="check_422"> <span class="checkbox__icon"></span> <span class="checkbox__text">С бассейном</span> </label>
+                            </div>
+                          </div>
+                          <!--filter__item END-->
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_523">
+                              <label class="checkbox__label" for="check_523"> <span class="checkbox__icon"></span> <span class="checkbox__text">SPA процедуры</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END-->
+                           <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_624">
+                              <label class="checkbox__label" for="check_624"> <span class="checkbox__icon"></span> <span class="checkbox__text">Питание Шведский стол</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END--> 
+                        </div>
+                      </div>
+                      <!--filter__group END-->
+                      <!--filter__group-->
+                      <div class="filter__group">
+                        <div class="filter__title js-toggle">Класс санатория</div>
+                        <div class="filter__content"> 
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_722">
+                              <label class="checkbox__label" for="check_722"> <span class="checkbox__icon"></span> <span class="checkbox__text">С бассейном</span> </label>
+                            </div>
+                          </div>
+                          <!--filter__item END-->
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_223">
+                              <label class="checkbox__label" for="check_223"> <span class="checkbox__icon"></span> <span class="checkbox__text">SPA процедуры</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END-->
+                           <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_214">
+                              <label class="checkbox__label" for="check_214"> <span class="checkbox__icon"></span> <span class="checkbox__text">Питание Шведский стол</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END--> 
+                        </div>
+                      </div>
+                      <!--filter__group END-->
+                      <!--filter__group-->
+                      <div class="filter__group">
+                        <div class="filter__title js-toggle">С детьми</div>
+                        <div class="filter__content"> 
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_22">
+                              <label class="checkbox__label" for="check_22"> <span class="checkbox__icon"></span> <span class="checkbox__text">С бассейном</span> </label>
+                            </div>
+                          </div>
+                          <!--filter__item END-->
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_23">
+                              <label class="checkbox__label" for="check_23"> <span class="checkbox__icon"></span> <span class="checkbox__text">SPA процедуры</span> </label>
+                            </div>
+                          </div>
+                          <!--filter__item END-->
+                          <!--filter__item-->
+                          <div class="filter__item">
+                            <div class="checkbox">
+                              <input type="checkbox" class="form__control" value="" id="check_24">
+                              <label class="checkbox__label" for="check_24"> <span class="checkbox__icon"></span> <span class="checkbox__text">Питание Шведский стол</span> </label>
+                            </div>
+                          </div>
+                           <!--filter__item END--> 
+                        </div>
+                      </div>
+                       <!--filter__group END-->
+                    </div>
+                    <div class="filter__submit">
+                      <button type="button" class="btn btn-2">Показать</button>
+                      <button type="button" class="btn btn-5">Сбросить фильтр</button>
+                    </div>
+                  </div>
+                </div>
+                 <!--sideBox END-->
+              </div>
+            </div>
+            <!--adv-popup END-->
+            <!--sideBox-->
+            <div class="sideBox is-sticky">
+              <div class="sideBox__content">
+                <div class="form form--help form--help-sidebar">
+                  <div class="form__header">
+                    <div class="form__header_title">Нужна помощь с бронированием?</div>
+                    <div class="form__header_btn none">
+                      <div class="btn" data-popup="book-help">Да, нужна</div>
+                    </div>
+                    <div class="form__header_subtitle">Мы поможем выбрать лучшее. 
+                      Наши специалисты свяжутся с вами в течение нескольких минут</div>
+                  </div>
+                  <div class="form__content">
+                    <div class="form__group form__group--input">
+                      <input type="text" class="input input--md form__control" data-validation-error="имя не заполнено" placeholder="Ваше имя">
+                    </div>
+                    <div class="form__group form__group--input">
+                      <input type="tel" class="input input--md form__control" data-validation-error="укажите телефон в международном формате" placeholder="Телефон">
+                    </div>
+                    <div class="form__group form__group--check">
+                      <div class="checkbox checkbox--light">
+                        <input type="checkbox" class="form__control checkbox__control" value="" id="check_side_help_form_1">
+                        <label class="checkbox__label" for="check_side_help_form_1"> <span class="checkbox__icon"></span> <span class="checkbox__text">Позвоните мне</span> </label>
+                      </div>
+                      <div class="checkbox checkbox--light">
+                        <input type="checkbox" class="form__control checkbox__control" value="" id="check_side_help_form_2">
+                        <label class="checkbox__label" for="check_side_help_form_2"> <span class="checkbox__icon"></span> <span class="checkbox__text">Напишите мне в WhatsApp</span> </label>
+                      </div>
+                    </div>
+                    <div class="form__group form__group--submit">
+                      <button type="button" class="btn btn-3 btn--md">Отправить</button>
+                    </div>
+                  </div>
+                  <div class="agree-text agree-text--light">Нажимая кнопку «Отправить», вы соглашаетесь с <a href="">Политикой обработки персональных данных</a> </div>
+                </div>
+              </div>
+            </div>
+             <!--sideBox END-->
+          </div>
+        </div>
+        <!--page-sidebar END-->
+        <!--page-content-->
+        <div class="page__content">
+          <!--sort-links-->
+            <div class="sort__links js-sort-links--carousel">
+              <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><div class="sort__item"><a href="" class="sort__link is-selected">All offers</a></div></div>
+                <div class="swiper-slide"><div class="sort__item"><a href="" class="sort__link">Best by reviews</a></div></div>
+                <div class="swiper-slide"><div class="sort__item"><a href="" class="sort__link">With pets</a></div></div>
+                <div class="swiper-slide"><div class="sort__item"><a href="" class="sort__link">With pool</a></div></div> 
+            </div>
+          </div>
+          </div>
+           <!--sort-links END-->
+          <div class="resort__list resort__list--detailed">  
+            <!--resort-->
+<div class="resort">
+    <div class="resort__inner">
+      <!--resort gallery-->
+      <div class="resort__img js-resort-gallery">
+        <div class="badge badge--best">Best choise</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-1.jpg" alt=""> </div>
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-2.jpg" alt=""> </div>
+          </div>
+        </div>
+        <div class="swiper-buttons">
+          <div class="swiper-button swiper-button--prev"></div>
+          <div class="swiper-button swiper-button--next"></div>
+        </div>
+      </div>
+      <!--resort gallery END-->
+      <div class="resort__desc">
+        <!--resort title-->
+        <div class="resort__col resort__col--l resort__col--title">
+          <div class="resort__title"><a href="" class="resort__title-link">Austria, Vienna</a></div>
+          <div class="resort__name">MOXY Vienna Airport</div>
+        </div>
+         <!--resort title END-->
+        <!--resort rating-->
+        <div class="resort__col resort__col--r resort__col--rating">
+
+            <div class="rating">
+                <div class="rating__value">10</div>
+                <div class="rating__text"><a href="" class="rating__link">255 reviews</a></div>
+              </div> 
+        </div>
+        <!--resort rating END-->
+        <!--resort specs-->
+        <div class="resort__col resort__col--l resort__col--specs">
+          <div class="resort__specs">
+            <div class="resort__specs-item i-swimming-pool"><span class="resort__specs-name">Sw. Pool</span></div>
+            <div class="resort__specs-item i-sauna"><span class="resort__specs-name">Sauna</span></div>
+            <div class="resort__specs-item i-parking"><span class="resort__specs-name">Parking</span></div>
+            <div class="resort__specs-item i-gym"><span class="resort__specs-name">Gym</span></div>
+            <div class="resort__specs-item i-cinema"><span class="resort__specs-name">Cinema</span></div>
+            <div class="resort__specs-item i-coffee"><span class="resort__specs-name">Buffet</span></div>
+          </div>
+        </div>
+        <!--resort specs END-->
+        <!--resort prices-->
+        <div class="resort__col resort__col--r resort__col--prices">
+          <div class="resort__prices">
+            <div class="resort__prices-price"><span class="price">from $230</span></div>
+            <div class="resort__prices-label">person per day</div>
+          </div>
+        </div>
+        <!--resort prices END-->
+        <!--resort profiles-->
+        <div class="resort__profile resort__col--l resort__col--profile">
+          <div class="resort__profiles">
+            <div class="resort__profiles-inner">
+              <ul class="resort__profiles-list">
+                <li class="resort__profiles-list_label">Treatment profiles:</li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs of vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of gastrointestinal</a></li>
+              </ul>
+            </div>
+            <div class="resort__profiles_toggle js-toggle"> </div>
+          </div>
+        </div>
+        <!--resort profiles END-->
+        <div class="resort__submit resort__col--r resort__col--submit">
+          <div class="resort__submit-label">booked 157 times</div>
+          <button class="btn btn-2" type="button" data-popup="book-help">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--resort END--> 
+            <!--resort-->
+<div class="resort">
+    <div class="resort__inner">
+      <!--resort gallery-->
+      <div class="resort__img js-resort-gallery">
+        <div class="badge badge--best">Best choise</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-2.jpg" alt=""> </div>
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-4.jpg" alt=""> </div>
+          </div>
+        </div>
+        <div class="swiper-buttons">
+          <div class="swiper-button swiper-button--prev"></div>
+          <div class="swiper-button swiper-button--next"></div>
+        </div>
+      </div>
+      <!--resort gallery END-->
+      <div class="resort__desc">
+        <!--resort title-->
+        <div class="resort__col resort__col--l resort__col--title">
+          <div class="resort__title"><a href="" class="resort__title-link">Austria, Vienna</a></div>
+          <div class="resort__name">MOXY Vienna Airport</div>
+        </div>
+         <!--resort title END-->
+        <!--resort rating-->
+        <div class="resort__col resort__col--r resort__col--rating">
+
+            <div class="rating">
+                <div class="rating__value">8</div>
+                <div class="rating__text"><a href="" class="rating__link">255 reviews</a></div>
+              </div> 
+        </div>
+        <!--resort rating END-->
+        <!--resort specs-->
+        <div class="resort__col resort__col--l resort__col--specs">
+          <div class="resort__specs">
+            <div class="resort__specs-item i-swimming-pool"><span class="resort__specs-name">Sw. Pool</span></div>
+            <div class="resort__specs-item i-sauna"><span class="resort__specs-name">Sauna</span></div>
+            <div class="resort__specs-item i-parking"><span class="resort__specs-name">Parking</span></div>
+            <div class="resort__specs-item i-gym"><span class="resort__specs-name">Gym</span></div>
+            <div class="resort__specs-item i-cinema"><span class="resort__specs-name">Cinema</span></div>
+            <div class="resort__specs-item i-coffee"><span class="resort__specs-name">Buffet</span></div>
+          </div>
+        </div>
+        <!--resort specs END-->
+        <!--resort prices-->
+        <div class="resort__col resort__col--r resort__col--prices">
+          <div class="resort__prices">
+            <div class="resort__prices-price"><span class="price">from $320</span></div>
+            <div class="resort__prices-label">person per day</div>
+          </div>
+        </div>
+        <!--resort prices END-->
+        <!--resort profiles-->
+        <div class="resort__profile resort__col--l resort__col--profile">
+          <div class="resort__profiles">
+            <div class="resort__profiles-inner">
+              <ul class="resort__profiles-list">
+                <li class="resort__profiles-list_label">Treatment profiles:</li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs of vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of gastrointestinal</a></li>
+              </ul>
+            </div>
+            <div class="resort__profiles_toggle js-toggle"> </div>
+          </div>
+        </div>
+        <!--resort profiles END-->
+        <div class="resort__submit resort__col--r resort__col--submit">
+          <div class="resort__submit-label">booked 157 times</div>
+          <button class="btn btn-2" type="button" data-popup="book-help">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--resort END--> 
+            <!--resort-->
+<div class="resort">
+    <div class="resort__inner">
+      <!--resort gallery-->
+      <div class="resort__img js-resort-gallery">
+        <div class="badge badge--best">Best choise</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-3.jpg" alt=""> </div>
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-3.jpg" alt=""> </div>
+          </div>
+        </div>
+        <div class="swiper-buttons">
+          <div class="swiper-button swiper-button--prev"></div>
+          <div class="swiper-button swiper-button--next"></div>
+        </div>
+      </div>
+      <!--resort gallery END-->
+      <div class="resort__desc">
+        <!--resort title-->
+        <div class="resort__col resort__col--l resort__col--title">
+          <div class="resort__title"><a href="" class="resort__title-link">Austria, Vienna</a></div>
+          <div class="resort__name">MOXY Vienna Airport</div>
+        </div>
+         <!--resort title END-->
+        <!--resort rating-->
+        <div class="resort__col resort__col--r resort__col--rating">
+
+            <div class="rating">
+                <div class="rating__value">5</div>
+                <div class="rating__text"><a href="" class="rating__link">255 reviews</a></div>
+              </div> 
+        </div>
+        <!--resort rating END-->
+        <!--resort specs-->
+        <div class="resort__col resort__col--l resort__col--specs">
+          <div class="resort__specs">
+            <div class="resort__specs-item i-swimming-pool"><span class="resort__specs-name">Sw. Pool</span></div>
+            <div class="resort__specs-item i-sauna"><span class="resort__specs-name">Sauna</span></div>
+            <div class="resort__specs-item i-parking"><span class="resort__specs-name">Parking</span></div>
+            <div class="resort__specs-item i-gym"><span class="resort__specs-name">Gym</span></div>
+            <div class="resort__specs-item i-cinema"><span class="resort__specs-name">Cinema</span></div>
+            <div class="resort__specs-item i-coffee"><span class="resort__specs-name">Buffet</span></div>
+          </div>
+        </div>
+        <!--resort specs END-->
+        <!--resort prices-->
+        <div class="resort__col resort__col--r resort__col--prices">
+          <div class="resort__prices">
+            <div class="resort__prices-price"><span class="price">from $150</span></div>
+            <div class="resort__prices-label">person per day</div>
+          </div>
+        </div>
+        <!--resort prices END-->
+        <!--resort profiles-->
+        <div class="resort__profile resort__col--l resort__col--profile">
+          <div class="resort__profiles">
+            <div class="resort__profiles-inner">
+              <ul class="resort__profiles-list">
+                <li class="resort__profiles-list_label">Treatment profiles:</li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs of vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of gastrointestinal</a></li>
+              </ul>
+            </div>
+            <div class="resort__profiles_toggle js-toggle"> </div>
+          </div>
+        </div>
+        <!--resort profiles END-->
+        <div class="resort__submit resort__col--r resort__col--submit">
+          <div class="resort__submit-label">booked 157 times</div>
+          <button class="btn btn-2" type="button" data-popup="book-help">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--resort END--> 
+            <!--resort-->
+<div class="resort">
+    <div class="resort__inner">
+      <!--resort gallery-->
+      <div class="resort__img js-resort-gallery">
+        <div class="badge badge--best">Best choise</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-4.jpg" alt=""> </div>
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-1.jpg" alt=""> </div>
+          </div>
+        </div>
+        <div class="swiper-buttons">
+          <div class="swiper-button swiper-button--prev"></div>
+          <div class="swiper-button swiper-button--next"></div>
+        </div>
+      </div>
+      <!--resort gallery END-->
+      <div class="resort__desc">
+        <!--resort title-->
+        <div class="resort__col resort__col--l resort__col--title">
+          <div class="resort__title"><a href="" class="resort__title-link">Austria, Vienna</a></div>
+          <div class="resort__name">MOXY Vienna Airport</div>
+        </div>
+         <!--resort title END-->
+        <!--resort rating-->
+        <div class="resort__col resort__col--r resort__col--rating">
+
+            <div class="rating">
+                <div class="rating__value">9</div>
+                <div class="rating__text"><a href="" class="rating__link">255 reviews</a></div>
+              </div> 
+        </div>
+        <!--resort rating END-->
+        <!--resort specs-->
+        <div class="resort__col resort__col--l resort__col--specs">
+          <div class="resort__specs">
+            <div class="resort__specs-item i-swimming-pool"><span class="resort__specs-name">Sw. Pool</span></div>
+            <div class="resort__specs-item i-sauna"><span class="resort__specs-name">Sauna</span></div>
+            <div class="resort__specs-item i-parking"><span class="resort__specs-name">Parking</span></div>
+            <div class="resort__specs-item i-gym"><span class="resort__specs-name">Gym</span></div>
+            <div class="resort__specs-item i-cinema"><span class="resort__specs-name">Cinema</span></div>
+            <div class="resort__specs-item i-coffee"><span class="resort__specs-name">Buffet</span></div>
+          </div>
+        </div>
+        <!--resort specs END-->
+        <!--resort prices-->
+        <div class="resort__col resort__col--r resort__col--prices">
+          <div class="resort__prices">
+            <div class="resort__prices-price"><span class="price">from $320</span></div>
+            <div class="resort__prices-label">person per day</div>
+          </div>
+        </div>
+        <!--resort prices END-->
+        <!--resort profiles-->
+        <div class="resort__profile resort__col--l resort__col--profile">
+          <div class="resort__profiles">
+            <div class="resort__profiles-inner">
+              <ul class="resort__profiles-list">
+                <li class="resort__profiles-list_label">Treatment profiles:</li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs of vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of gastrointestinal</a></li>
+              </ul>
+            </div>
+            <div class="resort__profiles_toggle js-toggle"> </div>
+          </div>
+        </div>
+        <!--resort profiles END-->
+        <div class="resort__submit resort__col--r resort__col--submit">
+          <div class="resort__submit-label">booked 157 times</div>
+          <button class="btn btn-2" type="button" data-popup="book-help">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--resort END--> 
+            <!--resort-->
+<div class="resort">
+    <div class="resort__inner">
+      <!--resort gallery-->
+      <div class="resort__img js-resort-gallery">
+        <div class="badge badge--best">Best choise</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-1.jpg" alt=""> </div>
+            <div class="swiper-slide"> <img class="resort__img-value lazyload" src="assets/blank.png" data-src="assets/resort-img-2.jpg" alt=""> </div>
+          </div>
+        </div>
+        <div class="swiper-buttons">
+          <div class="swiper-button swiper-button--prev"></div>
+          <div class="swiper-button swiper-button--next"></div>
+        </div>
+      </div>
+      <!--resort gallery END-->
+      <div class="resort__desc">
+        <!--resort title-->
+        <div class="resort__col resort__col--l resort__col--title">
+          <div class="resort__title"><a href="" class="resort__title-link">Austria, Vienna</a></div>
+          <div class="resort__name">MOXY Vienna Airport</div>
+        </div>
+         <!--resort title END-->
+        <!--resort rating-->
+        <div class="resort__col resort__col--r resort__col--rating">
+
+            <div class="rating">
+                <div class="rating__value">6</div>
+                <div class="rating__text"><a href="" class="rating__link">255 reviews</a></div>
+              </div> 
+        </div>
+        <!--resort rating END-->
+        <!--resort specs-->
+        <div class="resort__col resort__col--l resort__col--specs">
+          <div class="resort__specs">
+            <div class="resort__specs-item i-swimming-pool"><span class="resort__specs-name">Sw. Pool</span></div>
+            <div class="resort__specs-item i-sauna"><span class="resort__specs-name">Sauna</span></div>
+            <div class="resort__specs-item i-parking"><span class="resort__specs-name">Parking</span></div>
+            <div class="resort__specs-item i-gym"><span class="resort__specs-name">Gym</span></div>
+            <div class="resort__specs-item i-cinema"><span class="resort__specs-name">Cinema</span></div>
+            <div class="resort__specs-item i-coffee"><span class="resort__specs-name">Buffet</span></div>
+          </div>
+        </div>
+        <!--resort specs END-->
+        <!--resort prices-->
+        <div class="resort__col resort__col--r resort__col--prices">
+          <div class="resort__prices">
+            <div class="resort__prices-price"><span class="price">from $590</span></div>
+            <div class="resort__prices-label">person per day</div>
+          </div>
+        </div>
+        <!--resort prices END-->
+        <!--resort profiles-->
+        <div class="resort__profile resort__col--l resort__col--profile">
+          <div class="resort__profiles">
+            <div class="resort__profiles-inner">
+              <ul class="resort__profiles-list">
+                <li class="resort__profiles-list_label">Treatment profiles:</li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs of vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of the organs vision</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Neurological diseases</a></li> 
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Gynecological diseases</a></li>
+                <li class="resort__profiles-list_item"><a href="" class="resort__profiles-list_link">Diseases of gastrointestinal</a></li>
+              </ul>
+            </div>
+            <div class="resort__profiles_toggle js-toggle"> </div>
+          </div>
+        </div>
+        <!--resort profiles END-->
+        <div class="resort__submit resort__col--r resort__col--submit">
+          <div class="resort__submit-label">booked 157 times</div>
+          <button class="btn btn-2" type="button" data-popup="book-help">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--resort END-->    
+          </div>
+          <div class="resorts__more">
+            <button class="btn btn-2 btn--md">Load more</button>
+          </div>
+        </div>
+         <!--page-content END-->
+      </div>
+      <!--page-columns END-->
+    </div>
+    
+     <!--section-description-->
+ <div class="section section--description">
+    <div class="container">
+      <div class="section__header">
+        <div class="section__title">Booking of permits in sanatoriums and boarding houses</div>
+      </div>
+      <div class="section__content">
+        <div class="editor">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+          <p>been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        </div>
+        <nav class="nav">
+          <ul class="nav__links">
+            <li class="nav__item"><a href="" class="nav__link">Санатории КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Рейтинг санаториев КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Сатаории Пятигорска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории железноводска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Рейтинг санаториев КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Сатаории Пятигорска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории железноводска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Рейтинг санаториев КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Сатаории Пятигорска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории железноводска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Рейтинг санаториев КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Сатаории Пятигорска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории железноводска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Рейтинг санаториев КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Сатаории Пятигорска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории железноводска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Рейтинг санаториев КМВ</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Сатаории Пятигорска</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Санатории железноводска</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!--section-description END--> 
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+</div>
+<!-- layout END -->
+<!--footer-->
+<footer class="footer">
+    <div class="container">
+      <div class="footer__line footer__line--top">
+        <div class="col col--logo">
+          <div class="logo"> <span class="logo__img"></span> <span class="logo__txt"> <span class="logo__txt--main">YOURTOUR</span> <span class="logo__txt--second">search your best tour</span> </span> </div>
+        </div>
+        <div class="col col--links">
+          <ul class="nav">
+            <li class="nav__item"><a href="" class="nav__link">Contacts</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Terms of use</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Sitemap</a></li>
+            <li class="nav__item"><a href="" class="nav__link">Need help?</a></li>
+          </ul>
+        </div>
+        <div class="col col--usercab"> <a href="" class="btn">User cabinet</a> </div>
+        <div class="col col--contacts"> 
+          <div class="contacts">
+            <div class="contact__item contact__item--label">Free call from our site</div>
+            <div class="contact__item contact__item--phone"><a class="phone__link" href="tel:88000000000">8 (800) 000-00-00</a></div>
+            <div class="contact__item contact__item--callback"><span class="callback__link" data-popup="callback">Request a callback</span></div>
+          </div> 
+        </div>
+      </div>
+      <div class="footer__line footer__line--bottom footer-bottom">
+        <div class="col col--copyrights">
+          <div class="copyrights">&copy; 1998-2022 All rights reserved</div>
+        </div>
+        <div class="col col--payments">
+          <div class="payment">
+            <div class="payment__label">Payment methods</div>
+            <div class="payment__logo payment__logo--visa"></div>
+            <div class="payment__logo payment__logo--paypal"></div>
+          </div>
+        </div>
+        <div class="col col--dev">
+          <div class="devby">dev by <a href="">narby</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--footer END-->
+
+<!--main menu-->
+<div class="mainmenu__wrap">
+  <div class="container mainmenu__inner">
+    <div class="mainmenu__close js-menu-toggle i-close"></div>
+    <div class="mainmenu__scroll">
+  
+      <div class="row mainmenu">
+        <div class="col-12 col-lg-4">
+          <div class="mainmenu__group">
+            <div class="mainmenu__title"><a href="/" class="mainmenu__title-link">Главная</a></div>
+          </div>
+          <div class="mainmenu__group mainmenu__group--menu">
+            <div class="mainmenu__title js-menu-sub"><span class="mainmenu__title-link">Популярные направления</span></div>
+            <div class="mainmenu__content">
+              <ul class="mainmenu__links">
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Кавказские Минеральные Воды</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Краснодарский край</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Алтайский край</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Крым</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Абхазия</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mainmenu__group mainmenu__group--menu">
+            <div class="mainmenu__title js-menu-sub"><span class="mainmenu__title-link">Популярные курорты</span></div>
+            <div class="mainmenu__content">
+              <ul class="mainmenu__links">
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Кисловодск (50 санаториев)</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Пятигорск (40 санаториев)</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Гагры (32 санатория)</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Ялта (10 санаториев)</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Коктебель (8 санаториев)</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="mainmenu__group mainmenu__group--menu">
+            <div class="mainmenu__title js-menu-sub"><span class="mainmenu__title-link">Профили лечения</span></div>
+            <div class="mainmenu__content">
+              <ul class="mainmenu__links">
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение гинекологических заболеваний</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение андрологических заболеваний</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение желудочно кишечного тракта</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение нервной системы</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение опорно-двигательного аппарата</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение эндокринной системы</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение сердечно-сосудистой системы</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Реабилитация после Covid-19</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение алергических заболеваний</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение гинекологических заболеваний</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение заболеваний кожи</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение органов дыхания</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Лечение органов зрения</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="mainmenu__group mainmenu__group--menu">
+            <div class="mainmenu__title js-menu-sub"><span class="mainmenu__title-link">Информация</span></div>
+            <div class="mainmenu__content">
+              <ul class="mainmenu__links">
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Блог</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Часто задаваемые вопросы</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Отзывы отдыхающих</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Контакты</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Пользовательское соглашение</a></li>
+                <li class="mainmenu__links_item"><a href="" class="mainmenu__links_item-link">Нужна помощь в бронировании?</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mainmenu__group is-open">
+            <div class="mainmenu__title">Контакты</div>
+            <div class="mainmenu__content">
+              <div class="mainmenu__contacts">
+                <div class="mainmenu__contacts_phone"><a class="mainmenu__contacts_phone_link" href="tel:88000000000">8 (800) 000-00-00</a></div>
+                <div class="mainmenu__contacts_hint">Звонок бесплатный по России</div>
+                <div class="mainmenu__contacts_email"><a class="mainmenu__contacts_email_link" href="mailto:info@rosturizm.com">info@rosturizm.com</a></div>
+                <div class="mainmenu__contacts_usercab"> <a href="" class="btn">Личный кабинет</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--main menu END-->
+
+
+<!--popup book-->
+<div class="popup popup-book-help">
+  <div class="popup__inner">
+    <div class="popup__close i-close js-close"></div>
+    <div class="popup__state-a">
+      <div class="popup__header">
+        <div class="popup__header-title">Запрос на бронирование</div>
+        <div class="popup__header-hint"><span>*</span> помечены поля, обязательные для заполнения</div>
+      </div>
+      <div class="form">
+        <div class="row form-groups">
+          <div class="col-12 col-xxl-7 form-group">
+            <div class="sbox sbox-date">
+              <div class="sbox-selected">
+                <div class="sbox-selected--name i-date">Период отдыха</div>
+                <input type="hidden" id="calendar-2--value">
+                <div class="sbox-selected--value"><span id="calendar-2--selected">не выбрано</span></div>
+              </div>
+              <div class="sbox-dd" id="calendar-2"> </div>
+            </div>
+          </div>
+          <div class="col-12 col-xxl-5 form-group">
+            <div class="sbox sbox-qty">
+              <div class="sbox-selected">
+                <div class="sbox-selected--name i-people">Отдыхающие</div>
+                <input type="hidden" class="js-search--qty-value">
+                <div class="sbox-selected--value"><span>не выбрано</span></div>
+              </div>
+              <div class="sbox-dd">
+                <div class="form-group form-group--qty">
+                  <div class="qty js-qty--input">
+                    <div class="qty_label">Взрослых</div>
+                    <div class="qty_inputs">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--minus js-qty--minus"></button>
+                      <input type="text" data-allow="num" class="input form-control qty_inputs-value js-qty-value--adult" value="0">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--plus js-qty--plus"></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group form-group--qty">
+                  <div class="qty js-qty--input">
+                    <div class="qty_label">Детей</div>
+                    <div class="qty_inputs">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--minus js-qty--minus"></button>
+                      <input type="text" data-allow="num" class="input form-control qty_inputs-value js-qty-value--children" value="0">
+                      <button type="button" class="btn qty_inputs-btn btn qty_inputs-btn--plus js-qty--plus"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" class="input form-control input--md js-input--name" data-validation-error="Заполните обязательное поле!" placeholder="Ваше имя">
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 form-group">
+            <input type="tel" class="input form-control input--md js-input--phone" data-validation-error="Заполните обязательное поле!" placeholder="Ваш телефон">
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <input type="email" class="input form-control input--md js-input--email" data-validation-error="Заполните обязательное поле!" placeholder="Ваш email">
+          </div>
+        </div>
+        <div class="form-group form-group--submit">
+          <button class="btn btn-2 btn--md js-submit" type="button">Отправить запрос</button>
+        </div>
+        <div class="agree-text a-center">Нажимая кнопку «Отправить запрос», вы соглашаетесь<br>
+          с <a href="">Политикой обработки персональных данных</a></div>
+      </div>
+    </div>
+    <div class="popup__state-b none">
+      <div class="popup__header">
+        <div class="popup__header-title">Спасибо!</div>
+        <p>Менеджер свяжется с вами в ближайшее время</p>
+      </div>
+      <div class="btn btn-2 js-close">Ок, жду</div>
+    </div>
+  </div>
+  <div class="popup__layer js-close"></div>
+</div>
+<!--popup book END--> 
+<!--popup callback-->
+<div class="popup popup-callback">
+  <div class="popup__inner">
+    <div class="popup__close i-close js-close"></div>
+    <div class="popup__state-a">
+      <div class="popup__header">
+        <div class="popup__header-title">Заказать обратный звонок</div>
+        <div class="popup__header-hint"><span>*</span> помечены поля, обязательные для заполнения</div>
+      </div>
+      <div class="form">
+        <div class="form-group">
+          <input type="text" class="input form-control input--md js-input--name" data-validation-error="Заполните обязательное поле!" placeholder="Ваше имя">
+        </div>
+        <div class="form-group">
+          <input type="tel" class="input form-control input--md js-input--phone" data-validation-error="Заполните телефон в международном формате" placeholder="Телефон">
+        </div>
+        <div class="form-groups form-groups--custom form-groups--date">
+          <div class="form-group">
+            <label class="form-label">Удобное время с:</label>
+            <input type="text" class="input form-control input--md js-input--time-from" placeholder="__:__">
+          </div>
+          <div class="form-group">
+            <label class="form-label">до:</label>
+            <input type="text" class="input form-control input--md js-input--time-to" placeholder="__:__">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-auto">
+            <div class="form-check">
+              <input type="checkbox" class="form-control" value="" id="check_11">
+              <label class="form-check__label" for="check_11"> <span class="form-check__input"></span> <span class="form-check__name">Позвоните мне</span> </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check">
+              <input type="checkbox" class="form-control" value="" id="check_12">
+              <label class="form-check__label" for="check_12"> <span class="form-check__input"></span> <span class="form-check__name">Напишите мне в WhatsApp</span> </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-group--submit">
+          <button class="btn btn-2 btn--md js-submit" type="button">Отправить</button>
+        </div>
+      
+        <div class="agree-text a-center">Нажимая кнопку «Отправить», вы соглашаетесь<br>
+          с <a href="">Политикой обработки персональных данных</a></div>
+      </div>
+    </div>
+    <div class="popup__state-b none">
+      <div class="popup__header">
+        <div class="popup__header-title">Спасибо!</div>
+        <p>Менеджер свяжется в удобное для вас время</p>
+      </div>
+      <div class="btn btn-2 js-close">Ок, жду</div>
+    </div>
+  </div>
+  <div class="popup__layer js-close"></div>
+</div>
+<!--popup callback END--> 
+
+<!--popup addreview-->
+<div class="popup popup-addreview">
+  <div class="popup__inner">
+    <div class="popup__close i-close js-close"></div>
+    <div class="popup__state-a">
+      <div class="popup__header">
+        <div class="popup__header-title">Оставить отзыв о санатории</div>
+        <div class="popup__header-hint"><span>*</span> помечены поля, обязательные для заполнения</div>
+      </div>
+      <div class="form">
+        <div class="row ">
+          <div class="col-12 col-xl-6">
+            <div class="form-group">
+              <input type="text" class="input form-control input--md js-input--name" data-validation-error="Заполните обязательное поле!" placeholder="Ваше имя">
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="form-group">
+              <input type="tel" class="input form-control input--md js-input--phone" data-validation-error="Заполните обязательное поле!" placeholder="Телефон">
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-12 col-xl-6">
+            <div class="form-group">
+              <input type="text" class="input form-control input--md js-input--resort" data-validation-error="Заполните обязательное поле!" placeholder="Укажите санаторий">
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="form-group">
+              <input type="tel" class="input form-control input--md" placeholder="Электронная почта">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="set-rating">
+            <div class="set-rating_label">Ваша оценка</div>
+            <div class="rating js-set--rating">
+              <input type="radio" name="review[rating]" value="1">
+              <input type="radio" name="review[rating]" value="2">
+              <input type="radio" name="review[rating]" value="3">
+              <input type="radio" name="review[rating]" value="4">
+              <input type="radio" name="review[rating]" value="5">
+              <input type="radio" name="review[rating]" value="6">
+              <input type="radio" name="review[rating]" value="7">
+              <input type="radio" name="review[rating]" value="8">
+              <input type="radio" name="review[rating]" value="9">
+              <input type="radio" name="review[rating]" value="10">
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-group--submit">
+          <button class="btn btn-2 btn--md js-submit" type="button">Отправить</button>
+        </div>
+        <div class="agree-text a-center">Нажимая кнопку «Отправить», вы соглашаетесь<br>
+          с <a href="">Политикой обработки персональных данных</a></div>
+      </div>
+    </div>
+    <div class="popup__state-b none">
+      <div class="popup__header">
+        <div class="popup__header-title">Спасибо!</div>
+        <p>Менеджер свяжется в удобное для вас время</p>
+      </div>
+      <div class="btn btn-2 js-close">Ок, жду</div>
+    </div>
+  </div>
+  <div class="popup__layer js-close"></div>
+</div>
+<!--popup addreview END-->
+<script src="assets/plugins.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
