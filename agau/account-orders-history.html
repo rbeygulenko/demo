@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">  
+<head>
+   <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>История заказов</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="robots" content="index,follow">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<link rel="stylesheet" href="assets/style.min.css">
+</head>
+<body>
+   <!-- layout -->
+   <div class="layout">
+      <!--header-->
+<header class="header is-blur">
+  <div class="container">
+    <div class="header__inner">
+      <!--mobile nav-->
+      <div class="header__col header__col--mobileNav none">
+        <div class="mobile__nav js-toggle-mobile-nav">
+          <div class="mobile__nav_icon"></div>
+        </div>
+      </div>
+      <!--mobile nav END-->
+      <!--header logo-->
+      <div class="header__col header__col--logo">
+        <a href="index.html" class="logo">
+          <img src="assets/logo.svg" alt="">
+        </a>
+        <!-- // index "no link" block
+        <div class="logo">
+          <img src="assets/logo.svg" alt="">
+        </div>
+        -->
+      </div>
+      <!--header logo END-->
+      <!--header menu-->
+      <div class="header__col header__col--nav">
+        <nav class="nav__wrapper">
+          <ul class="nav">
+            <li class="nav__item">
+              <a href="catalog.html" class="nav__item_link">Каталог товаров</a>
+            </li>
+            <li class="nav__item">
+              <a href="catalog-selection.html" class="nav__item_link">Подборки</a>
+            </li>
+            <li class="nav__item">
+              <a href="demo.html" class="nav__item_link">О нас</a>
+            </li>
+            <li class="nav__item">
+              <a href="contacts.html" class="nav__item_link">Контакты</a>
+            </li>
+            <li class="nav__item">
+              <a href="delivery.html" class="nav__item_link">Доставка и оплата</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!--header menu END-->
+      <!--header contacts-->
+      <div class="header__col header__col--contacts">
+        <div class="contacts">
+          <div class="contacts__item contacts__item--phone"><a href="tel:+79899978888">+7 (989) 997-88-88</a></div>
+          <div class="contacts__item contacts__item--social">
+            <div class="social">
+   <div class="social__item"><a href="" class="social__item_link i-vk"></a></div>
+   <div class="social__item"><a href="" class="social__item_link i-telegram"></a></div>
+   <div class="social__item"><a href="" class="social__item_link i-whatsapp"></a></div>
+ </div>
+          </div>
+          <div class="contacts__item contacts__item--consultation">
+            <button class="btn btn--bordered" data-popup="consultation">Бесплатная консультация</button>
+          </div>
+        </div>
+      </div>
+      <!--header contacts END-->
+      <!--header userbar-->
+      <div class="header__col header__col--userbar">
+        <div class="userbar">
+          <a href="account.html" class="userbar__item userbar__item--user">
+            <span class="userbar__item_icon i-user"></span>
+          </a>
+          <div class="userbar__item userbar__item--search">
+            <span class="userbar__item_icon i-search js-search-toggle"></span>
+          </div>
+          <a href="wishlist.html" class="userbar__item userbar__item--wishlist">
+            <span class="userbar__item_icon i-heart"></span>
+          </a>
+          <a href="cart.html" class="userbar__item userbar__item--cart is-active">
+            <span class="userbar__item_icon i-cart"></span>
+            <span class="userbar__item_badge">8</span>
+          </a>
+        </div>
+      </div>
+      <!--header userbar END-->
+    </div>
+    <!--header search-->
+    <div class="header__search">
+      <div class="search">
+        <form action="index.html" class="search__form">
+          <div class="search__item">
+            <input type="text" class="ns search__item_input" placeholder="Что вы хотите найти?">
+          </div>
+          <div class="search__item">
+            <button type="submit" class="btn search__item_btn">Найти</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--header search END-->
+  </div>
+</header>
+<!--header end-->
+      <main class="content-wrap is-blur">
+         <div class="container">
+
+
+
+            <div class="section section--orders">
+               <div class="section__header">
+                  <div class="section__title">
+                     <h1>История заказов</h1>
+                  </div>
+               </div>
+               <div class="section__content">
+
+
+                  <div class="account__page">
+
+                     <div class="orders">
+                        <div class="orders__header">
+                           <div class="nav">
+
+                              <div class="nav__item">
+                                 <a href="account.html" class="nav__item_link">Посмотреть текущие заказы</a>
+                              </div>
+                              <div class="nav__item">
+                                 <a href="account.html" class="nav__item_link">Посмотреть отмененные заказы</a>
+                              </div>
+                           </div>
+                           <div class="orders__status">Заказы в статусе «Выполнен»</div>
+
+                        </div>
+
+                        <div class="ordersGrid">
+
+
+
+                           <div class="group is-success">
+                              <div class="group__header">
+                                 <div class="group__header_title">
+                                    Заказ №12 от 27.06.2023, 1 товар на сумму 4 490 ₽
+                                 </div>
+                                 <div class="group__header_date">
+                                    Заказ выполнен 3.03.2023 г
+                                 </div>
+                              </div>
+                              <div class="group__content">
+
+                                 <div class="fields fields--replay">
+                                    <div class="fields__item fields__item--more"><a href="">Подробнее о заказе</a></div>
+                                 </div>
+
+                                 <div class="fields fields--buttons">
+                                    <div class="fields__item">
+                                       <a href="" class="btn size--lg">Повторить заказ</a>
+                                    </div>
+                                 </div>
+
+                              </div>
+                           </div>
+
+                           <div class="group is-success">
+                              <div class="group__header">
+                                 <div class="group__header_title">
+                                    Заказ №12 от 27.06.2023, 1 товар на сумму 4 490 ₽
+                                 </div>
+                                 <div class="group__header_date">
+                                    Заказ выполнен 3.03.2023 г
+                                 </div>
+                              </div>
+                              <div class="group__content">
+
+                                 <div class="fields fields--replay">
+                                    <div class="fields__item fields__item--more"><a href="">Подробнее о заказе</a></div>
+                                 </div>
+
+                                 <div class="fields fields--buttons">
+                                    <div class="fields__item">
+                                       <a href="" class="btn size--lg">Повторить заказ</a>
+                                    </div>
+                                 </div>
+
+                              </div>
+                           </div>
+
+                           <div class="group is-success">
+                              <div class="group__header">
+                                 <div class="group__header_title">
+                                    Заказ №12 от 27.06.2023, 1 товар на сумму 4 490 ₽
+                                 </div>
+                                 <div class="group__header_date">
+                                    Заказ выполнен 3.03.2023 г
+                                 </div>
+                              </div>
+                              <div class="group__content">
+
+                                 <div class="fields fields--replay">
+                                    <div class="fields__item fields__item--more"><a href="">Подробнее о заказе</a></div>
+                                 </div>
+
+                                 <div class="fields fields--buttons">
+                                    <div class="fields__item">
+                                       <a href="" class="btn size--lg">Повторить заказ</a>
+                                    </div>
+                                 </div>
+
+                              </div>
+                           </div>
+
+
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+
+
+
+
+
+
+         </div>
+      </main>
+   </div>
+   <!-- layout END -->
+   <!--footer-->
+<footer class="footer is-blur">
+  <div class="container">
+    <div class="footer__row footer__row--top"> 
+      <div class="footer__col footer__col--nav"> 
+        <!--footer logo-->
+        <div class="footer__logo">
+          <img src="assets/logo.svg" alt="">
+        </div>
+        <!--footer logo END-->
+        <!--footer catalog-->
+        <nav class="footer__links footer__links--catalog">
+          <ul class="nav">
+            <li class="nav__item">
+              <a href="static.html" class="nav__item_link">Каталог товаров</a>
+              <ul class="nav__subItems">
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Масло</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Масло в капсулах и Бады</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Урбечь и Пасты</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link is-selected">Мука и жмых</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Здоровое питание</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">
+                    Здоровый перекус</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">
+                    Здоровый перекус</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Семена и орехи</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Эфирные масла</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Косметика</a>
+                </li>
+                <li class="nav__item">
+                  <a href="static.html" class="nav__item_link">Комплексы</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!--footer catalog END--> 
+        <!--footer static-menu-->
+        <nav class="footer__links footer__links--static">
+          <ul class="nav">
+            <li class="nav__item">
+              <a href="static.html" class="nav__item_link">Подборки</a>
+            </li>
+            <li class="nav__item">
+              <a href="static.html" class="nav__item_link">О нас</a>
+            </li>
+            <li class="nav__item">
+              <a href="static.html" class="nav__item_link">Контакты</a>
+            </li>
+            <li class="nav__item">
+              <a href="static.html" class="nav__item_link">Доставка и оплата</a>
+            </li>
+          </ul>
+        </nav>
+        <!--footer static-menu END--> 
+      </div>
+      <!--footer contacts-->
+      <div class="footer__col footer__col--contacts"> 
+        <div class="contacts">
+          <div class="contacts__item contacts__item--consultation">
+            <button class="btn btn--bordered" data-popup="consultation">Бесплатная консультация</button>
+          </div>
+          <div class="contacts__item contacts__item--phone"><a href="tel:+79899978888">+7 (989) 997-88-88</a></div>
+          <div class="contacts__item contacts__item--email"><a href="mailto:agau.hs@yandex.ru">agau.hs@yandex.ru</a>
+          </div>
+          <div class="contacts__item contacts__item--address">г. Пятигорск,<br>
+            Бештаугорское шоссе 26а, строение 1.</div>
+        </div>
+        <div class="social">
+   <div class="social__item"><a href="" class="social__item_link i-vk"></a></div>
+   <div class="social__item"><a href="" class="social__item_link i-telegram"></a></div>
+   <div class="social__item"><a href="" class="social__item_link i-whatsapp"></a></div>
+ </div>
+      </div>
+      <!--footer contacts END-->
+    </div>
+    <!--footer copyrights-->
+    <div class="footer__row footer__row--copyrights">
+      <div class="copyrights">
+        <p>
+          Обращаем ваше внимание на то, что данный интернет-сайт, а также вся
+          информация о товарах и ценах, предоставленная на нём, носит
+          исключительно информационный характер и ни при каких условиях не
+          является публичной офертой, определяемой положениями Статьи 437
+          Гражданского кодекса Российской Федерации.
+        </p> 
+        <p>
+          Для получения подробной информации о наличии и стоимости указанных
+          товаров и (или) услуг, пожалуйста, обращайтесь к менеджеру сайта с
+          помощью специальной формы связи или по телефону +7 (989) 997-88-88."
+        </p>
+      </div>
+    </div>
+    <!--footer copyrights END-->
+  </div>
+  <!--footer policy-->
+  <div class="footer__row footer__row--policy">
+    <div class="container">
+      <div class="footer__policy">
+        <ul class="nav">
+          <li class="nav__item">
+            <a href="static.html" class="nav__item_link">Политика конфиденциальности</a>
+          </li>
+          <li class="nav__item">
+            <a href="static.html" class="nav__item_link">Уведомление об использовании cookie файлов</a>
+          </li>
+      </div>
+      <div class="footer__devBy">
+        Создано <a href="">ГИПЕРКУБ</a>
+      </div>
+    </div>
+  </div>
+  <!--footer policy END-->
+</footer>
+<!--footer END-->
+   <div class="layer js-clear-handlers"></div>
+
+<!--popup consultation-->
+<div class="popup popup--sm popup--consultation">
+  <div class="popup__inner">
+    <div class="popup__header">
+      <div class="popup__header_img"><img src="assets/blank.png" data-src="assets/consultation-heading-img.jpg" alt=""
+          class=" lazyload"></div>
+      <div class="popup__title">Бесплатная консультация</div>
+      <div class="popup__close js-close"></div>
+    </div>
+    <div class="popup__content">
+      <p>Вы можете задать нам любые вопросы по поводу нашей продукции. Оставьте свой телефон и мы вам перезвоним</p>
+      <div class="consultation">
+   <form action="index.html" class="consultation__form">
+     <div class="form form--consultation">
+       <div class="form__group">
+         <div class="form__group_control form__group_control--input"><input type="text" required class="input size--lg consultation__input" placeholder="+7 (     ) ---  --  --"></div>
+         <div class="form__group_control form__group_control--btn"><button type="submit" class="btn size--lg btn--bordered consultation__btn">Отправить</button></div>
+       </div>
+       <div class="form__agree">
+        Нажимая "отправить" вы соглашаетесь с <a href="404.html">политикой конфиденциальности</a>
+        </div>
+     </div>
+   </form>
+   
+ </div> 
+    </div>
+  </div>
+  <div class="popup__layer js-close"></div>
+</div>
+<!--popup consultation END-->
+
+<noscript>
+  <div class="nscript">
+    <div class="container nscript__content">
+      <div class="alert alert--error">В Вашем бразуере отключена поддержка Javascript. Дальнейшая работа магазина не
+        возможна.</div>
+    </div>
+  </div>
+</noscript>
+   <link rel="stylesheet" type="text/css" href="assets/custom.css">
+<script src="assets/plugins.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+
+</html>
