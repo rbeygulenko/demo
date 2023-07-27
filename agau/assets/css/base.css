@@ -5746,8 +5746,6 @@ PLUGINS
   z-index: 9
 }
 .swiper__pagination .swiper-pagination-bullet {
-  width: 20px;
-  height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5757,6 +5755,7 @@ PLUGINS
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  padding: 0 5px;
   cursor: pointer
 }
 .swiper__pagination .swiper-pagination-bullet::before {

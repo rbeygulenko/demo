@@ -4,7 +4,7 @@ PRODUCT
 ------------------------------------------
 */
 .product {
-  padding-top: 10px;
+  position: relative;
   margin-bottom: 3.125rem
 }
 @media(min-width:1200px) {
@@ -71,6 +71,30 @@ PRODUCT
     border-color: var(--color-main)
   }
 }
+.product .product__gallery .swiper__pagination {
+  display: none
+}
+@media(max-width:767.98px) {
+  .product .product__gallery {
+    margin-top: .625rem
+  }
+  .product .product__gallery .swiper__pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    bottom: -1.25rem
+  }
+  .product .product__gallery .swiper__pagination .swiper-pagination-bullet::before {
+    border: 0;
+    width: 1.3125rem;
+    height: .25rem;
+    border-radius: .3125rem;
+    background: #d9d9d9
+  }
+  .product .product__gallery .swiper__pagination .swiper-pagination-bullet-active::before {
+    background: var(--color-main)
+  }
+}
 .product .gallery__preview {
   position: relative
 }
@@ -92,7 +116,7 @@ PRODUCT
 }
 @media(max-width:1199.98px) {
   .product .gallery__preview {
-    margin-bottom: 2.25rem
+    margin-bottom: 2.5rem
   }
   .product .gallery__preview .item {
     text-align: center
@@ -122,10 +146,16 @@ PRODUCT
   }
 }
 .product .product__info .product__badges {
+  margin-bottom: 1.0625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  display: none
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between
 }
 .product .product__info .product__badges .badges {
   -webkit-box-orient: horizontal;
@@ -135,17 +165,6 @@ PRODUCT
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   gap: .5rem
-}
-@media(min-width:1200px) {
-  .product .product__info .product__badges {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    margin-bottom: 1.0625rem
-  }
 }
 @media(max-width:1399.98px) {
   .product .product__info {
@@ -375,6 +394,29 @@ PRODUCT
 }
 .product .certificates .certificates__item:hover {
   color: var(--color-main)
+}
+@media(max-width:767.98px) {
+  .product .variants .variants__list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.25rem
+  }
+  .product .variants .variants__list .variants__list_item {
+    min-width: auto
+  }
+  .product .product__info {
+    gap: 1.25rem
+  }
+  .product .product__badges {
+    margin-bottom: 0;
+    position: absolute;
+    left: .625rem;
+    top: .625rem;
+    right: .625rem;
+    z-index: 91
+  }
 }
 :root {
   --f-spinner-width: 36px;
