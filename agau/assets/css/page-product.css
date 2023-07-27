@@ -4,6 +4,7 @@ PRODUCT
 ------------------------------------------
 */
 .product {
+  padding-top: 10px;
   margin-bottom: 3.125rem
 }
 @media(min-width:1200px) {
