@@ -1,0 +1,446 @@
+.index__page .content-wrap {
+  padding: 0
+}
+@media(max-width:767.98px) {
+  .section--slider {
+    margin-bottom: 1.25rem
+  }
+}
+.homeSlider {
+  background: #ececec;
+  position: relative
+}
+.homeSlider .slide {
+  min-height: 31.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #525252;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear
+}
+.homeSlider .slide__title {
+  font-size: clamp(2.313rem,5vw,5rem);
+  font-weight: 500
+}
+.homeSlider .slide__text {
+  font-size: clamp(1.125rem,1.8vw,1.875rem);
+  font-weight: 300
+}
+.homeSlider .swiper__buttons {
+  padding: 0
+}
+.homeSlider:hover .swiper__buttons {
+  padding: 0 30px
+}
+@media(max-width:767.98px) {
+  .homeSlider .slide__inner {
+    width: 60%
+  }
+  .homeSlider .slide__title {
+    line-height: 2.3125rem;
+    margin-bottom: .9375rem
+  }
+  .homeSlider .slide__text {
+    margin-bottom: 1.25rem
+  }
+  .homeSlider .swiper__buttons--large {
+    top: auto;
+    bottom: 4.5rem;
+    padding: 0
+  }
+}
+@media(min-width:768px) {
+  .homeSlider .slide__title {
+    margin-bottom: 1.5625rem
+  }
+  .homeSlider .slide__text {
+    margin-bottom: 3.5rem
+  }
+  .homeSlider .swiper__buttons {
+    padding: 0 2.5rem
+  }
+}
+@media(min-width:1200px) {
+  .homeSlider .slide {
+    min-height: calc(100vh - 5.5rem)
+  }
+}
+@media(max-width:575.98px) {
+  .section--about,
+  .section--benefits,
+  .section--faq {
+    display: none
+  }
+}
+@media(min-width:576px) {
+  .faq {
+    display: block;
+    border-top: 1px solid #d1d1d1
+  }
+  .faq__item {
+    border-bottom: 1px solid #d1d1d1;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear
+  }
+  .faq__item_question {
+    padding: 1.4375rem 0;
+    font-size: 1.375rem;
+    cursor: pointer;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    position: relative
+  }
+  .faq__item_question::after {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #fff;
+    font-family: var(--font-icons);
+    content: "";
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    right: 0;
+    background: var(--body-text);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    top: 1.125rem;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear
+  }
+  .faq__item_answer {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-weight: 300;
+    line-height: 1.55rem;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear
+  }
+  .faq__item.is-open .faq__item_question {
+    padding-top: 2.25rem
+  }
+  .faq__item.is-open .faq__item_question::after {
+    -webkit-transform: none;
+    transform: none;
+    background: var(--color-main)
+  }
+  .faq__item.is-open .faq__item_answer {
+    padding-bottom: 2.25rem;
+    height: auto;
+    opacity: 1
+  }
+}
+@media(min-width:576px)and (min-width:768px) {
+  .benefits {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+  }
+}
+@media(min-width:576px) {
+  .benefits .benefits__item {
+    padding: 0 2%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1
+  }
+}
+@media(min-width:576px)and (min-width:768px) {
+  .benefits .benefits__item:not(:last-child) {
+    border-right: 1px solid #d1d1d1
+  }
+}
+@media(min-width:576px) {
+  .benefits .benefits__item_icon {
+    width: 4.375rem;
+    height: 4.375rem;
+    border-radius: 100%;
+    border: .1875rem solid var(--body-text);
+    margin-bottom: 1.875rem;
+    margin-inline: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 1.875rem
+  }
+  .benefits .benefits__item_icon::before {
+    margin: 0
+  }
+}
+@media(min-width:576px) {
+  .benefits .benefits__item_name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: .9375rem
+  }
+}
+@media(min-width:576px) {
+  .benefits .benefits__item_description {
+    font-size: .8125rem;
+    font-weight: 300
+  }
+}
+@media(min-width:576px)and (min-width:1200px) {
+  .benefits .benefits__item_icon {
+    width: 6.25rem;
+    height: 6.25rem;
+    font-size: 3.125rem
+  }
+  .benefits .benefits__item_name {
+    font-size: 1.5rem;
+    line-height: 2.025rem;
+    margin-bottom: 1.5625rem
+  }
+  .benefits .benefits__item_description {
+    font-size: 1.125rem;
+    line-height: 1.7437rem
+  }
+}
+@media(min-width:576px)and (max-width:767.98px) {
+  .benefits {
+    text-align: center
+  }
+  .benefits .benefits__item:not(:last-child) {
+    margin-bottom: 1.625rem
+  }
+  .benefits .benefits__item_icon {
+    margin-bottom: .625rem
+  }
+}
+@media(min-width:576px) {
+  .section--faq .section__header {
+    text-align: center;
+    margin-bottom: 4.375rem
+  }
+}
+@media(min-width:576px) {
+  .section--about .section__header .section__title .h1,
+  .section--about .section__header .section__title h1,
+  .section--faq .section__header .section__title .h1,
+  .section--faq .section__header .section__title h1 {
+    --max: 2.625em
+  }
+}
+@media(min-width:576px) {
+  .section--about {
+    max-width: 62.5rem;
+    margin-inline: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    gap: 3.75rem
+  }
+  .section--about .section__title {
+    margin-bottom: 2em
+  }
+  .section--about .section__content {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%
+  }
+  .section--about .editor {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.75rem
+  }
+  .section--about .editor p:not(:last-child) {
+    margin-bottom: 1.8em
+  }
+}
+.is-no-webp .section--consultation {
+  background: url(../img/subscribe-bg.jpg) no-repeat center center
+}
+.section--consultation {
+  background-size: cover;
+  border-radius: .8125rem;
+  overflow: hidden;
+  margin-bottom: .75rem;
+  padding: 1.875rem 1.4375rem;
+  text-align: center;
+  color: #fff
+}
+.section--consultation .section__header {
+  margin-bottom: 1.875rem
+}
+.section--consultation .section__header .section__title {
+  font-size: 1.875rem;
+  font-weight: 600
+}
+@media(min-width:576px) {
+  .section--consultation .section__header .section__title br {
+    display: none
+  }
+}
+.section--consultation .section__header .section__subtitle {
+  font-weight: 300;
+  padding-top: .625rem;
+  font-size: .875em;
+  line-height: 1.5625rem
+}
+.section--consultation .consultation {
+  max-width: 35.625rem;
+  margin-inline: auto
+}
+.section--consultation .consultation__form {
+  margin-bottom: 2rem
+}
+.section--consultation .consultation__caption {
+  font-size: .9375rem;
+  font-weight: 300
+}
+.section--consultation .form--consultation .form__group {
+  margin-bottom: 1.5625rem
+}
+.section--consultation .form--consultation .form__group .form__group_control--input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1
+}
+.section--consultation .form--consultation .form__group .form__group_control--input .input {
+  width: 100%;
+  background: #fff;
+  color: var(--body-text)
+}
+@media(max-width:767.98px) {
+  .section--consultation .form--consultation .form__agree {
+    font-size: .8125rem;
+    line-height: 1rem
+  }
+  .section--consultation .form--consultation .form__group .form__group_control--input {
+    margin-bottom: 1rem
+  }
+}
+@media(min-width:768px) {
+  .section--consultation {
+    padding: 3.375rem 1.875rem
+  }
+  .section--consultation .form--consultation .form__group {
+    margin-bottom: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    gap: 1.25rem
+  }
+  .section--consultation .section__header {
+    margin-bottom: 2.5rem
+  }
+  .section--consultation .section__header .section__title {
+    font-size: 2.25rem;
+    line-height: normal
+  }
+  .section--consultation .section__subtitle {
+    padding-top: 1.25rem;
+    font-size: 1rem
+  }
+}
+.section--selection .section__header {
+  text-align: center;
+  margin-bottom: 1.25rem
+}
+@media(min-width:768px) {
+  .section--selection .section__header {
+    margin-bottom: 2.5rem
+  }
+}
+.selections--index .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between
+}
+.selections--index .nav .nav__item {
+  text-align: center
+}
+.selections--index .nav .nav__item_link {
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  color: inherit;
+  display: block
+}
+.selections--index .nav .nav__item_icon {
+  width: 3.375rem;
+  height: 3.375rem;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-inline: auto;
+  margin-bottom: .625rem;
+  border: 1px solid var(--body-text)
+}
+.selections--index .nav .nav__item_icon::before {
+  margin: 0;
+  font-size: 2rem
+}
+.selections--index .nav .nav__item:hover .nav__item_icon {
+  border-width: 2px;
+  border-color: var(--color-main)
+}
+.section--slogan {
+  padding-top: 20px;
+  margin-bottom: 45px;
+  font-size: clamp(1.75rem,4.5vw,4.125rem);
+  font-weight: 100
+}
+@media(max-width:767.98px) {
+  .section--slogan {
+    margin-bottom: 1.25rem
+  }
+}
+@media(min-width:768px) {
+  .section--slogan {
+    text-align: center
+  }
+}
+.is-webp .section--consultation {
+  background: url(../img/subscribe-bg.webp) no-repeat center center
+}
