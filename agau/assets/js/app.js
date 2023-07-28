@@ -254,11 +254,10 @@ const core = function () {
 				const uiSearchToggle = document.querySelector('.js-search-toggle');
 				uiSearchToggle.addEventListener('click', e => {
 					e.preventDefault();
+					core.clearHandlers();
 					$body.classList.toggle('js-show-search');
 					const searchInput = document.querySelector('.search .search__item_input');
-					searchInput.addEventListener('focus', (e) => {
-						e.stopImmediatePropagation()
-					});
+					
 					searchInput.focus();
  	 
 				})
@@ -610,9 +609,18 @@ menuApp.init();
 
 	// set selected style in main-menu
 	const path = (window.location.pathname).replace('/', '');
+
 	document.querySelectorAll('.header .mainMenu .mainMenu__item_link').forEach(item => {
 		if(item.getAttribute('href') == path){
 			item.classList.add('is-selected')
+		}
+	})
+	
+	document.querySelectorAll('.header .userbar a.userbar__item').forEach(item => {
+		let shortPath = path.replace('.html','');
+		let itemPath = item.getAttribute('href').replace('.html','') 
+		if(shortPath.includes(itemPath) ){
+			item.classList.add('is-active')
 		}
 	}) 
 

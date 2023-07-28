@@ -433,7 +433,7 @@
 .section--slogan {
   padding-top: 20px;
   margin-bottom: 45px;
-  font-size: clamp(1.75rem,4.5vw,4.125rem);
+  font-size: clamp(1.75rem,4.1vw,4.125rem);
   font-weight: 100
 }
 @media(max-width:767.98px) {

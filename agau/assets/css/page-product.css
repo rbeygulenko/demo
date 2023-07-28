@@ -5,9 +5,10 @@ PRODUCT
 */
 .product {
   position: relative;
+  padding-top: 10px;
   margin-bottom: 3.125rem
 }
-@media(min-width:1200px) {
+@media(min-width:992px) {
   .product {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -17,19 +18,27 @@ PRODUCT
 .product .product__gallery {
   position: relative
 }
-@media(min-width:1200px) {
+@media(min-width:992px) {
   .product .product__gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 56%;
     flex: 0 0 56%;
-    height: 41.5625rem
+    height: 41.5625rem;
+    max-width: 56%
   }
 }
 @media(min-width:1400px) {
   .product .product__gallery {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 46%;
-    flex: 0 0 46%
+    flex: 0 0 46%;
+    max-width: 46%;
+    top: 100px;
+    position: sticky;
+    position: -webkit-sticky
   }
 }
 .product .product__gallery .gallery__thumbs {
@@ -37,9 +46,6 @@ PRODUCT
 }
 @media(min-width:1200px) {
   .product .product__gallery {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     width: 100%;
     min-width: 1%
   }
@@ -74,7 +80,7 @@ PRODUCT
 .product .product__gallery .swiper__pagination {
   display: none
 }
-@media(max-width:767.98px) {
+@media(max-width:1199.98px) {
   .product .product__gallery {
     margin-top: .375rem
   }
@@ -95,18 +101,13 @@ PRODUCT
     background: var(--color-main)
   }
 }
+@media(min-width:992px)and (max-width:1199.98px) {
+  .product .product__gallery .swiper__pagination {
+    bottom: 0
+  }
+}
 .product .gallery__preview {
   position: relative
-}
-@media(min-width:1200px) {
-  .product .gallery__preview {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: 1%;
-    border-radius: .8125rem;
-    overflow: hidden
-  }
 }
 .product .gallery__preview .swiper__buttons {
   padding: 0 1.875rem
@@ -129,6 +130,17 @@ PRODUCT
     overflow: hidden
   }
 }
+@media(min-width:992px) {
+  .product .gallery__preview {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 1%;
+    border-radius: .8125rem;
+    overflow: hidden;
+    margin-bottom: 0
+  }
+}
 @media(max-width:420px) {
   .product .gallery__preview {
     margin-bottom: 1.875rem
@@ -140,7 +152,7 @@ PRODUCT
   font-weight: 500;
   margin-bottom: .5rem
 }
-@media(min-width:1200px) {
+@media(min-width:992px) {
   .product .product__info {
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -218,7 +230,7 @@ PRODUCT
     padding: 1.25rem
   }
 }
-@media(min-width:768px)and (max-width:1199.98px) {
+@media(min-width:1200px) {
   .product .product__buy .box {
     max-width: 21.875rem
   }
