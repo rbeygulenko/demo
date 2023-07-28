@@ -4745,7 +4745,7 @@ POPUPS
   position: fixed;
   inset: 0;
   max-width: none!important;
-  padding: 15px;
+  padding: .625rem;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;
@@ -4779,7 +4779,7 @@ POPUPS
   border-radius: .8125rem;
   -webkit-box-shadow: rgba(0,0,0,.05) 0 .25rem .625rem;
   box-shadow: rgba(0,0,0,.05) 0 .25rem .625rem;
-  padding: 2.5rem 1.625rem;
+  padding: 2.5rem 1.5625rem;
   max-width: 22.5rem;
   margin-inline: auto;
   margin-bottom: 2.5rem
@@ -4829,7 +4829,7 @@ POPUPS
   width: 100%
 }
 .popup .alert--wrap {
-  padding: 20px
+  padding: 1.25rem
 }
 .popup .popup__state--b {
   color: var(--color-success);
@@ -4914,6 +4914,9 @@ POPUPS
   }
 }
 @media(min-width:768px) {
+  .popup {
+    padding: 15px
+  }
   .popup--md {
     max-width: 570px
   }
