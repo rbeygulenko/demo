@@ -260,14 +260,34 @@ const core = function () {
 						e.stopImmediatePropagation()
 					});
 					searchInput.focus();
-
-					
-				   // resize trigger
-					window.addEventListener('resize', () => {
-						core.initResize();
-					})
-					 
+ 	 
 				})
+
+		 },
+		 isInViewport: function(el){
+		 
+				const rect = el.getBoundingClientRect();
+				return (
+						rect.top >= 0 &&
+						rect.left >= 0 &&
+						rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+						rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			
+				);
+			 
+		 },
+		 initInViewportVisibility: function(){ 
+ 
+			const checkWrapper = document.querySelector('.js-check-visibility-target');
+			const checkElement = checkWrapper.querySelector('.js-check-visibility-element');
+ 
+			if(checkWrapper){
+				if(core.isInViewport(checkWrapper)){
+					checkElement.classList.remove('is-fixed');
+				}else{
+					checkElement.classList.add('is-fixed');
+				}
+			}
 
 		 },
 		 initCarousels: function(){
@@ -322,6 +342,46 @@ const core = function () {
 					navigation: {nextEl: '.js-gallery-preview .js-button-right',prevEl: '.js-gallery-preview .js-button-left'},
 					pagination: {el: '.js-gallery-preview .js-dots-pagination',clickable: true}, 
 				});
+
+				// UI: Range sliders
+				const uiRangeSlider = document.querySelectorAll('.js-range');
+
+				if(uiRangeSlider.length){ 
+					uiRangeSlider.forEach(range => {
+
+						const inputFrom = range.querySelector('.js-range-value-from');
+						const inputTo = range.querySelector('.js-range-value-to');
+						const slider = range.querySelector('.js-range-slider');
+						const sliderMin = Number(slider.dataset.min);
+						const sliderMax = Number(slider.dataset.max);
+						const sliderFrom = Number(slider.dataset.from);
+						const sliderTo = Number(slider.dataset.to);
+						const sliderStep = Number(slider.dataset.step);
+ 
+						noUiSlider.create(range, {
+							start: [sliderFrom, sliderTo], 
+							connect: true,
+							step: sliderStep,
+							range: {
+								 'min': sliderMin,
+								 'max': sliderMax
+							}, 
+							tooltips: { 
+								 to: function(numericValue) {
+									  return numericValue.toFixed(0);
+								 }
+							} 
+					  }); 
+ 
+					   range.noUiSlider.on('update', function (values, handle, unencoded) {
+							inputFrom.value = values[0];
+							inputTo.value = values[1];
+						});
+					   
+					}) 
+				}
+ 
+
 		 }, 
 		 initDefault: function(){
 
@@ -340,7 +400,7 @@ const core = function () {
 			core.initCarousels();
 
 			// check forms
-			core.resetErrors();
+			//core.resetErrors();
   
 		 }
 	 };
@@ -529,10 +589,26 @@ menuApp.init();
 		popupApp.clear();
 		menuApp.reset();
 	})
-  
-	 
- 
 
+
+	// scroll listener
+	document.addEventListener('scroll', function(){ 
+
+		// init check viewport visibility
+		core.initInViewportVisibility();
+
+	});
+	
+	
+	// resize listener
+	window.addEventListener('resize', function(){
+
+		// init default
+		core.initResize(); 
+
+	})
+
+	 
 	/* --------------------------------------------
 						DEV ONLY 
 	---------------------------------------------*/

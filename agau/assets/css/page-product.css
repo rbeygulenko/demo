@@ -76,13 +76,13 @@ PRODUCT
 }
 @media(max-width:767.98px) {
   .product .product__gallery {
-    margin-top: .625rem
+    margin-top: .375rem
   }
   .product .product__gallery .swiper__pagination {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    bottom: -1.25rem
+    bottom: -1.125rem
   }
   .product .product__gallery .swiper__pagination .swiper-pagination-bullet::before {
     border: 0;
@@ -127,6 +127,11 @@ PRODUCT
   .product .gallery__preview .item .item__img .img {
     border-radius: .8125rem;
     overflow: hidden
+  }
+}
+@media(max-width:420px) {
+  .product .gallery__preview {
+    margin-bottom: 1.875rem
   }
 }
 .product .product__title h1 {

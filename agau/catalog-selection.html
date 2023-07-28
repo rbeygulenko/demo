@@ -12,7 +12,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <meta name="theme-color" content="#3B434D">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/css/base.min.css?_v=20230727103443">
+<link rel="stylesheet" href="assets/css/base.min.css?_v=20230728043345">
+<link rel="stylesheet" href="assets/css/page-catalog.min.css?_v=20230728043345">
 </head>
 <body>
 <!-- layout -->
@@ -287,13 +288,20 @@
                </div>
             </div>
             <div class="filter__col filter__col--filter">
-               <div class="selectBox selectBox--nonborders">
+               <div class="selectBox selectBox--nonborders selectBox--range is-open">
                   <div class="selectBox__name">
                      <div class="selectBox__value">Калории</div>
                   </div>
                   <div class="selectBox__dd">
                      <div class="selectBox__dd_item">
-                        <div class="price-slider"></div>
+
+                        
+                     <div class="js-range">
+                        <input type="hidden" name="from" class="js-range-value-from">
+                        <input type="hidden" name="to" class="js-range-value-to"> 
+                        <div class="price-slider js-range-slider" data-min="0" data-max="2000" data-from="224" data-to="1233" data-step="1"></div> 
+                     </div>
+                         
                      </div>
                   </div>
                </div>
@@ -967,8 +975,9 @@
     </div>
   </div>
 </noscript>
-<link rel="stylesheet" type="text/css" href="assets/css/custom.css?_v=20230727103443">
-<script src="assets/js/plugins.min.js?_v=20230727103443"></script>
-<script src="assets/js/app.js?_v=20230727103443"></script>
+<script src="assets/js/plugins-catalog.min.js?_v=20230728043345"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/custom.css?_v=20230728043345">
+<script src="assets/js/plugins.min.js?_v=20230728043345"></script>
+<script src="assets/js/app.js?_v=20230728043345"></script>
 </body>
 </html>
