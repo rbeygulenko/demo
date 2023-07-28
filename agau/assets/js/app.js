@@ -590,22 +590,17 @@ menuApp.init();
 		menuApp.reset();
 	})
 
+	// init check viewport visibility
+	const checkWrapper = document.querySelector('.js-check-visibility-target');
+	if(checkWrapper && core.getViewPort().width <= 420){
+		document.addEventListener('scroll', function(){ 
+			core.initInViewportVisibility();
+		});
+	}
 
-	// scroll listener
-	document.addEventListener('scroll', function(){ 
-
-		// init check viewport visibility
-		core.initInViewportVisibility();
-
-	});
-	
-	
 	// resize listener
 	window.addEventListener('resize', function(){
-
-		// init default
-		core.initResize(); 
-
+		core.initResize();  // init default
 	})
 
 	 
