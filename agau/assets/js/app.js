@@ -115,6 +115,19 @@ const core = function () {
 			if (n1 == 1) { return text_forms[0]; }
 			return text_forms[2];
 		 },
+		 initPhoneMask: function(){
+
+			var element = document.getElementById('phone');
+			var maskOptions = {
+				 mask: '+{7}(000)000-00-00',
+				 lazy: false
+			} 
+			var mask = new IMask(element, maskOptions);
+			
+			
+
+
+		 },
 		 initUI: function(){
 				// UI: forms keydown restrict
 				const uiFOrmInputRestrict = document.querySelectorAll('*[data-allow]');
@@ -623,6 +636,21 @@ menuApp.init();
 		core.initResize();  // init default
 	})
 
+
+	window.inputMask = function(el, format){ 
+		new InputMasking(el,format)
+  }
+  
+  window.addEventListener('load', ()=>{
+		let phoneInputs = document.querySelectorAll('.js-phone-mask');
+		if(phoneInputs.length){
+			phoneInputs.forEach(item => {
+				inputMask(item, '+X (XXX) XXX-XX-XX')
+			})
+		} 
+  })
+  
+
 	 
 	/* --------------------------------------------
 						DEV ONLY 
@@ -654,7 +682,7 @@ menuApp.init();
 					core.hideLoader();
 					document.querySelector('.js-header-cart').classList.add('is-active');
 					let counter = Number(document.querySelector('.js-header-cart-counter').innerHTML);
-					counter = counter + 1; 
+					counter++; 
 					document.querySelector('.js-header-cart-counter').innerHTML = counter;
 					$body.classList.add('js-cart-added');
 				}

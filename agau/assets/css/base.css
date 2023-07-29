@@ -2681,6 +2681,13 @@ textarea.input {
     overflow-y: auto
   }
 }
+@media(max-width:420px) {
+  .c_slide {
+    width: calc(100% - 30px);
+    min-width: 220px;
+    padding: 20px
+  }
+}
 /*! default catalog menu */
 .nav--catalog a {
   color: inherit;
