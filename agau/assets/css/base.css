@@ -4851,7 +4851,7 @@ POPUPS
 .popup .popup__close:hover::before {
   color: var(--color-error)
 }
-.popup .btn {
+.popup .input {
   width: 100%
 }
 .popup .alert--wrap {
@@ -4862,71 +4862,36 @@ POPUPS
   display: none;
   padding-bottom: .9375rem
 }
-.popup__window {
-  top: -624.9375rem
-}
-.popup__window .popup__inner {
-  border-radius: .375rem;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  padding: 1rem
-}
-.popup__slide {
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  top: 0!important;
-  height: 100vh;
-  left: auto;
-  width: 90vw;
-  position: fixed
-}
-.popup__slide .popup__inner {
-  height: 100%
-}
-.popup__slide--right {
-  right: -100%
-}
-.popup__slide--left {
-  left: -100%;
-  right: auto
-}
-@media(min-width:768px) {
-  .popup__slide {
-    min-width: 27.5rem
-  }
-}
 /*! custom popups */
-.popup--consultation {
+.popup--withimage {
   text-align: center
 }
-.popup--consultation .popup__header_img {
+.popup--withimage .popup__header_img {
   text-align: left;
   margin: -2.5rem 0 -.4375rem 0
 }
-.popup--consultation .popup__content p {
+.popup--withimage .popup__content p {
   font-size: .875rem;
   font-weight: 300;
   line-height: 1.5rem;
   margin-bottom: 0
 }
-.popup--consultation .popup__content .form {
+.popup--withimage .popup__content .form {
   padding-top: 1.5625rem
 }
-.popup--consultation .popup__content .form .form__group {
+.popup--withimage .popup__content .form .form__group {
   display: block
 }
-.popup--consultation .popup__content .form .form__group_control--btn {
-  padding-top: 1rem;
-  text-align: center;
-  margin-bottom: 1.875rem
+.popup--withimage .popup__content .form .form__group_control--btn {
+  text-align: center
 }
-.popup--consultation .popup__content .form .form__group_control--btn .btn {
+.popup--withimage .popup__content .form .form__group_control--btn .btn {
   width: auto
 }
-.popup--consultation .popup__content .form .form__agree {
+.popup--withimage .popup__content .form .form__agree {
   font-size: .8125rem
 }
-.popup--consultation .popup__content .form .form__agree a:hover {
+.popup--withimage .popup__content .form .form__agree a:hover {
   color: var(--color-main)
 }
 @media(min-width:1400px) {
@@ -4977,22 +4942,6 @@ POPUPS
 }
 .js-popup-show .popup.is-shown .popup__inner {
   opacity: 1
-}
-.js-popup-show .popup__window.is-shown {
-  top: 0
-}
-.js-popup-show .popup__window .popup__inner {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  margin-top: 0
-}
-.js-popup-show .popup__slide--right.is-shown,
-.js-popup-show .popup__slide.is-shown {
-  right: 0
-}
-.js-popup-show .popup__slide--left.is-shown {
-  left: 0;
-  right: auto
 }
 .cf::after,
 .clear,

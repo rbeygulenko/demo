@@ -12,8 +12,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <meta name="theme-color" content="#3B434D">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/css/base.min.css?_v=20230728212704">
-<link rel="stylesheet" href="assets/css/page-catalog.min.css?_v=20230728212704">
+<link rel="stylesheet" href="assets/css/base.min.css?_v=20230729063751">
+<link rel="stylesheet" href="assets/css/page-catalog.min.css?_v=20230729063751">
 </head>
 <body>
 <!-- layout -->
@@ -56,7 +56,7 @@
         <nav class="nav__wrapper">
           <ul class="mainMenu js-mainmenu">
             <li class="mainMenu__item is-dd">
-              <a href="catalog.html" class="mainMenu__item_link">Каталог товаров</a>
+              <a href="catalog.html" class="mainMenu__item_link" data-test="1">Каталог товаров</a>
               <ul class="nav nav--level-1 nav--catalog">
    <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Масло</a> </li>
    <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Масло в капсулах и Бады</a> </li>
@@ -85,7 +85,7 @@
 </ul> 
             </li>
             <li class="mainMenu__item is-dd">
-              <a href="catalog-selection.html" class="mainMenu__item_link">Подборки</a>
+              <a href="catalog-selection.html" class="mainMenu__item_link" data-test="2">Подборки</a>
               <ul class="nav nav--level-1 nav--catalog">
   <!--item-->
   <li class="nav__item"> <a href="catalog-selection.html" class="nav__item_link is-selected"> <span class="nav__item_icon i-selection-energy"></span> <span class="nav__item_name">Энергия</span> </a> </li>
@@ -352,7 +352,30 @@
                </div>
             </div>
             <div class="filter__col filter__col--sorter">
-               <div class="link link--ico link--sorter">Сортировка</div>
+               <div class="selectBox selectBox--left  selectBox--nonborders ">
+                  <div class="selectBox__name link link--ico link--sorter">
+                     <div class="selectBox__value">Сортировка</div>
+                  </div>
+                
+                     <div class="selectBox__dd">
+                        <div class="selectBox__dd_item">
+                           <div class="radioBox">
+                              <input type="radio" id="radio-1" name="radio1" class="radioBox__input" checked>
+                              <label for="radio-1" class="radioBox__label">по цене</label>
+                           </div>
+                        </div>
+                        <div class="selectBox__dd_item">
+                           <div class="radioBox">
+                              <input type="radio" id="radio-2" name="radio1" class="radioBox__input">
+                              <label for="radio-2" class="radioBox__label">по популярности</label>
+                           </div>
+                        </div>
+                     
+                      
+                     </div>
+                  
+               </div>
+               
             </div>
          </div>
       </div>
@@ -424,10 +447,10 @@
               </div>
           </div>
           <div class="qty js-qty">
-              <div class="qty__btn qty__btn--minus js-qty-btn-plus" aria-label="Quantity plus button">&minus;</div>
-              <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1" aria-label="Quantity input">
-              <div class="qty__btn qty__btn--plus" aria-label="Quantity minus button">&plus;</div>
-          </div>
+   <div class="qty__btn qty__btn--minus js-qty-btn-plus">&minus;</div>
+   <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1">
+   <div class="qty__btn qty__btn--plus">&plus;</div>
+</div> 
           <div class="card__submit">
               <button type="submit" class="btn js-addToCart">В Корзину</button>
           </div>
@@ -477,10 +500,10 @@
               </div>
           </div>
           <div class="qty js-qty">
-              <div class="qty__btn qty__btn--minus js-qty-btn-plus" aria-label="Quantity plus button">&minus;</div>
-              <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1" aria-label="Quantity input">
-              <div class="qty__btn qty__btn--plus" aria-label="Quantity minus button">&plus;</div>
-          </div>
+   <div class="qty__btn qty__btn--minus js-qty-btn-plus">&minus;</div>
+   <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1">
+   <div class="qty__btn qty__btn--plus">&plus;</div>
+</div> 
           <div class="card__submit">
               <button type="submit" class="btn js-addToCart">В Корзину</button>
           </div>
@@ -530,10 +553,10 @@
               </div>
           </div>
           <div class="qty js-qty">
-              <div class="qty__btn qty__btn--minus js-qty-btn-plus" aria-label="Quantity plus button">&minus;</div>
-              <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1" aria-label="Quantity input">
-              <div class="qty__btn qty__btn--plus" aria-label="Quantity minus button">&plus;</div>
-          </div>
+   <div class="qty__btn qty__btn--minus js-qty-btn-plus">&minus;</div>
+   <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1">
+   <div class="qty__btn qty__btn--plus">&plus;</div>
+</div> 
           <div class="card__submit">
               <button type="submit" class="btn js-addToCart">В Корзину</button>
           </div>
@@ -583,10 +606,10 @@
               </div>
           </div>
           <div class="qty js-qty">
-              <div class="qty__btn qty__btn--minus js-qty-btn-plus" aria-label="Quantity plus button">&minus;</div>
-              <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1" aria-label="Quantity input">
-              <div class="qty__btn qty__btn--plus" aria-label="Quantity minus button">&plus;</div>
-          </div>
+   <div class="qty__btn qty__btn--minus js-qty-btn-plus">&minus;</div>
+   <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1">
+   <div class="qty__btn qty__btn--plus">&plus;</div>
+</div> 
           <div class="card__submit">
               <button type="submit" class="btn js-addToCart">В Корзину</button>
           </div>
@@ -636,10 +659,10 @@
               </div>
           </div>
           <div class="qty js-qty">
-              <div class="qty__btn qty__btn--minus js-qty-btn-plus" aria-label="Quantity plus button">&minus;</div>
-              <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1" aria-label="Quantity input">
-              <div class="qty__btn qty__btn--plus" aria-label="Quantity minus button">&plus;</div>
-          </div>
+   <div class="qty__btn qty__btn--minus js-qty-btn-plus">&minus;</div>
+   <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1">
+   <div class="qty__btn qty__btn--plus">&plus;</div>
+</div> 
           <div class="card__submit">
               <button type="submit" class="btn js-addToCart">В Корзину</button>
           </div>
@@ -689,10 +712,10 @@
               </div>
           </div>
           <div class="qty js-qty">
-              <div class="qty__btn qty__btn--minus js-qty-btn-plus" aria-label="Quantity plus button">&minus;</div>
-              <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1" aria-label="Quantity input">
-              <div class="qty__btn qty__btn--plus" aria-label="Quantity minus button">&plus;</div>
-          </div>
+   <div class="qty__btn qty__btn--minus js-qty-btn-plus">&minus;</div>
+   <input type="text" data-allow="num" maxlength="3" autocomplete="off" class="ns qty__input" value="1">
+   <div class="qty__btn qty__btn--plus">&plus;</div>
+</div> 
           <div class="card__submit">
               <button type="submit" class="btn js-addToCart">В Корзину</button>
           </div>
@@ -700,9 +723,39 @@
   </div>
 </div> 
                                     </div>
+                                    <div class="pagination">
+   <div class="pagination__more">
+       <button type="button" class="btn btn--bordered size--lg">Загрузить еще</button>
+   </div>
+   <div class="pagination__pager">
+       <div class="pager">
+           <div class="pager__item pager__item--prev"> <a href="catalog.html" class="pager__item_link">Назад</a> </div>
+           <div class="pager__item"> <a href="catalog.html" class="pager__item_link">1</a> </div>
+           <div class="pager__item">
+               <div class="pager__item_link is-selected">2</div>
+           </div>
+           <div class="pager__item"> <a href="catalog.html" class="pager__item_link">3</a> </div>
+           <div class="pager__item pager__item--next"> <a href="catalog.html" class="pager__item_link">Вперед</a> </div>
+       </div>
+   </div>
+</div> 
                                 </div>
                             </div>
                         </div>
+                        <div class="section section--page-description">
+   <div class="section__header">
+       <div class="section__header_title">
+           <h2>Натуральное масло с доставкой по всей России</h2>
+       </div>
+   </div>
+   <div class="section__content">
+       <div class="editor">
+       <p>Купить здоровье нельзя, но можно приобрести страховку от его потери. Этой страховкой являются биодобавки и витаминные комплексы AGAU.
+           Мы являемся производителем, а не реселлером. Работая без посредников, мы предлагаем реалистичные цены, скидки постоянным покупателям и другие возможности благоприятного партнерства с нами.</p>
+       <p>Мы работаем, чтобы улучшить качество жизни наших клиентов.</p>
+       </div>
+       </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -850,7 +903,38 @@
 <div class="loader"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <!--popup consultation-->
-<div class="popup popup--sm popup--consultation">
+<div class="popup popup--sm popup--withimage popup--fastbuy">
+  <div class="popup__inner">
+    <div class="popup__header">
+      <div class="popup__header_img"><img src="assets/img/blank.png" data-src="assets/img/consultation-heading-img.jpg" alt class=" lazyload"></div>
+      <div class="popup__title">Купить в один клик</div>
+      <div class="popup__close js-close"></div>
+    </div>
+    <div class="popup__content"> 
+      <div class="consultation">
+  <form action="index.html" class="consultation__form">
+    <div class="form form--consultation">
+      <div class="form__group form__group--input">
+          <input type="text" required class="form__group_control input size--lg consultation__input" placeholder="+7 (     ) ---  --  --">
+        </div>
+        <div class="form__group form__group--btn"> 
+            <button type="submit" class="form__group_control btn size--lg btn--bordered consultation__btn">Отправить</button> 
+        </div>
+      <div class="form__agree">
+        Нажимая "отправить" вы соглашаетесь с <a href="404.html">политикой конфиденциальности</a>
+      </div>
+    </div>
+  </form>
+</div>
+    </div>
+  </div>
+  <div class="popup__layer js-close"></div>
+</div>
+<!--popup consultation END-->
+
+
+<!--popup consultation-->
+<div class="popup popup--sm popup--withimage popup--consultation">
   <div class="popup__inner">
     <div class="popup__header">
       <div class="popup__header_img"><img src="assets/img/blank.png" data-src="assets/img/consultation-heading-img.jpg" alt class=" lazyload"></div>
@@ -860,19 +944,20 @@
     <div class="popup__content">
       <p>Вы можете задать нам любые вопросы по поводу нашей продукции. Оставьте свой телефон и мы вам перезвоним</p>
       <div class="consultation">
-   <form action="index.html" class="consultation__form">
-     <div class="form form--consultation">
-       <div class="form__group">
-         <div class="form__group_control form__group_control--input"><input type="text" required class="input size--lg consultation__input" placeholder="+7 (     ) ---  --  --"></div>
-         <div class="form__group_control form__group_control--btn"><button type="submit" class="btn size--lg btn--bordered consultation__btn">Отправить</button></div>
-       </div>
-       <div class="form__agree">
-        Нажимая "отправить" вы соглашаетесь с <a href="404.html">политикой конфиденциальности</a>
+  <form action="index.html" class="consultation__form">
+    <div class="form form--consultation">
+      <div class="form__group form__group--input">
+          <input type="text" required class="form__group_control input size--lg consultation__input" placeholder="+7 (     ) ---  --  --">
         </div>
-     </div>
-   </form>
-   
- </div> 
+        <div class="form__group form__group--btn"> 
+            <button type="submit" class="form__group_control btn size--lg btn--bordered consultation__btn">Отправить</button> 
+        </div>
+      <div class="form__agree">
+        Нажимая "отправить" вы соглашаетесь с <a href="404.html">политикой конфиденциальности</a>
+      </div>
+    </div>
+  </form>
+</div>
     </div>
   </div>
   <div class="popup__layer js-close"></div>
@@ -887,9 +972,9 @@
     </div>
   </div>
 </noscript> 
-<script src="assets/js/plugins-catalog.min.js?_v=20230728212704"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/custom.css?_v=20230728212704">
-<script src="assets/js/plugins.min.js?_v=20230728212704"></script>
-<script src="assets/js/app.js?_v=20230728212704"></script>
+<script src="assets/js/plugins-catalog.min.js?_v=20230729063751"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/custom.css?_v=20230729063751">
+<script src="assets/js/plugins.min.js?_v=20230729063751"></script>
+<script src="assets/js/app.js?_v=20230729063751"></script>
 </body>
 </html>

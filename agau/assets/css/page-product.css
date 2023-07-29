@@ -27,7 +27,10 @@ PRODUCT
     -ms-flex: 0 0 56%;
     flex: 0 0 56%;
     height: 41.5625rem;
-    max-width: 56%
+    max-width: 56%;
+    top: 100px;
+    position: sticky;
+    position: -webkit-sticky
   }
 }
 @media(min-width:1400px) {
@@ -35,10 +38,7 @@ PRODUCT
     -webkit-box-flex: 0;
     -ms-flex: 0 0 46%;
     flex: 0 0 46%;
-    max-width: 46%;
-    top: 100px;
-    position: sticky;
-    position: -webkit-sticky
+    max-width: 46%
   }
 }
 .product .product__gallery .gallery__thumbs {

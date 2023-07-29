@@ -519,49 +519,18 @@ const menuApp = function () {
 			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
 				menuApp.hoverIntent(); 
 			}
- 
+
+			const mainMenuLinks = document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd');
+			const mainSubmenuLinks = document.querySelectorAll('.js-mainmenu .nav--catalog .nav__item.is-dd');
+
+	 
 			if(core.isTouchDevice() == true || core.getViewPort().width < 1200){ 
-				document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd').forEach(function(item, i){
-					item.querySelector('.mainMenu__item_link').addEventListener('click', function(e){
-					  e.preventDefault()
-					  let elements = [...document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd')];
-					  let otherElements = elements.filter(function(element) {
-						 return element !== item;
-					  }); 
-
-						if(otherElements.length){
-							otherElements.forEach(function(other, i){
-								other.classList.remove('is-open');
-								other.querySelectorAll('.nav__item.is-open').forEach(function(opened, i){
-									opened.classList.remove('is-open');
-								})
-							})
-						}
-						if(core.getViewPort().width > 1199){
-							$body.classList.add('js-menu-hover'); 
-						}
-						item.classList.toggle('is-open'); 
-						$body.classList.toggle('is-menu-show-1'); 
-					});
-				 });
- 
-				 document.querySelectorAll('.js-mainmenu .nav--catalog .nav__item.is-dd').forEach(function(item, i){
-					item.querySelector('.nav__item_link').addEventListener('click', function(e){
-					  e.preventDefault()
-					  let elements = [...document.querySelectorAll('.js-mainmenu .nav--catalog .nav__item.is-dd')];
-					  let otherElements = elements.filter(function(element) {
-						 return element !== item;
-					  }); 
-
-						if(otherElements.length){
-							otherElements.forEach(function(other, i){
-								other.classList.remove('is-open')
-							})
-						}
-						item.classList.toggle('is-open');  
-						$body.classList.toggle('is-menu-show-2');
-					});
-				 }); 
+				mainMenuLinks.forEach(function(item){ 
+					item.querySelector('.mainMenu__item_link').addEventListener('click', menuHandlerLevelOne);		 
+				});
+				mainSubmenuLinks.forEach(function(item){
+					item.querySelector('.nav__item_link').addEventListener('click', menuHandlerLevelTwo);
+				}); 
 			}
 
 			document.querySelectorAll('.sidebar .nav--catalog .nav__item.is-dd').forEach(function(item, i){
@@ -573,6 +542,53 @@ const menuApp = function () {
 		}  
 	};
 }(); 
+
+
+	
+function menuHandlerLevelOne(e) { 
+	e.preventDefault();  
+	let item = e.target.parentElement;  
+	let elements = [...document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd ')];
+	let otherElements = elements.filter(function(element) {
+	return element !== item;
+	}); 
+
+	if(otherElements.length){
+		otherElements.forEach(function(other, i){
+			other.classList.remove('is-open');
+			other.querySelectorAll('.nav__item.is-open').forEach(function(opened, i){
+				opened.classList.remove('is-open');
+			})
+		})
+	}
+	if(core.getViewPort().width > 1199){
+		$body.classList.add('js-menu-hover'); 
+	} 
+	item.classList.toggle('is-open'); 
+	$body.classList.toggle('is-menu-show-1'); 
+}
+
+function menuHandlerLevelTwo(e){
+	e.preventDefault()
+	let item = e.target.parentElement;  
+	let elements = [...document.querySelectorAll('.js-mainmenu .nav--catalog .nav__item.is-dd')];
+	let otherElements = elements.filter(function(element) {
+		return element !== item;
+	}); 
+
+	if(otherElements.length){
+		otherElements.forEach(function(other, i){
+			other.classList.remove('is-open')
+		})
+	}
+	item.classList.toggle('is-open');  
+	$body.classList.toggle('is-menu-show-2');
+}
+
+
+
+
+
  
 core.init();
 popupApp.init(); 
@@ -599,6 +615,11 @@ menuApp.init();
 
 	// resize listener
 	window.addEventListener('resize', function(){
+
+		document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd').forEach(function(item){
+			item.querySelector('.mainMenu__item_link').removeEventListener('click', menuHandlerLevelOne); 
+		})
+
 		core.initResize();  // init default
 	})
 
