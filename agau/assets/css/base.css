@@ -2904,6 +2904,9 @@ textarea.input {
     font-weight: 700
   }
 }
+.table--specs .table__col:first-child {
+  max-width: 100px
+}
 /*! font weight */
 .fw-100 {
   font-weight: 100
