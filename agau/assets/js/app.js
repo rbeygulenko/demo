@@ -249,6 +249,30 @@ const core = function () {
 					})
 				}
 
+				// UI: show cart preview
+
+				//.js-cart-preview .js-cart-message-full
+				const headerCartLink = document.querySelector('.js-header-cart');
+				if(headerCartLink){
+					headerCartLink.addEventListener('mouseover', () => {
+						$body.classList.add('js-cart-preview');
+					})
+
+					document.querySelector('.js-cart-message-full').addEventListener('mouseleave', () => {
+						$body.classList.remove('js-cart-preview');
+					})
+				}
+
+
+
+				// UI: selections open
+				const uiSelectionsOpenLink = document.querySelector('.js-selection-open');
+				if(uiSelectionsOpenLink){
+					uiSelectionsOpenLink.addEventListener('click', () => {
+						$body.classList.toggle('js-selection-show');
+					})
+				}
+
 				// UI: filter open
 				const uiFilterOpenLink = document.querySelector('.js-filter-open');
 				if(uiFilterOpenLink){
@@ -649,6 +673,24 @@ menuApp.init();
 			})
 		} 
   })
+
+   const orderDetailLinks = document.querySelectorAll('.js-toggle-order-detail');
+	if(orderDetailLinks.length){
+		orderDetailLinks.forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				const id  = link.dataset.target;
+				const target = document.querySelector(`.${id}`)
+				if(target.classList.contains('is-open')){
+					link.innerHTML = 'Подробнее';
+					target.classList.remove('is-open');
+				}else{
+					link.innerHTML = 'Скрыть';
+					target.classList.add('is-open');
+				} 
+			})
+		})
+	}
   
 
 	 

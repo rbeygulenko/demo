@@ -12,13 +12,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <meta name="theme-color" content="#3B434D">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/css/base.min.css?_v=20230729174651">
-<link rel="stylesheet" href="assets/css/page-account.min.css?_v=20230729174651">
+<link rel="stylesheet" href="assets/css/base.min.css?_v=20230802083514">
+<link rel="stylesheet" href="assets/css/page-account.min.css?_v=20230802083514">
 </head>
 <body>
 <!-- layout -->
 <div class="layout"> 
-   <!--header-->
+   
+<!--header-->
 <header class="header is-blur">
   <div class="container">
     <div class="header__inner">
@@ -164,7 +165,11 @@
             <span class="userbar__item_badge js-header-cart-counter">0</span>
           </a>
         </div>
-        <div class="cartMessage js-cart-message">
+
+
+
+
+        <div class="cartMessage cartMessage--added js-cart-message">
           <div class="cartMessage__inner">
             <div class="cartMessage__close js-close"></div>
             Товар
@@ -172,6 +177,90 @@
             добавлен в Корзину
           </div>
         </div>
+
+        <div class="cartMessage cartMessage--preview js-cart-message-full">
+          <div class="cartMessage__inner"> 
+            
+            <div class="cartPreview">
+              <div class="cartPreview__items">
+                <div class="item">
+                  <div class="item__delete"></div>
+                  <div class="item__image">
+                    <a href class="item__image_link">
+                      
+					<picture>
+						<source data-srcset="assets/img/content/content_product_img_1.webp" srcset="assets/img/blank.png" type="image/webp">
+						<img src="assets/img/blank.png" data-src="assets/img/content/content_product_img_1.jpg" class="item__image_src lazyload" alt>
+					</picture>
+                    </a>
+                  </div>
+                  <div class="item__content">
+                    <div class="item__title">
+                      <a href class="item__title_link">Льняное масло</a>
+                    </div>
+                    <div class="item__specs">
+                      Объем: 250 мл.<br>
+                      Количество : 1 шт.
+                    </div>
+                    <div class="item__prices">
+                      <div class="prices">
+                        <div class="price price--default">850 р.</div>
+                        <div class="price price--old">1050 р.</div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item__delete"></div>
+                  <div class="item__image">
+                    <a href class="item__image_link">
+                      
+					<picture>
+						<source data-srcset="assets/img/content/content_product_img_1.webp" srcset="assets/img/blank.png" type="image/webp">
+						<img src="assets/img/blank.png" data-src="assets/img/content/content_product_img_1.jpg" class="item__image_src lazyload" alt>
+					</picture>
+                    </a>
+                  </div>
+                  <div class="item__content">
+                    <div class="item__title">
+                      <a href class="item__title_link">Льняное масло</a>
+                    </div>
+                    <div class="item__specs">
+                      Объем: 250 мл.<br>
+                      Количество : 1 шт.
+                    </div>
+                    <div class="item__prices">
+                      <div class="prices">
+                        <div class="price price--default">850 р.</div>
+                        <div class="price price--old">1050 р.</div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="cartPreview__summary">
+                 
+                  <div class="summary">
+                    <div class="summary__quantity">2 товара</div>
+                    <div class="summary__price">7 300 р.</div>
+                  </div>
+                  
+            
+                <a href class="btn">Оформить заказ</a>
+              </div>
+            </div>
+            
+
+
+          </div>
+        </div>
+
+
+
+
       </div>
       <!--header userbar END-->
     </div>
@@ -256,7 +345,7 @@
                     <div class="fields fields--buttons">
                       <div class="fields__item"> <a href="account-orders.html" class="btn size--lg">Оплатить</a> </div>
                       <div class="fields__item"> <a href="account-orders.html" class="btn size--lg">Повторить заказ</a> </div>
-                      <div class="fields__item fields__item--cancel"> <a href="account-orders.html" class="btn btn--bordered size--lg">Отменить заказ</a> </div>
+                      <div class="fields__item fields__item--cancel"> <a href="account-orders-cancel.html" class="btn btn--bordered size--lg">Отменить заказ</a> </div>
                     </div>
                   </div>
                 </div>
@@ -289,7 +378,7 @@
                     </div>
                     <div class="fields fields--buttons">
                       <div class="fields__item"> <a href="account-orders.html" class="btn size--lg">Повторить заказ</a> </div>
-                      <div class="fields__item fields__item--cancel"> <a href="account-orders.html" class="btn btn--bordered size--lg">Отменить заказ</a> </div>
+                      <div class="fields__item fields__item--cancel"> <a href="account-orders-cancel.html" class="btn btn--bordered size--lg">Отменить заказ</a> </div>
                     </div>
                   </div>
                 </div>
@@ -511,8 +600,8 @@
     </div>
   </div>
 </noscript>
-<link rel="stylesheet" type="text/css" href="assets/css/custom.css?_v=20230729174651">
-<script src="assets/js/plugins.min.js?_v=20230729174651"></script>
-<script src="assets/js/app.js?_v=20230729174651"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/custom.css?_v=20230802083514">
+<script src="assets/js/plugins.min.js?_v=20230802083514"></script>
+<script src="assets/js/app.js?_v=20230802083514"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Личные данные</title>
+<title>Авторизация</title>
 <meta name="description" content="page description">
 <meta name="keywords" content="page keywords">
 <meta name="robots" content="index,follow">
@@ -288,67 +288,75 @@
          <div class="page">
          <div class="page__header">
             <div class="page__title">
-               <h1>Личные данные</h1>
+               <h1>Авторизация</h1>
             </div>
          </div>
          <div class="page__content">
             <div class="account__page">
-               <div class="form form--userForm">
-                  <div class="form__header">
-                     <div class="form__header_desc">
-                        Дата обновления: 15.06.2023 19:15:03<br>
-                        Последняя авторизация: 27.06.2023 14:28:44
+
+
+               <div class="row">
+                  <div class="col-12 col-lg-6">
+
+
+                     <div class="alert alert--error">
+                        Для просмотра заказа необходимо авторизоваться
                      </div>
+                     
+
                   </div>
-               <div class="form__content">
-                  
-                  <div class="form__group form__group--inline">
-                     <label class="form__group_label">Имя</label>
-                     <div class="form__group_control">
-                     <input type="text" class="input size--lg">
-                     </div>
+                  <div class="col-12 col-lg-6">
+
+                     <div class="form form--login">
+                <div class="form__header">
+                  <div class="form__header_title">
+                     <h2>Пожалуйста, авторизуйтесь</h2>
                   </div>
-                  <div class="form__group form__group--inline">
-                     <label class="form__group_label">Фамилия</label>
-                     <div class="form__group_control">
-                     <input type="text" class="input size--lg">
-                     </div>
-                  </div>
-                  <div class="form__group form__group--inline">
-                     <label class="form__group_label">Отчество</label>
-                     <div class="form__group_control">
-                     <input type="email" class="input size--lg">
-                     </div>
-                  </div>
-                  <div class="form__group form__group--inline">
-                     <label class="form__group_label">E-mail</label>
-                     <div class="form__group_control">
-                     <input type="email" class="input size--lg" placeholder="ivanov@mail.ru">
-                     </div>
-                  </div>
-                  <div class="form__group form__group--inline">
-                     <label class="form__group_label">Новый пароль</label>
-                     <div class="form__group_control">
-                     <input type="password" class="input size--lg">
-                     </div>
-                  </div>
-                  <div class="form__group form__group--inline">
-                     <label class="form__group_label">Подтверждение нового пароля</label>
-                     <div class="form__group_control">
-                     <input type="password" class="input size--lg">
-                     </div>
-                     <div class="form__group_hint">Пароль должен быть не менее 6 символов длиной.</div>
-                  </div>
-                  <div class="row form__group form__group--buttons">
-                     <div class="col-12 col-md-auto form__group_control">
-                     <button type="button" class="btn size--lg">Отмена</button>
-                     </div>
-                     <div class="col-12 col-md-auto form__group_control">
-                     <button type="button" class="btn size--lg">Сохранить</button>
-                     </div>
+                </div>
+                        <div class="form__content">
+                           
+                           <div class="form__group form__group--inline">
+                              <label class="form__group_label">Логин</label>
+                              <div class="form__group_control">
+                              <input type="text" class="input size--lg">
+                              </div>
+                           </div>
+                           <div class="form__group form__group--inline">
+                              <label class="form__group_label">Пароль</label>
+                              <div class="form__group_control">
+                              <input type="password" class="input size--lg">
+                              </div>
+                           </div>
+
+                           <div class="form__group form__group--checkbox">
+                              <div class="checkBox">
+                                 <input type="checkbox" id="checkbox-1" name="checkbox1" class="checkBox__input">
+                                 <label for="checkbox-1" class="checkBox__label">Запомнить меня на этом компьютере</label>
+                              </div>
+                           </div>
+                         
+                           <div class="form__group form__group--buttons"> 
+                              <div class="form__group_control">
+                              <button type="button" class="btn size--lg">Войти</button>
+                              </div>
+                           </div>
+
+                           <div class="row form__group form__group--links">
+                              <div class="col-12 col-md-auto form__group_item">
+                                 <a href>Зарегистрироваться</a>
+                              </div>
+                              <div class="col-12 col-md-auto form__group_item">
+                                 <a href>Забыли пароль?</a>
+                              </div>
+                           </div>
+                        </div>
+                        </div>
+
+
+
                   </div>
                </div>
-               </div>
+            
             </div>
          </div>
          </div>
