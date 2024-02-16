@@ -5,16 +5,15 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Demo page</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="description" content>
+<meta name="keywords" content>
 <meta name="robots" content="index,follow">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<meta name="theme-color" content="#fa7901">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/base.min.css">
-    <link rel="stylesheet" href="assets/css/page-demo.min.css">
+<link rel="stylesheet" href="assets/base.min.css?_v=20240216153356">
+    <link rel="stylesheet" href="assets/css/page-demo.min.css?_v=20240216153356">
 </head>
 
 <body class="js-read-progress">
@@ -27,7 +26,7 @@
       <div class="header__row header__row--top"> 
         <div class="header__col header__col--logo">
           <a href="index.html" class="logo">
-            <img src="assets/logo.png" alt="">
+            <img src="assets/logo.png" alt>
           </a>
         </div>
 
@@ -66,7 +65,7 @@
             <div class="userbar__item userbar__item--blind">
               <a href="index.html" class="userbar__item_icon i-blind"></a>
             </div>
-            <div class="userbar__item userbar__item--menu">
+            <div class="userbar__item userbar__item--menu js-toggle-mobile-nav">
               <span class="userbar__item_icon i-nav"></span>
             </div>
            
@@ -77,36 +76,168 @@
       </div>
 
       <div class="header__row header__row--bottom">
-        <div class="header__col header__col--nav">
+        <div class="header__col header__col--slide c_slide c_slide--base c_slide--header-menu">
+          <div class="c_slide__inner">
+            <div class="c_slide__header">
+              <div class="c_slide__header_close" onclick="menuApp.reset();"></div>
+              <div class="c_slide__header_title">
+                Меню
+              </div>
+            </div>
+            <div class="c_slide__content is-custom-scrollbar">
+
+         <!--header menu-->
+         <div class="header__col header__col--nav">
           <nav class="nav__wrapper">
             <ul class="mainMenu js-mainmenu">
-              <li class="mainMenu__item is-dd">
-                <a href="directions.html" class="mainMenu__item_link">Медицина</a> 
+              <li class="mainMenu__item is-dd is-dd--full">
+                <a href="catalog.html" class="mainMenu__item_link">Медицина</a>
+                <div class="nav nav--level-1 nav--catalog">
+<ul class="nav__inner is-custom-scrollbar"> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Инъекционная
+         косметология</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Коррекция мимических морщин
+               ботулотоксином</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-badge">Контурная пластика <span class="badge">топ</span></a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Увеличение губ</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-selected">Биоревитализация</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плазмотерапия</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Мезотерапия</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плацентарная терапия</a></li>
+      </ul>
+   </li> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Аппаратная
+         косметология</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Фотоомоложение</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-badge">Удаление пигментных пятен<span class="badge">-25%</span></a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Удаление сосудистых звездочек, сосудов,
+               капиляров</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Карбокситерапия</a></li>
+      </ul>
+   </li> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Лечение проблемной
+         кожи</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Розацея</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Эритроз</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Акне</a></li>
+      </ul>
+   </li> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Чистка лица</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Ультразвуковая</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Комбинированная (ультразвук+механич.)</a>
+         </li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Атравматическая Holy land Anubis
+               (Барселона)</a></li>
+      </ul>
+   </li> 
+</ul>
+</div> 
               </li>
+            
               <li class="mainMenu__item is-dd">
-                <a href="cosmetology.html" class="mainMenu__item_link">Косметология</a>
+                <a href="demo.html" class="mainMenu__item_link">Косметология</a>
+              
+                
+                <ul class="nav nav--level-1 nav--catalog"> 
+                  <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Коррекция мимических морщин
+                    ботулотоксином</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Контурная пластика</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Увеличение губ</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-selected">Биоревитализация</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плазмотерапия</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Мезотерапия</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плацентарная терапия</a></li>
+                  </ul>
+
+
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="404.html" class="mainMenu__item_link">Оборудование</a>
+              <li class="mainMenu__item">
+                <a href="contacts.html" class="mainMenu__item_link">Оборудование</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="404.html" class="mainMenu__item_link">Лаборатория</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Лаборатория</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="action.html" class="mainMenu__item_link">Акции</a>
+
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Акции</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="specialists.html" class="mainMenu__item_link">Специалисты</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Специалисты</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="404.html" class="mainMenu__item_link">О клинике</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">О клинике</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="contacts.html" class="mainMenu__item_link">Контакты</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!--header menu END-->
+        
+       </div>
+        <div class="c_slide__footer">
+          
+          
+
+          <div class="menu_contacts">
+            <div class="menu_contacts__item menu_contacts__item--phone">
+              <a href="tel:+79888604300" class="h3">+7(988) 860-43-00</a>
+            </div>
+            <div class="menu_contacts__item menu_contacts__item--location">
+              
+              <div class="location">
+                <div class="location__item">
+                  г. Ессентуки, ул. Разумовского,7
+                </div>
+                <div class="location__item">
+                  <a href="/" class="link link--ico link--arrow-angle">Как проехать?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        </div>
+        </div>
+        <!--
+        <div class="header__col header__col--nav">
+          <nav class="nav__wrapper">
+            <ul class="nav js-nav">
+              <li class="nav__item is-dd">
+                <a href="directions.html" class="nav__item_link">Медицина</a> 
+              </li>
+              <li class="nav__item is-dd">
+                <a href="cosmetology.html" class="nav__item_link">Косметология</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="404.html" class="nav__item_link">Оборудование</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="404.html" class="nav__item_link">Лаборатория</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="action.html" class="nav__item_link">Акции</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="specialists.html" class="nav__item_link">Специалисты</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="404.html" class="nav__item_link">О клинике</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="contacts.html" class="nav__item_link">Контакты</a>
               </li> 
             </ul>
           </nav>
         </div>
+      -->
         <div class="header__col header__col--appointment">
           <button class="btn">Записаться</button>
         </div>
@@ -163,7 +294,7 @@
    <div class="r_qty__btn r_qty__btn--minus js-qty-minus">&minus;</div>
    <div class="r_qty__btn r_qty__btn--plus js-qty-plus">&plus;</div>
 </div><br>
-                            <div class="r_tabs js-tabs"  data-settings='{"type":"tabs","transform": true}'>
+                            <div class="r_tabs js-tabs" data-settings="{"type":"tabs","transform": true}">
    <div class="r_tabs__links js-tabs-links">
       <div class="r_tabs__links_title" data-tab="1">Вкладка 1</div>
       <div class="r_tabs__links_title" data-tab="2">Вкладка 2</div>
@@ -194,7 +325,7 @@
     <div class="form__group">
         <label class="form__group_label">С лейблом: </label>
         <div class="form__group_control">
-            <input type="text" class="input" placeholder="">
+            <input type="text" class="input" placeholder>
         </div>
     </div>
     <div class="form__group">
@@ -205,13 +336,13 @@
     </div>
     <div class="form__group"> 
         <div class="form__group_control">
-            <textarea name="" id="" cols="20" rows="5" class="input" placeholder="текстовое поле"></textarea>
+            <textarea name id cols="20" rows="5" class="input" placeholder="текстовое поле"></textarea>
         </div>
     </div>
     <div class="form__group"> 
         <div class="form__group_control">
             <div class="radioBox">
-                <input type="radio" id="radio-1" name="radio" checked="" class="radioBox__input">
+                <input type="radio" id="radio-1" name="radio" checked class="radioBox__input">
                 <label for="radio-1" class="radioBox__label">Lorem ipsum dolor sit, amet
                     c </label>
             </div>
@@ -251,12 +382,12 @@
  </form>
 <br><br>
  
- <button class="btn btn-block-single" type="button" onclick='core.uiFormBlock({form: ".form-1", button: ".btn--submit"});'>блок: кнопка + форма</button>
- <button class="btn btn-block-single" type="button" onclick='core.uiFormBlock({form: ".form-1", button: ".btn--submit", block: false});'>анблок: кнопка + форма</button>
- <button class="btn btn-block-single" type="button" onclick='core.uiFormBlock({form: ".form-1"});'>блок: вся форма</button>
- <button class="btn btn-block-single" type="button" onclick='core.uiFormBlock({form: ".form-1", block: false});'>анблок: вся форма</button>
- <button class="btn btn-block-single" type="button" onclick='core.uiFormBlock({button: ".btn--submit"});'>блок: кнопка</button>
- <button class="btn btn-block-single" type="button" onclick='core.uiFormBlock({button: ".btn--submit", block: false});'>анблок:кнопка</button>
+ <button class="btn btn-block-single" type="button" onclick="core.uiFormBlock({form: ".form-1", button: ".btn--submit"});">блок: кнопка + форма</button>
+ <button class="btn btn-block-single" type="button" onclick="core.uiFormBlock({form: ".form-1", button: ".btn--submit", block: false});">анблок: кнопка + форма</button>
+ <button class="btn btn-block-single" type="button" onclick="core.uiFormBlock({form: ".form-1"});">блок: вся форма</button>
+ <button class="btn btn-block-single" type="button" onclick="core.uiFormBlock({form: ".form-1", block: false});">анблок: вся форма</button>
+ <button class="btn btn-block-single" type="button" onclick="core.uiFormBlock({button: ".btn--submit"});">блок: кнопка</button>
+ <button class="btn btn-block-single" type="button" onclick="core.uiFormBlock({button: ".btn--submit", block: false});">анблок:кнопка</button>
                         </div>
                     </div>
 
@@ -288,7 +419,7 @@
                             <br>
                             <div class="row">
                                 <div class="editor">
-                                    <p>Lorem ipsum dolor <a href="">sit amet consectetur</a> adipisicing elit.
+                                    <p>Lorem ipsum dolor <a href>sit amet consectetur</a> adipisicing elit.
                                         <strong>Necessitatibus esse</strong> aliquid minima cumque animi quis accusamus,
                                         illo doloremque a ratione libero cupiditate! Illum la tate! Illum laudantium
                                         esse expedita nesciunt? Nostrum, repellat.Lorem ipsum dolor sit amet consectetur
@@ -362,20 +493,16 @@
                             <div class="container demo__icons">
                                 <div class="row">
                                     <div class="span3" title="Code: 0xe800">
-                                        <i class="demo-icon i-heart2"></i> <span class="i-name">i-heart2</span><span
-                                            class="i-code">0xe800</span>
+                                        <i class="demo-icon i-heart2"></i> <span class="i-name">i-heart2</span><span class="i-code">0xe800</span>
                                     </div>
                                     <div class="span3" title="Code: 0xe801">
-                                        <i class="demo-icon i-quote"></i> <span class="i-name">i-quote</span><span
-                                            class="i-code">0xe801</span>
+                                        <i class="demo-icon i-quote"></i> <span class="i-name">i-quote</span><span class="i-code">0xe801</span>
                                     </div>
                                     <div class="span3" title="Code: 0xe802">
-                                        <i class="demo-icon i-arrow-down"></i> <span
-                                            class="i-name">i-arrow-down</span><span class="i-code">0xe802</span>
+                                        <i class="demo-icon i-arrow-down"></i> <span class="i-name">i-arrow-down</span><span class="i-code">0xe802</span>
                                     </div>
                                     <div class="span3" title="Code: 0xe803">
-                                        <i class="demo-icon i-plus"></i> <span class="i-name">i-plus</span><span
-                                            class="i-code">0xe803</span>
+                                        <i class="demo-icon i-plus"></i> <span class="i-name">i-plus</span><span class="i-code">0xe803</span>
                                     </div>
                                 </div>
                                 
@@ -391,13 +518,13 @@
                         </div>
                         <div class="section__content">
                             <div class="alert alert--warning"> Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. <a href="">has been the industry</a> </div>
+                                typesetting industry. <a href>has been the industry</a> </div>
                             <div class="alert alert--success"> Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. <a href="">has been the industry</a> </div>
+                                typesetting industry. <a href>has been the industry</a> </div>
                             <div class="alert alert--error"> Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. <a href="">has been the industry</a> </div>
+                                typesetting industry. <a href>has been the industry</a> </div>
                             <div class="alert alert--empty"> Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. <a href="">has been the industry</a> </div>
+                                typesetting industry. <a href>has been the industry</a> </div>
                         </div>
                     </div>
                     <div class="section section--demo">
@@ -490,8 +617,7 @@
                                             <div class="form__group is-disabled">
                                                 <label class="form__group_label">Disabled label: </label>
                                                 <div class="form__group_control">
-                                                    <input type="email" class="input" placeholder="Disabled placeholder"
-                                                        disabled>
+                                                    <input type="email" class="input" placeholder="Disabled placeholder" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -529,8 +655,7 @@
                                             <div class="form__group is-disabled">
                                                 <label class="form__group_label">Error label: </label>
                                                 <div class="form__group_control">
-                                                    <textarea class="input input--textarea" rows="4"
-                                                        disabled></textarea>
+                                                    <textarea class="input input--textarea" rows="4" disabled></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -596,25 +721,25 @@
                                     <div class="row">
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--radio">
-                                                <input type="radio" id="radio-1" name="radio" checked="" class="c_input__control">
+                                                <input type="radio" id="radio-1" name="radio" checked class="c_input__control">
                                                 <label for="radio-1" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--radio is-error">
-                                                <input type="radio" id="radio-2" name="radio" checked="" class="c_input__control">
+                                                <input type="radio" id="radio-2" name="radio" checked class="c_input__control">
                                                 <label for="radio-2" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--radio is-success">
-                                                <input type="radio" id="radio-3" name="radio" checked="" class="c_input__control">
+                                                <input type="radio" id="radio-3" name="radio" checked class="c_input__control">
                                                 <label for="radio-3" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--radio is-disabled">
-                                                <input type="radio" id="radio-4" name="radio" checked="" class="c_input__control">
+                                                <input type="radio" id="radio-4" name="radio" checked class="c_input__control">
                                                 <label for="radio-4" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
@@ -625,25 +750,25 @@
                                     <div class="row">
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--checkbox">
-                                                <input type="checkbox" id="checkbox-1" name="checkbox" checked="" class="c_input__control">
+                                                <input type="checkbox" id="checkbox-1" name="checkbox" checked class="c_input__control">
                                                 <label for="checkbox-1" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--checkbox is-error">
-                                                <input type="checkbox" id="checkbox-2" name="checkbox" checked="" class="c_input__control">
+                                                <input type="checkbox" id="checkbox-2" name="checkbox" checked class="c_input__control">
                                                 <label for="checkbox-2" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--checkbox is-success">
-                                                <input type="checkbox" id="checkbox-3" name="checkbox" checked="" class="c_input__control">
+                                                <input type="checkbox" id="checkbox-3" name="checkbox" checked class="c_input__control">
                                                 <label for="checkbox-3" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                             <div class="c_input c_input--checkbox is-disabled">
-                                                <input type="checkbox" id="checkbox-4" name="checkbox" checked="" class="c_input__control">
+                                                <input type="checkbox" id="checkbox-4" name="checkbox" checked class="c_input__control">
                                                 <label for="checkbox-4" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                                              </div>
                                         </div>
@@ -783,7 +908,7 @@
             </div>
             </div>
             <div class="footer__info_item footer__info_item--reviews">
-              <img class="lazyload" src="assets/blank.png" data-src="assets/footer-reviews.jpg" alt="">
+              <img class="lazyload" src="assets/blank.png" data-src="assets/footer-reviews.jpg" alt>
             </div>
             <div class="footer__info_item footer__info_item--addreview">
               <button type="button" class="btn btn--bordered size--lg">Оставить отзыв</button>
@@ -947,9 +1072,9 @@
         </div>
     </div>
 </noscript>
-    <link rel="stylesheet" type="text/css" href="assets/custom.css">
-<script src="assets/plugins.min.js"></script> 
-<script src="assets/app.js"></script> 
+    <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240216153356">
+<script src="assets/plugins.min.js?_v=20240216153356"></script> 
+<script src="assets/app.js?_v=20240216153356"></script> 
 </body>
 
 </html>

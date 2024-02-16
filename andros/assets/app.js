@@ -40,7 +40,7 @@ var core = function () {
 			}
 		},
 		initResize: function(){   
-			
+			menuApp.default(); 
 		},  
 		initClearHandlers: function(){
 			const el = document.querySelector('.js-clear-handlers');
@@ -48,6 +48,7 @@ var core = function () {
 				el.addEventListener('click', () => {
 					core.clearHandlers();
 					popupApp.clear();
+					menuApp.reset();
 				})
 			} 
 		}, 
@@ -158,31 +159,7 @@ var core = function () {
 				formElements.forEach(element => (element.disabled = settings.block));
 			}
   
-		},
-		hoverIntent: function(){
-			let uiCatalogDropdowns = document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd');
-
-			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
-				let timer;
-				let delay = 160; 
-				if(uiCatalogDropdowns.length){ 
-					uiCatalogDropdowns.forEach(item => { 
-						item.addEventListener('mouseenter', () => { 
-							timer = setTimeout(function(){
-								$body.classList.add('js-menu-hover');
-								item.classList.add('is-hover');
-							}, delay);
-						})
-
-						item.addEventListener('mouseleave', () => { 
-							clearTimeout(timer);
-							$body.classList.remove('js-menu-hover');
-							item.classList.remove('is-hover');
-						}) 
-					})
-				}
-			} 
-		},
+		}, 
 		initFormRestrictRules: function(){
 			const uiFormInputRestrict = document.querySelectorAll('*[data-allow]');
 			uiFormInputRestrict.length && uiFormInputRestrict.forEach(item => {
@@ -218,7 +195,7 @@ var core = function () {
 				$body.classList.add('is-no-touchdevice')
 			}
 			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
-				core.hoverIntent(); 
+				menuApp.hoverIntent(); 
 			}
 			core.loader('create'); // create loader in DOM
 			core.initFormRestrictRules(); // init custom restricts for inputs
@@ -629,7 +606,7 @@ const componentsApp = function () {
 				});
 			}  
 		},
-		*/
+		*/ 
 		scrollToTarget: function(){
 			const el =  document.querySelectorAll('*[data-scroll]')
 			if (el) {
@@ -739,8 +716,134 @@ const componentsApp = function () {
 	};
 }();
 
+
+
+// menu app
+const menuApp = function () {  
+	return {
+		init: function () { 
+			document.querySelector('.js-toggle-mobile-nav').addEventListener('click', (e) => {
+				e.preventDefault();     
+				let scrollWidth = core.getScrollbarWidth();
+			
+				if($body.classList.contains('js-show-mainmenu')){ 
+					$body.classList.remove('js-show-mainmenu'); 
+					$body.removeAttributeAttribute('style');
+				}else{ 
+					$body.classList.add('js-show-mainmenu'); 
+					$body.setAttribute('style', '--scrollbar-width: '+scrollWidth+'px');
+				}
+			}); 
+		}, 
+		reset: function(){
+			$body.classList.remove('js-show-mainmenu', 'is-menu-show-1', 'is-menu-show-2');
+			document.querySelectorAll('.js-mainmenu .is-open').forEach(item => {
+				item.classList.remove('is-open');
+			})
+		},  
+		hoverIntent: function(){
+			let uiCatalogDropdowns = document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd');
+
+			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
+				let timer;
+				let delay = 160; 
+				if(uiCatalogDropdowns.length){ 
+					uiCatalogDropdowns.forEach(item => { 
+						item.addEventListener('mouseenter', () => { 
+							timer = setTimeout(function(){
+								$body.classList.add('js-menu-hover');
+								item.classList.add('is-hover');
+							}, delay);
+						})
+
+						item.addEventListener('mouseleave', () => { 
+							clearTimeout(timer);
+							$body.classList.remove('js-menu-hover');
+							item.classList.remove('is-hover');
+						}) 
+					})
+				}
+			} 
+		},
+		default: function(){
+
+			menuApp.reset();
+			 
+			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
+				menuApp.hoverIntent(); 
+			}
+
+			const mainMenuLinks = document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd');
+			const mainSubmenuLinks = document.querySelectorAll('.js-mainmenu .nav--catalog .nav__item.is-dd'); 
+			
+			if(core.isTouchDevice() == true || core.getViewPort().width < 1200){ 
+				mainMenuLinks.forEach(function(item){ 
+					item.querySelector('.mainMenu__item_link').addEventListener('click', menuHandlerLevelOne);		 
+				});
+				mainSubmenuLinks.forEach(function(item){
+					item.querySelector('.nav__item_link').addEventListener('click', menuHandlerLevelTwo);
+				}); 
+			}
+
+			document.querySelectorAll('.sidebar .nav--catalog .nav__item.is-dd').forEach(function(item, i){
+				item.querySelector('.nav__item_link').addEventListener('click', function(e){
+				  e.preventDefault()
+					item.classList.toggle('is-open'); 
+				});
+			}); 
+		}  
+	};
+}(); 
+
+
+	
+function menuHandlerLevelOne(e) { 
+	e.preventDefault();  
+	let item = e.target.parentElement;  
+	let elements = [...document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd ')];
+	let otherElements = elements.filter(function(element) {
+	return element !== item;
+	}); 
+
+	if(otherElements.length){
+		otherElements.forEach(function(other, i){
+			other.classList.remove('is-open');
+			other.querySelectorAll('.nav__item.is-open').forEach(function(opened, i){
+				opened.classList.remove('is-open');
+			})
+		})
+	}
+	if(core.getViewPort().width > 1199){
+		$body.classList.add('js-menu-hover'); 
+	} 
+	item.classList.toggle('is-open'); 
+	$body.classList.toggle('is-menu-show-1'); 
+}
+
+function menuHandlerLevelTwo(e){
+	e.preventDefault()
+	let item = e.target.parentElement;  
+	let elements = [...document.querySelectorAll('.js-mainmenu .nav--catalog .nav__item.is-dd')];
+	let otherElements = elements.filter(function(element) {
+		return element !== item;
+	}); 
+
+	if(otherElements.length){
+		otherElements.forEach(function(other, i){
+			other.classList.remove('is-open')
+		})
+	}
+	item.classList.toggle('is-open');  
+	$body.classList.toggle('is-menu-show-2');
+}
+
+
+
+
+
 // init apps
 core.init(); 
+menuApp.init();
 componentsApp.init();
 
 

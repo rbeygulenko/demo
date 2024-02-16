@@ -5,15 +5,14 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Главная страница</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="description" content>
+<meta name="keywords" content>
 <meta name="robots" content="index,follow">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<meta name="theme-color" content="#fa7901">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/base.min.css">
+<link rel="stylesheet" href="assets/base.min.css?_v=20240216153356">
 </head>
 
 <body class="index__page">
@@ -26,7 +25,7 @@
       <div class="header__row header__row--top"> 
         <div class="header__col header__col--logo">
           <a href="index.html" class="logo">
-            <img src="assets/logo.png" alt="">
+            <img src="assets/logo.png" alt>
           </a>
         </div>
 
@@ -65,7 +64,7 @@
             <div class="userbar__item userbar__item--blind">
               <a href="index.html" class="userbar__item_icon i-blind"></a>
             </div>
-            <div class="userbar__item userbar__item--menu">
+            <div class="userbar__item userbar__item--menu js-toggle-mobile-nav">
               <span class="userbar__item_icon i-nav"></span>
             </div>
            
@@ -76,36 +75,168 @@
       </div>
 
       <div class="header__row header__row--bottom">
-        <div class="header__col header__col--nav">
+        <div class="header__col header__col--slide c_slide c_slide--base c_slide--header-menu">
+          <div class="c_slide__inner">
+            <div class="c_slide__header">
+              <div class="c_slide__header_close" onclick="menuApp.reset();"></div>
+              <div class="c_slide__header_title">
+                Меню
+              </div>
+            </div>
+            <div class="c_slide__content is-custom-scrollbar">
+
+         <!--header menu-->
+         <div class="header__col header__col--nav">
           <nav class="nav__wrapper">
             <ul class="mainMenu js-mainmenu">
-              <li class="mainMenu__item is-dd">
-                <a href="directions.html" class="mainMenu__item_link">Медицина</a> 
+              <li class="mainMenu__item is-dd is-dd--full">
+                <a href="catalog.html" class="mainMenu__item_link">Медицина</a>
+                <div class="nav nav--level-1 nav--catalog">
+<ul class="nav__inner is-custom-scrollbar"> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Инъекционная
+         косметология</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Коррекция мимических морщин
+               ботулотоксином</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-badge">Контурная пластика <span class="badge">топ</span></a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Увеличение губ</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-selected">Биоревитализация</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плазмотерапия</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Мезотерапия</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плацентарная терапия</a></li>
+      </ul>
+   </li> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Аппаратная
+         косметология</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Фотоомоложение</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-badge">Удаление пигментных пятен<span class="badge">-25%</span></a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Удаление сосудистых звездочек, сосудов,
+               капиляров</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Карбокситерапия</a></li>
+      </ul>
+   </li> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Лечение проблемной
+         кожи</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Розацея</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Эритроз</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Акне</a></li>
+      </ul>
+   </li> 
+   <li class="nav__item is-dd is-open"> <a href="catalog.html" class="nav__item_link">Чистка лица</a>
+      <ul class="nav nav--level-2">
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Ультразвуковая</a></li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Комбинированная (ультразвук+механич.)</a>
+         </li>
+         <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Атравматическая Holy land Anubis
+               (Барселона)</a></li>
+      </ul>
+   </li> 
+</ul>
+</div> 
               </li>
+            
               <li class="mainMenu__item is-dd">
-                <a href="cosmetology.html" class="mainMenu__item_link">Косметология</a>
+                <a href="demo.html" class="mainMenu__item_link">Косметология</a>
+              
+                
+                <ul class="nav nav--level-1 nav--catalog"> 
+                  <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Коррекция мимических морщин
+                    ботулотоксином</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Контурная пластика</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Увеличение губ</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link is-selected">Биоревитализация</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плазмотерапия</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Мезотерапия</a></li>
+              <li class="nav__item"> <a href="catalog.html" class="nav__item_link">Плацентарная терапия</a></li>
+                  </ul>
+
+
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="404.html" class="mainMenu__item_link">Оборудование</a>
+              <li class="mainMenu__item">
+                <a href="contacts.html" class="mainMenu__item_link">Оборудование</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="404.html" class="mainMenu__item_link">Лаборатория</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Лаборатория</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="action.html" class="mainMenu__item_link">Акции</a>
+
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Акции</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="specialists.html" class="mainMenu__item_link">Специалисты</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Специалисты</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="404.html" class="mainMenu__item_link">О клинике</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">О клинике</a>
               </li>
-              <li class="mainMenu__item is-dd">
-                <a href="contacts.html" class="mainMenu__item_link">Контакты</a>
+              <li class="mainMenu__item">
+                <a href="delivery.html" class="mainMenu__item_link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!--header menu END-->
+        
+       </div>
+        <div class="c_slide__footer">
+          
+          
+
+          <div class="menu_contacts">
+            <div class="menu_contacts__item menu_contacts__item--phone">
+              <a href="tel:+79888604300" class="h3">+7(988) 860-43-00</a>
+            </div>
+            <div class="menu_contacts__item menu_contacts__item--location">
+              
+              <div class="location">
+                <div class="location__item">
+                  г. Ессентуки, ул. Разумовского,7
+                </div>
+                <div class="location__item">
+                  <a href="/" class="link link--ico link--arrow-angle">Как проехать?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        </div>
+        </div>
+        <!--
+        <div class="header__col header__col--nav">
+          <nav class="nav__wrapper">
+            <ul class="nav js-nav">
+              <li class="nav__item is-dd">
+                <a href="directions.html" class="nav__item_link">Медицина</a> 
+              </li>
+              <li class="nav__item is-dd">
+                <a href="cosmetology.html" class="nav__item_link">Косметология</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="404.html" class="nav__item_link">Оборудование</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="404.html" class="nav__item_link">Лаборатория</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="action.html" class="nav__item_link">Акции</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="specialists.html" class="nav__item_link">Специалисты</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="404.html" class="nav__item_link">О клинике</a>
+              </li>
+              <li class="nav__item is-dd">
+                <a href="contacts.html" class="nav__item_link">Контакты</a>
               </li> 
             </ul>
           </nav>
         </div>
+      -->
         <div class="header__col header__col--appointment">
           <button class="btn">Записаться</button>
         </div>
@@ -123,7 +254,7 @@
 <div class="section section--main-banner js-mainbanner-carousel is-interactive">
     <div class="homeBanner">
         <div class="logo__banner">
-            <img class="lazyload" src="assets/blank.png" data-src="assets/logo-banner-2.png" alt=""> 
+            <img class="lazyload" src="assets/blank.png" data-src="assets/logo-banner-2.png" alt> 
         </div>
        
             <div class="container">
@@ -247,7 +378,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="cosmetology.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-1.jpg" alt>
       </a>
       <div class="card__nav">
          <div class="card__nav_inner is-custom-scrollbar">
@@ -291,7 +422,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="cosmetology.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-4.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-4.jpg" alt>
       </a>
       <div class="card__nav">
          <div class="card__nav_inner is-custom-scrollbar">
@@ -335,7 +466,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="cosmetology.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-2.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-2.jpg" alt>
       </a>
       <div class="card__nav">
          <div class="card__nav_inner is-custom-scrollbar">
@@ -379,7 +510,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="cosmetology.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-5.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-5.jpg" alt>
       </a>
       <div class="card__nav">
          <div class="card__nav_inner is-custom-scrollbar">
@@ -423,7 +554,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="cosmetology.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-3.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-3.jpg" alt>
       </a>
       <div class="card__nav">
          <div class="card__nav_inner is-custom-scrollbar">
@@ -469,7 +600,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="cosmetology.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-6.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/cosmetology-6.jpg" alt>
       </a>
       <div class="card__nav">
          <div class="card__nav_inner is-custom-scrollbar">
@@ -586,7 +717,7 @@
                 <div class="section section--topservices">
                     <div class="section__header section__header--center">
                         <div class="section__header_title">
-                            <img class="lazyload" data-src="assets/top-services-heading.svg" src="assets/blank.png" alt="">
+                            <img class="lazyload" data-src="assets/top-services-heading.svg" src="assets/blank.png" alt>
                             <div class="h2">услуг клиники</div>
                         </div>
                         <div class="section__header_subtitle">Выбор наших клиентов</div>
@@ -607,7 +738,7 @@
          <span class="badges">
    <span class="badges__item badges__item--top">Топ</span>
 </span>
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/top-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/top-1.jpg" alt>
          <span class="card__description">
             <span class="card__title">
                <span class="h3">Консультация гинеколога</span>
@@ -631,7 +762,7 @@
          <span class="badges">
    <span class="badges__item badges__item--top">Топ</span>
 </span>
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/top-2.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/top-2.jpg" alt>
          <span class="card__description">
             <span class="card__title">
                <span class="h3">Коррекция мимических морщин ботулотоксином</span>
@@ -655,7 +786,7 @@
          <span class="badges">
    <span class="badges__item badges__item--top">Топ</span>
 </span>
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/top-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/top-1.jpg" alt>
          <span class="card__description">
             <span class="card__title">
                <span class="h3">Консультация гинеколога</span>
@@ -755,7 +886,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="specialist.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-1.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -773,7 +904,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="specialist.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-2.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-2.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -791,7 +922,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="specialist.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-3.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-3.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -809,7 +940,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="specialist.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-4.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-4.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -827,7 +958,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="specialist.html" class="ratio__item card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/specialist-1.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -870,7 +1001,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="https://www.youtube.com/watch?v=BHACKCNDMW8" data-fancybox="video" class="ratio__item ratio__item--contain card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-1.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -884,7 +1015,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="https://www.youtube.com/watch?v=BHACKCNDMW8" data-fancybox="video" class="ratio__item ratio__item--contain card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-2.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-2.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -898,7 +1029,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="https://www.youtube.com/watch?v=BHACKCNDMW8" data-fancybox="video" class="ratio__item ratio__item--contain card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-1.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -912,7 +1043,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="https://www.youtube.com/watch?v=BHACKCNDMW8" data-fancybox="video" class="ratio__item ratio__item--contain card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-2.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-2.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -926,7 +1057,7 @@
 <div class="card">
    <div class="card__image ratio ratio--catalog">
       <a href="https://www.youtube.com/watch?v=BHACKCNDMW8" data-fancybox="video" class="ratio__item ratio__item--contain card__image_link">
-         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-1.jpg" alt="">
+         <img class="lazyload card__image_src" src="assets/blank.png" data-src="assets/video-1.jpg" alt>
       </a>
    </div>
    <div class="card__title">
@@ -1089,7 +1220,7 @@
             </div>
             </div>
             <div class="footer__info_item footer__info_item--reviews">
-              <img class="lazyload" src="assets/blank.png" data-src="assets/footer-reviews.jpg" alt="">
+              <img class="lazyload" src="assets/blank.png" data-src="assets/footer-reviews.jpg" alt>
             </div>
             <div class="footer__info_item footer__info_item--addreview">
               <button type="button" class="btn btn--bordered size--lg">Оставить отзыв</button>
@@ -1253,9 +1384,9 @@
         </div>
     </div>
 </noscript>
-    <link rel="stylesheet" type="text/css" href="assets/custom.css">
-<script src="assets/plugins.min.js"></script> 
-<script src="assets/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240216153356">
+<script src="assets/plugins.min.js?_v=20240216153356"></script> 
+<script src="assets/app.js?_v=20240216153356"></script>
 </body>
 
 </html>
