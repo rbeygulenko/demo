@@ -4053,7 +4053,7 @@ SECTIONS & Blocks
     content: "";
     width: 100%;
     text-align: center;
-    font-size: 14px;
+    font-size: 10px;
     left: 0;
     cursor: pointer;
     z-index: 2;
@@ -5045,13 +5045,15 @@ POPUPS
 }
 /*! popup show */
 .js-popup-show {
-  overflow: hidden;
+  overflow: hidden
+}
+.js-popup-show.is-notouchdevice {
   padding-right: var(--scrollbar-width)
 }
-.js-popup-show .header {
+.js-popup-show.is-notouchdevice .header {
   right: var(--scrollbar-width)
 }
-.js-popup-show .popup {
+.js-popup-show.is-notouchdevice .popup {
   padding-right: var(--scrollbar-width)
 }
 .js-popup-show .popup {
@@ -5171,10 +5173,12 @@ POPUPS
     height: 100px
   }
   .js-show-mainmenu {
-    overflow: hidden;
+    overflow: hidden
+  }
+  .js-show-mainmenu.is-notouchdevice {
     padding-right: var(--scrollbar-width)
   }
-  .js-show-mainmenu .header {
+  .js-show-mainmenu.is-notouchdevice .header {
     right: var(--scrollbar-width)
   }
   .js-show-mainmenu .header .header__row--top {
