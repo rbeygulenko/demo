@@ -439,7 +439,7 @@ const componentsApp = function () {
 			componentsApp.qty();
 			componentsApp.tabs();
 			componentsApp.readProgress();
-		
+			componentsApp.initFloatActions();
 
 
 			// UI: fancybox init
@@ -783,10 +783,53 @@ const componentsApp = function () {
 				};
 			 
 				document.addEventListener('scroll', processScroll);
-			 }
-
-
+			 } 
 		 },
+		 initFloatActions: function(){
+
+			const floatActions = document.querySelector('.js-float-actions');
+			const hideFloat = () => {
+				//localStorage.setItem('float-actions', 'hide');
+				floatActions.classList.remove('is-shown');
+			};
+
+			if (floatActions) {
+				const closeBtn = floatActions.querySelector('.js-close');
+				const actionsInStorage = localStorage.getItem('float-actions');
+				if (!actionsInStorage) {
+					const showActions = () => {
+					floatActions.classList.add('is-shown');
+					};
+					setTimeout(showActions, 3000);
+				}
+				if (closeBtn) {
+					closeBtn.addEventListener('click', () => {
+					hideFloat();
+					});
+				}
+			} 
+
+			// hide action on swipe x\y
+			let startX, startY;
+			const swipeElement = document.querySelector('.js-float-actions .r_toast__item');
+			const handleTouchStart = (event) => {
+				startX = event.touches[0].clientX;
+				startY = event.touches[0].clientY;
+				};
+
+			const handleTouchEnd = (event) => {
+				const deltaX = event.changedTouches[0].clientX - startX;
+				const deltaY = event.changedTouches[0].clientY - startY;
+				if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
+					if (swipeElement) {
+						hideFloat();
+					}
+				}
+			};
+			swipeElement?.addEventListener('touchstart', handleTouchStart);
+			swipeElement?.addEventListener('touchend', handleTouchEnd);
+
+		}
 	};
 }();
 
