@@ -3786,6 +3786,9 @@ SECTIONS & Blocks
 .section--main-banner .logo__banner {
   display: none
 }
+.section--main-banner .logo__banner img {
+  max-width: 40%
+}
 @media(min-width:768px) {
   .section--main-banner .logo__banner {
     position: absolute;
@@ -3802,8 +3805,7 @@ SECTIONS & Blocks
     height: min(max(200px,20.6vw),20.625rem);
     background: url(logo-banner.svg) no-repeat center center;
     background-size: cover;
-    transition: all .3s;
-    padding: 70px
+    transition: all .3s
   }
 }
 @media(min-width:1200px) {
