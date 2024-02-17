@@ -2140,9 +2140,16 @@ HEADER
     position: fixed
   }
 }
-@media(max-width:1199.98px) {
+.header .logo {
+  display: inline-block;
+  padding-top: 2px
+}
+.header .logo img {
+  height: 55px
+}
+@media(min-width:1200px) {
   .header .logo img {
-    height: 55px
+    height: 68px
   }
 }
 @media(max-width:575.98px) {
