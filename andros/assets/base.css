@@ -2142,10 +2142,10 @@ HEADER
 }
 .header .logo {
   display: inline-block;
-  padding-top: 2px
+  padding: 5px 0
 }
 .header .logo img {
-  height: 55px
+  height: 47px
 }
 @media(min-width:1200px) {
   .header .logo img {
@@ -2236,14 +2236,19 @@ HEADER
   align-items: center;
   justify-content: space-between;
   transition: all .3s;
-  margin-bottom: 3px;
   overflow: hidden;
   transition: all .3s
 }
 @media(min-width:1200px) {
   .header .header__row--top {
     gap: 50px;
-    height: 85px
+    height: 85px;
+    margin-bottom: 3px
+  }
+}
+@media(max-width:1199.98px) {
+  .header .header__row--top {
+    height: 100%
   }
 }
 .header .header__row--bottom {
