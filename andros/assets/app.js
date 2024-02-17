@@ -18,16 +18,10 @@ var core = function () {
 		  }
 		},
 		initPhoneMask: function(){ 
-			let phoneElements = document.querySelectorAll('js-input-phone');
-			if(phoneElements){ 
-				let maskOptions = {
-					mask: '+{7}(000)000-00-00',
-					lazy: false
-				};
-				phoneElements.forEach(function (element) {
-					let mask = new IMask(element, maskOptions);
-				});
-			}
+
+	 
+			VMasker(document.querySelector(".js-input-phone")).maskPattern("9 (999) 999-99-99");
+ 
 		},
 		initWebPcheck: function(){
 			const elem = document.createElement('canvas'); 
@@ -717,23 +711,30 @@ const componentsApp = function () {
 }();
 
 
-
+ 
+ 
+ 
 // menu app
 const menuApp = function () {  
 	return {
 		init: function () { 
-			document.querySelector('.js-toggle-mobile-nav').addEventListener('click', (e) => {
-				e.preventDefault();     
-				let scrollWidth = core.getScrollbarWidth();
-			
-				if($body.classList.contains('js-show-mainmenu')){ 
-					$body.classList.remove('js-show-mainmenu'); 
-					$body.removeAttributeAttribute('style');
-				}else{ 
-					$body.classList.add('js-show-mainmenu'); 
-					$body.setAttribute('style', '--scrollbar-width: '+scrollWidth+'px');
-				}
-			}); 
+			let menuLinks = document.querySelectorAll('.js-toggle-mobile-nav');
+			if(menuLinks){
+				menuLinks.forEach(link => {
+					link.addEventListener('click', (e) => {
+						e.preventDefault();     
+						let scrollWidth = core.getScrollbarWidth();
+					
+						if($body.classList.contains('js-show-mainmenu')){ 
+							$body.classList.remove('js-show-mainmenu'); 
+							$body.removeAttributeAttribute('style');
+						}else{ 
+							$body.classList.add('js-show-mainmenu'); 
+							$body.setAttribute('style', '--scrollbar-width: '+scrollWidth+'px');
+						}
+					}); 
+				})
+			} 
 		}, 
 		reset: function(){
 			$body.classList.remove('js-show-mainmenu', 'is-menu-show-1', 'is-menu-show-2');
@@ -796,7 +797,117 @@ const menuApp = function () {
 }(); 
 
 
+
+const appointmentApp = (function () {
 	
+	const selectors = {
+	  sectionStart: '.section--appointment-order-start',
+	  sectionOnline: '.section--appointment-order-online',
+	  btnShowOnline: '.js-open-appointment-online',
+	  btnGoBack: '.js-appointment-back',
+	  form: '.js-appointment-online-form',
+	};
+ 
+	const toggleSections = (showStart, showOnline) => () => {
+	  document.querySelector(selectors.sectionStart).classList.toggle('is-shown', showStart);
+	  document.querySelector(selectors.sectionOnline).classList.toggle('is-shown', showOnline);
+	};
+ 
+	const addClickListener = (element, showStart, showOnline) => {
+	  const targetElement = document.querySelector(element);
+	  if (targetElement) {
+		 targetElement.addEventListener('click', toggleSections(showStart, showOnline));
+	  }
+	};
+ 
+	return {
+	  init: function () {
+		 this.initFormSelect();
+		 this.validate();
+	  },
+	  validate: function(){
+	
+		
+		const form = document.querySelector(selectors.form);
+
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const nameInput = form.querySelector('.js-input-name');
+			const phoneInput = form.querySelector('.js-input-phone');
+			let nameError = false;
+			let phoneError = false;
+
+			if (nameInput.value === '') {
+				nameInput.closest('.form__group').classList.add('is-error');
+				nameError = true;
+			} else {
+				nameInput.closest('.form__group').classList.remove('is-error');
+			}
+
+			if (phoneInput.value === '') {
+				phoneInput.closest('.form__group').classList.add('is-error');
+				phoneError = true;
+			} else {
+				phoneInput.closest('.form__group').classList.remove('is-error');
+			}
+
+
+			if(nameError || phoneError){
+				return
+			}
+ 
+			// TEST: ajax simulation
+			core.loader(); 
+
+			setTimeout(function(){
+				
+				core.loader('hide'); 
+
+			}, 2000);
+
+			/*
+			const formData = new URLSearchParams(new FormData(form));
+
+			const requestOptions = {
+				method: 'POST',
+				body: formData,
+			};
+
+			fetch('/client_account/feedback.json', requestOptions)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json();
+				})
+				.then(data => {
+					// success
+				})
+				.catch(error => { 
+					// console.error('Error:', error);
+				})
+				.finally(() => {
+					// done logic
+					core.loader('hide'); 
+				});
+			*/
+
+		 
+		});
+
+
+
+	  },
+	  initFormSelect: function () {
+		 const { btnShowOnline, btnGoBack } = selectors;
+		 addClickListener(btnShowOnline, false, true);
+		 addClickListener(btnGoBack, true, false);
+	  },
+	};
+ })();
+
+ 
 function menuHandlerLevelOne(e) { 
 	e.preventDefault();  
 	let item = e.target.parentElement;  
@@ -845,7 +956,7 @@ function menuHandlerLevelTwo(e){
 core.init(); 
 menuApp.init();
 componentsApp.init();
-
+appointmentApp.init();
 
 
 const cardsCarousel = document.querySelectorAll('.js-cards-carousel');
@@ -924,6 +1035,8 @@ if(benefitsCarousel){
 
 
 
+
+
 const beforeCarousel = document.querySelectorAll('.js-beforeafter-carousel');
 
 if(beforeCarousel){ 
@@ -969,13 +1082,17 @@ if(topCarousel){
 window.addEventListener('resize', () => {
 	core.initResize();  
 	
-})
+})  
 
-const directionsLink  = document.querySelector('.section--directions-default .section__content');
-if(directionsLink){
-	directionsLink.addEventListener('click', () => {
-		directionsLink.classList.toggle('is-open');
+const directionsLinks  = document.querySelectorAll('.section--direction');
+if(directionsLinks){
+	directionsLinks.forEach(item => {
+		let content = item.querySelector('.section__content');
+		content.addEventListener('click', () => {
+			content.classList.toggle('is-open');
+		}) 
 	})
+	
 }
 
 const homeSlider = new Swiper('.js-mainbanner-carousel.is-interactive .swiper', {
@@ -995,6 +1112,19 @@ const homeSlider = new Swiper('.js-mainbanner-carousel.is-interactive .swiper', 
 	}}, 
 });
  
+ 
+
+document.addEventListener('keydown', (event) => {
+	if (event.key === 'Escape') { 
+		if(document.querySelector('.js-popup-show')){
+			popupApp.clear();
+		} 
+	}
+});
+
+
+
+
  
  document.querySelectorAll('.js-tabs').forEach((tab) => {
  

@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/base.min.css?_v=20240216153356">
+<link rel="stylesheet" href="assets/base.min.css?_v=20240217092224">
 </head>
 
 
@@ -50,11 +50,11 @@
 
         <div class="header__col header__col--userbar">
           <div class="userbar">
-            <div class="userbar__item userbar__item--appointment">
+            <div class="userbar__item userbar__item--appointment" onclick="popupApp.open('appointment');">
               <span class="userbar__item_icon i-appointment"></span>
             </div>
             <div class="userbar__item userbar__item--search">
-              <span class="userbar__item_icon i-search" onclick="popupApp.open('search')"></span>
+              <span class="userbar__item_icon i-search" onclick="popupApp.open('search');"></span>
             </div>
             <div class="userbar__item userbar__item--youtube">
               <a href="index.html" class="userbar__item_icon i-youtube js-search-toggle"></a>
@@ -239,7 +239,7 @@
         </div>
       -->
         <div class="header__col header__col--appointment">
-          <button class="btn">Записаться</button>
+          <button class="btn" onclick="popupApp.open('appointment');">Записаться</button>
         </div>
       </div>
 
@@ -606,7 +606,7 @@
             </form>
          </div>
          <div class="form__footer">
-            <button class="btn js-open-callback">Оставить заявку</button>
+            <button class="btn" onclick="popupApp.open('appointment');">Оставить заявку</button>
          </div>
       </div>
    </div>
@@ -909,6 +909,98 @@
 
  
 
+<div class="popup popup--window popup--appointment">
+  <div class="container">  
+  <div class="popup__inner is-custom-scrollbar">
+    
+      <div class="popup__close js-close"></div>
+    <div class="popup__content"> 
+
+
+
+      <div class="section section--no-margin section--appointment-order section--appointment-order-start is-shown">
+        <div class="section__header">
+          <div class="section__header_title">
+            <div class="h1">Записаться на прием</div>
+          </div>
+          <div class="section__header_subtitle">Выберите любой удобный способ</div>
+        </div>
+        <div class="section__footer">
+          <div class="section__footer_item">
+          <button class="btn js-open-appointment-online" type="button">Записаться онлайн на сайте</button>
+        </div>
+        <div class="section__footer_item">
+          <a href="index.html" class="btn" type="button">Записаться в Вотсап</a>
+        </div>
+        </div>
+      </div>
+
+
+
+      <div class="section section--no-margin section--appointment-order section--appointment-order-online">
+        <div class="section__back"> 
+          <span class="link link--ico link--arrow-back js-appointment-back">Выбрать другой способ</span>
+       
+      </div>
+        <div class="section__header">
+          
+          <div class="section__header_title">
+           <div class="h1">Записаться онлайн</div> 
+          </div>
+          <div class="section__header_subtitle">
+            Спасибо, что выбираете нас!<br>
+-5% на первую запись в клинике Andros Plus
+          </div>
+        </div>
+        <div class="section__content"> 
+          <div class="form form--appointment js-appointment-online-form">  
+               <form action="index.html">
+                  <div class="form__group_cols">
+                     <div class="form__group js-error-test">
+                        <div class="form__group_control">
+                           <input type="text" class="input size--lg js-input-name" placeholder="Имя">
+                        </div>
+                        <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                     </div>
+                     <div class="form__group">
+                        <div class="form__group_control">
+                           <input type="tel" class="input js-input-phone size--lg" placeholder="+7">
+                        </div>
+                        <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                     </div> 
+                  </div>
+                  <div class="form__group_cols">
+                  <div class="form__group">
+                     <div class="c_input c_input--checkbox">
+                        <input type="checkbox" id="appointment-1" name="checkbox1" checked class="c_input__control js-input-agree">
+                        <label for="appointment-1" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
+                     </div>
+                  </div>
+                  <div class="form__group">
+                    <div class="form__group_control">
+                       <button type="submit" class="btn size--lg js-submit" onclick="document.querySelector('.js-error-test').classList.add('is-error');">Отправить</button>
+                    </div>
+                 </div>
+                </div>
+
+               </form>
+             
+          
+         </div>
+
+
+
+
+
+        </div>
+      </div>
+      </div>
+      </div>
+
+</div>
+<div class="popup__layer" onclick="popupApp.clear();"></div>
+</div>
+
 
 <div class="popup popup--window popup--search">
   <div class="container">  
@@ -1004,7 +1096,7 @@
  
  <div class="mobile__userbar">
   <div class="userbar">
-    <div class="userbar__item userbar__item--appointment">
+    <div class="userbar__item userbar__item--appointment" onclick="popupApp.open('appointment');">
       <span class="userbar__item_icon i-appointment"></span>
       <div class="userbar__item_text">Запись</div>
     </div>
@@ -1012,11 +1104,11 @@
       <a href="tel:111111111" class="userbar__item_icon i-phone2"></a>
       <div class="userbar__item_text">Звонок</div>
     </div>
-    <div class="userbar__item userbar__item--search">
-      <span class="userbar__item_icon i-search" onclick="popupApp.open('search')"></span>
+    <div class="userbar__item userbar__item--search" onclick="popupApp.open('search')">
+      <span class="userbar__item_icon i-search"></span>
       <div class="userbar__item_text">Поиск</div>
     </div> 
-    <div class="userbar__item userbar__item--menu">
+    <div class="userbar__item userbar__item--menu js-toggle-mobile-nav">
       <span class="userbar__item_icon i-nav"></span>
       <div class="userbar__item_text">Меню</div>
     </div>
@@ -1032,9 +1124,9 @@
         </div>
     </div>
 </noscript>
-   <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240216153356">
-<script src="assets/plugins.min.js?_v=20240216153356"></script> 
-<script src="assets/app.js?_v=20240216153356"></script>
+   <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240217092224">
+<script src="assets/plugins.min.js?_v=20240217092224"></script> 
+<script src="assets/app.js?_v=20240217092224"></script>
 </body>
 
 </html>
