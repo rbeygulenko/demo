@@ -7,7 +7,7 @@ var core = function () {
 		init: function () { 
 		  core.initWebPcheck(); 
 		  core.initDefault(); 
-		  core.initResize();  	
+		  core.initResize(); 
 		},
 		isTouchDevice: function() {
 		  try{
@@ -17,11 +17,13 @@ var core = function () {
 			  return false;
 		  }
 		},
-		initPhoneMask: function(){ 
-
-	 
-			VMasker(document.querySelector(".js-input-phone")).maskPattern("9 (999) 999-99-99");
- 
+		initPhoneMask: function(){  
+			const inputs = document.querySelectorAll('input[type=tel]');
+			if(inputs){
+				inputs.forEach(el => {
+					VMasker(el).maskPattern("9 (999) 999-99-99");
+				})
+			} 
 		},
 		initWebPcheck: function(){
 			const elem = document.createElement('canvas'); 
@@ -71,13 +73,7 @@ var core = function () {
 					break;
 			}  
 		}, 
-		resetErrors : function(){ 
-			/*
-			$('div.is-error .input, .input.is-error').on('change keydown keyup', function(){  
-			  $(this).parents('.is-error:first').removeClass('is-error');
-		 }) 
-		 */
-		},  
+	
 		getViewPort: function () {
 			const e = window, a = 'inner';
 			 if (!('innerWidth' in window)) {a = 'client';e = document.documentElement || document.body;}
@@ -126,7 +122,7 @@ var core = function () {
 				console.log('Settings error:', error.message);
 			}
 
-			const buttonElement = settings.button && document.querySelector(settings.button);
+			const buttonElement = settings.button && document.querySelector(settings.form+' '+settings.button);
 
 			if (buttonElement) {
 				buttonElement.disabled = settings.block;
@@ -154,6 +150,82 @@ var core = function () {
 			}
   
 		}, 
+		getResetError : function(){ 
+			 
+			const handleEvent = (event) => {
+				const target = event.target; 
+				if (target.matches('div.is-error .input, .input.is-error')) {
+				  const errorParent = target.closest('.is-error');
+				  if (errorParent) {
+					 errorParent.classList.remove('is-error');
+				  }
+				}
+			 };
+			 
+			 document.addEventListener('change', handleEvent);
+			 document.addEventListener('keydown', handleEvent);
+			 document.addEventListener('keyup', handleEvent);
+		 
+		},  
+		getResetForm: function(el){
+			const form = el;
+			const inputs = Array.from(form.querySelectorAll('input,textarea,select'));
+			const errors = form.querySelectorAll('.is-error');
+			const msg = form.querySelector('.form__group--complete');
+
+			if(errors){
+				errors.forEach(el => {
+					el.classList.remove('is-error');
+				})
+			}
+			if(msg){
+				msg.classList.remove('is-shown');
+			}
+			inputs.forEach(input => { 
+				if(input.type == 'checkbox' || input.type == 'radio'){
+					input.checked = false;
+				}else{
+					input.value = '';
+				}
+			})
+		},
+		getFormValidation: function(el){
+			 
+			const form = el;
+			const inputs = Array.from(form.querySelectorAll('input[data-required]'));
+			
+			let hasError = false;
+
+			inputs.forEach(input => {
+				if (!input) {
+					return; 
+				}
+
+				const { value, checked, type, dataset } = input;
+				const errorText = dataset.errorText || 'Заполните обязательное поле'; 
+
+				let isError = (value == '' || (!checked && type === 'checkbox'));
+
+				if (type === 'email') { 
+					const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+					isError = isError || !emailRegex.test(value);
+				}
+
+				if (isError) {
+					const errorElement = input.closest('.form__group').querySelector('.form__group_hint');
+					if(errorElement){
+						errorElement.textContent = errorText;
+					}
+					input.closest('.form__group').classList.add('is-error');
+					hasError = true; 
+				} else {
+					input.closest('.form__group').classList.remove('is-error');
+				}
+			}); 
+			 
+			return hasError;
+			   
+		},
 		initFormRestrictRules: function(){
 			const uiFormInputRestrict = document.querySelectorAll('*[data-allow]');
 			uiFormInputRestrict.length && uiFormInputRestrict.forEach(item => {
@@ -178,7 +250,7 @@ var core = function () {
 					}
 				});
 			});
-		},  
+		},   
 		initDefault: function(){
 
 			$html.classList.remove('no-js')	  
@@ -195,9 +267,7 @@ var core = function () {
 			core.initFormRestrictRules(); // init custom restricts for inputs
 			core.initClearHandlers();
 			core.initPhoneMask(); 
-
-		  
-		  core.resetErrors(); // check forms
+			core.getResetError(); 
 		}
 	};
 }();
@@ -267,6 +337,16 @@ var popupApp = function () {
 			if($body.classList.contains('js-popup-show')){
 				popupApp.clear();
 			} 
+		 
+			const popupForm = document.querySelector('.popup--'+popup+ ' form');
+
+			if(popupForm){
+				core.getResetForm(popupForm);
+			}
+			if(popup == 'appointment'){
+				appointmentApp.resetWindows();
+			}
+			
 			popupApp.center(popup);
 		}  
 	};
@@ -710,9 +790,6 @@ const componentsApp = function () {
 	};
 }();
 
-
- 
- 
  
 // menu app
 const menuApp = function () {  
@@ -798,122 +875,12 @@ const menuApp = function () {
 
 
 
-const appointmentApp = (function () {
-	
-	const selectors = {
-	  sectionStart: '.section--appointment-order-start',
-	  sectionOnline: '.section--appointment-order-online',
-	  btnShowOnline: '.js-open-appointment-online',
-	  btnGoBack: '.js-appointment-back',
-	  form: '.js-appointment-online-form',
-	};
- 
-	const toggleSections = (showStart, showOnline) => () => {
-	  document.querySelector(selectors.sectionStart).classList.toggle('is-shown', showStart);
-	  document.querySelector(selectors.sectionOnline).classList.toggle('is-shown', showOnline);
-	};
- 
-	const addClickListener = (element, showStart, showOnline) => {
-	  const targetElement = document.querySelector(element);
-	  if (targetElement) {
-		 targetElement.addEventListener('click', toggleSections(showStart, showOnline));
-	  }
-	};
- 
-	return {
-	  init: function () {
-		 this.initFormSelect();
-		 this.validate();
-	  },
-	  validate: function(){
-	
-		
-		const form = document.querySelector(selectors.form);
-
-		form.addEventListener('submit', function(e) {
-			e.preventDefault();
-
-			const nameInput = form.querySelector('.js-input-name');
-			const phoneInput = form.querySelector('.js-input-phone');
-			let nameError = false;
-			let phoneError = false;
-
-			if (nameInput.value === '') {
-				nameInput.closest('.form__group').classList.add('is-error');
-				nameError = true;
-			} else {
-				nameInput.closest('.form__group').classList.remove('is-error');
-			}
-
-			if (phoneInput.value === '') {
-				phoneInput.closest('.form__group').classList.add('is-error');
-				phoneError = true;
-			} else {
-				phoneInput.closest('.form__group').classList.remove('is-error');
-			}
-
-
-			if(nameError || phoneError){
-				return
-			}
- 
-			// TEST: ajax simulation
-			core.loader(); 
-
-			setTimeout(function(){
-				
-				core.loader('hide'); 
-
-			}, 2000);
-
-			/*
-			const formData = new URLSearchParams(new FormData(form));
-
-			const requestOptions = {
-				method: 'POST',
-				body: formData,
-			};
-
-			fetch('/client_account/feedback.json', requestOptions)
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Network response was not ok');
-					}
-					return response.json();
-				})
-				.then(data => {
-					// success
-				})
-				.catch(error => { 
-					// console.error('Error:', error);
-				})
-				.finally(() => {
-					// done logic
-					core.loader('hide'); 
-				});
-			*/
-
-		 
-		});
-
-
-
-	  },
-	  initFormSelect: function () {
-		 const { btnShowOnline, btnGoBack } = selectors;
-		 addClickListener(btnShowOnline, false, true);
-		 addClickListener(btnGoBack, true, false);
-	  },
-	};
- })();
-
- 
 function menuHandlerLevelOne(e) { 
 	e.preventDefault();  
 	let item = e.target.parentElement;  
 	let elements = [...document.querySelectorAll('.js-mainmenu .mainMenu__item.is-dd ')];
 	let otherElements = elements.filter(function(element) {
-	return element !== item;
+		return element !== item;
 	}); 
 
 	if(otherElements.length){
@@ -952,11 +919,196 @@ function menuHandlerLevelTwo(e){
 
 
 
+
+const appointmentApp = (function () {
+	const selectors = {
+		sectionStart: '.section--appointment-order-start',
+		sectionOnline: '.section--appointment-order-online',
+		sectionComplete: '.section--appointment-order-complete',
+		btnShowOnline: '.js-open-appointment-online',
+		btnGoBack: '.js-appointment-back',
+		form: '.js-appointment-online-form',
+	};
+
+	const toggleSections = (showStart, showOnline) => () => {
+		document.querySelector(selectors.sectionStart).classList.toggle('is-shown', showStart);
+		document.querySelector(selectors.sectionOnline).classList.toggle('is-shown', showOnline);
+	};
+
+	const addClickListener = (element, showStart, showOnline) => {
+		const targetElement = document.querySelector(element);
+		if (targetElement) {
+			targetElement.addEventListener('click', toggleSections(showStart, showOnline));
+		}
+	};
+
+	const initFormSelect = () => {
+		const { btnShowOnline, btnGoBack } = selectors;
+		addClickListener(btnShowOnline, false, true);
+		addClickListener(btnGoBack, true, false);
+	};
+	const resetWindows = () => {
+		const { sectionStart, sectionOnline, sectionComplete } = selectors;
+		document.querySelector(sectionStart).classList.add('is-shown');
+		document.querySelector(sectionOnline).classList.remove('is-shown');
+		document.querySelector(sectionComplete).classList.remove('is-shown');
+	}
+	const initComplete = () => {
+		const { sectionStart, sectionOnline, sectionComplete } = selectors;
+		document.querySelector(sectionStart).classList.remove('is-shown');
+		document.querySelector(sectionOnline).classList.remove('is-shown');
+		document.querySelector(sectionComplete).classList.add('is-shown');
+		//core.loader('hide');
+		core.uiFormBlock({'form': selectors.form, 'block': false});
+		setTimeout(() => {
+			popupApp.clear(); 
+			resetWindows();
+		}, 4000);
+	};
+
+	const initSubmit = () => {
+		const form = document.querySelector(selectors.form);
+
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			// validate form
+			if (core.getFormValidation(form)) {
+				return;
+			} 
+			core.uiFormBlock({'form': selectors.form, 'button': '.btn--submit'});
+			// DEMO: ajax simulation (DEL ME)
+			//core.loader();
+
+			setTimeout(() => {
+				initComplete(); 
+				core.loader('hide');
+			}, 2000);
+			/*
+			// send form data example
+			const formData = new URLSearchParams(new FormData(form));
+
+			const requestOptions = {
+				method: 'POST',
+				body: formData,
+			};
+
+			fetch('/client_account/feedback.json', requestOptions)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json();
+				})
+				.then(data => {
+					// success
+				})
+				.catch(error => {
+					// console.error('Error:', error);
+				})
+				.finally(() => {
+					// done logic
+					core.loader('hide');
+				});
+			*/
+		});
+	};
+
+	return {
+		init: function () {
+			initFormSelect();
+			initSubmit();
+		},
+		resetWindows: resetWindows
+	};
+})();
+
+
+
+
+const callbackApp = (function () {
+	
+	const form = document.querySelector('.js-form-callback');
+	const successMsg = document.querySelector('.js-form-callback .form__group--complete');
+	 
+	const initSubmit = () => { 
+		
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			// validate form
+			if (core.getFormValidation(form)) {
+				return;
+			} 
+			core.uiFormBlock({'form': '.js-form-callback', 'button': '.btn--submit'});
+			// DEMO: ajax simulation (DEL ME)
+			//core.loader();
+
+			setTimeout(() => {
+				initComplete(); 
+				//core.loader('hide');
+			}, 2000);
+			/*
+			// send form data example
+			const formData = new URLSearchParams(new FormData(form));
+
+			const requestOptions = {
+				method: 'POST',
+				body: formData,
+			};
+
+			fetch('/client_account/feedback.json', requestOptions)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json();
+				})
+				.then(data => {
+					// success
+				})
+				.catch(error => {
+					// console.error('Error:', error);
+				})
+				.finally(() => {
+					// done logic
+					core.loader('hide');
+				});
+			*/
+		});
+	};
+
+	const initComplete = () => {
+		if(successMsg){
+			successMsg.classList.add('is-shown');
+		}
+		core.loader('hide');
+		core.uiFormBlock({'form': '.js-form-callback', 'block': false});
+		setTimeout(() => { 
+			core.getResetForm(form);
+		}, 4000);
+	};
+
+	return {
+		init: function () { 
+			initSubmit();
+		} 
+	};
+})();
+
+
+ 
+
 // init apps
 core.init(); 
 menuApp.init();
 componentsApp.init();
 appointmentApp.init();
+
+if(document.querySelector('.js-form-callback')){
+	callbackApp.init()
+}
+
 
 
 const cardsCarousel = document.querySelectorAll('.js-cards-carousel');

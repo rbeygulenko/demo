@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/base.min.css?_v=20240217092224">
+<link rel="stylesheet" href="assets/base.min.css?_v=20240217121756">
 </head>
 
 
@@ -459,32 +459,35 @@
             </div>
          </div>
          <div class="form__content">
-            <form action="index.html">
+            <form action="index.html" class="js-form-callback">
                <div class="form__group_cols">
-                  <div class="form__group js-error-test">
+                  <div class="form__group">
                      <div class="form__group_control">
-                        <input type="text" class="input size--lg" required placeholder="Имя">
+                        <input type="text" class="input size--lg" data-required placeholder="Имя">
                      </div>
-                     <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                     <div class="form__group_hint is-hidden"></div>
                   </div>
                   <div class="form__group">
                      <div class="form__group_control">
-                        <input type="tel" class="input js-input-phone size--lg" required>
+                        <input type="tel" class="input size--lg" data-required placeholder="+ 7">
                      </div>
-                     <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                     <div class="form__group_hint is-hidden"></div>
                   </div>
                   <div class="form__group">
                      <div class="form__group_control">
-                        <button type="submit" class="btn size--lg" onclick="document.querySelector('.js-error-test').classList.add('is-error');">Отправить</button>
+                        <button type="submit" class="btn btn--submit size--lg">Отправить</button>
                      </div>
                   </div>
                </div>
-               <div class="form__group">
+               <div class="form__group form__group--nomargin">
                   <div class="c_input c_input--checkbox">
-                     <input type="checkbox" id="checkbox-1" name="checkbox1" checked required class="c_input__control">
+                     <input type="checkbox" data-required id="checkbox-1" name="checkbox1" checked class="c_input__control">
                      <label for="checkbox-1" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на
                         обработку ваших персональных данных</label>
                   </div>
+               </div>
+               <div class="form__group form__group--complete">
+                  <div class="alert alert--no-border alert--success">Сообщение успешно отправлено, спасибо!</div>
                </div>
             </form>
          </div>
@@ -690,6 +693,21 @@
       </div>
 
 
+      <div class="section section--no-margin section--appointment-order section--appointment-order-complete">
+        <div class="section__header">
+          <div class="section__header_title">
+            <div class="h1">Записаться онлайн</div>
+          </div>
+          <div class="section__header_subtitle">
+            <p>Спасибо, что выбираете нас!</p>
+
+<p>Менеджер свяжется с вами в ближайшее время
+для уточнения деталей записи</p>
+          </div>
+        </div> 
+      </div>
+
+
 
       <div class="section section--no-margin section--appointment-order section--appointment-order-online">
         <div class="section__back"> 
@@ -710,29 +728,37 @@
           <div class="form form--appointment js-appointment-online-form">  
                <form action="index.html">
                   <div class="form__group_cols">
-                     <div class="form__group js-error-test">
+                     <div class="form__group">
                         <div class="form__group_control">
-                           <input type="text" class="input size--lg js-input-name" placeholder="Имя">
+                           <input type="text" class="input size--lg" data-required placeholder="Имя">
                         </div>
-                        <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                        <div class="form__group_hint is-hidden"></div>
                      </div>
                      <div class="form__group">
                         <div class="form__group_control">
-                           <input type="tel" class="input js-input-phone size--lg" placeholder="+7">
+                           <input type="tel" class="input size--lg" data-required data-error-text="своя ошибка для поля" placeholder="+7">
                         </div>
-                        <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                        <div class="form__group_hint is-hidden"></div>
                      </div> 
+                     <!--
+                     <div class="form__group">
+                      <div class="form__group_control">
+                         <input type="email" class="input js-input-email size--lg" data-error-text="неправильный формат email" data-required placeholder="+7">
+                      </div>
+                      <div class="form__group_hint is-hidden">Заполните обязательное поле</div>
+                   </div> 
+                   -->
                   </div>
-                  <div class="form__group_cols">
+                  <div class="form__group_cols form__group_cols--agree">
                   <div class="form__group">
                      <div class="c_input c_input--checkbox">
-                        <input type="checkbox" id="appointment-1" name="checkbox1" checked class="c_input__control js-input-agree">
+                        <input type="checkbox" data-required id="appointment-1" name="checkbox1" checked class="c_input__control">
                         <label for="appointment-1" class="c_input__label">Кликая на кнопку «Отправить» вы соглашаетесь на обработку ваших персональных данных</label>
                      </div>
                   </div>
                   <div class="form__group">
                     <div class="form__group_control">
-                       <button type="submit" class="btn size--lg js-submit" onclick="document.querySelector('.js-error-test').classList.add('is-error');">Отправить</button>
+                       <button type="submit" class="btn btn--submit size--lg">Отправить</button>
                     </div>
                  </div>
                 </div>
@@ -878,9 +904,9 @@
         </div>
     </div>
 </noscript>
-   <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240217092224">
-<script src="assets/plugins.min.js?_v=20240217092224"></script> 
-<script src="assets/app.js?_v=20240217092224"></script>
+   <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240217121756">
+<script src="assets/plugins.min.js?_v=20240217121756"></script> 
+<script src="assets/app.js?_v=20240217121756"></script>
 </body>
 
 </html>

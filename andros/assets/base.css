@@ -1347,11 +1347,11 @@ select.input {
   font-weight: 300;
   line-height: 1.4375rem
 }
-.form .form__group:not(:last-child) {
+.form .form__group {
   margin-bottom: 15px
 }
 @media(min-width:992px) {
-  .form .form__group:not(:last-child) {
+  .form .form__group {
     margin-bottom: var(--layout-gap)
   }
 }
@@ -1378,16 +1378,39 @@ select.input {
   overflow: hidden;
   opacity: 0
 }
-.form .form__group_cols {
-  margin: 0 -6px;
-  margin-bottom: var(--layout-gap);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between
-}
-.form .form__group_cols .form__group {
-  padding: 0 6px;
+.form .form__group--nomargin,
+.form .form__group:last-child {
   margin-bottom: 0
+}
+.form .form__group--complete {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all .3s
+}
+.form .form__group--complete.is-shown {
+  padding-top: var(--layout-gap);
+  height: auto;
+  opacity: 1
+}
+.form .form__group_cols {
+  margin-bottom: var(--layout-gap)
+}
+@media(min-width:576px) {
+  .form .form__group_cols {
+    margin: 0 -6px;
+    margin-bottom: var(--layout-gap);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between
+  }
+  .form .form__group_cols .form__group {
+    padding: 0 6px;
+    margin-bottom: 0
+  }
+}
+.form .form__group_cols--agree {
+  align-items: center
 }
 .form--search .form__group--query {
   transition: all .3s
@@ -1428,6 +1451,9 @@ select.input {
 }
 .form--search .form__group--query .form__group_hint {
   font-size: 20px
+}
+.form--appointment .form__group_control {
+  text-align: center
 }
 .r_input {
   position: relative
@@ -3976,7 +4002,12 @@ SECTIONS & Blocks
   text-align: center
 }
 .section--appointment-order .section__back {
-  margin-bottom: 30px
+  margin-bottom: 20px
+}
+@media(min-width:576px) {
+  .section--appointment-order .section__back {
+    margin-bottom: 30px
+  }
 }
 .section--appointment-order .section__footer {
   margin-bottom: 30px;
@@ -4880,6 +4911,15 @@ POPUPS
 .popup--window .container {
   padding: 0;
   height: 100%
+}
+@media(max-width:575.98px) {
+  .popup--appointment .popup__inner {
+    justify-content: flex-start
+  }
+  .popup--appointment .section--appointment-order-complete,
+  .popup--appointment .section--appointment-order-start {
+    padding-top: 45px
+  }
 }
 .popup--appointment .btn {
   width: auto
