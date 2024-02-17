@@ -3825,7 +3825,7 @@ SECTIONS & Blocks
 @media(min-width:768px) {
   .section--main-banner .homeBanner {
     padding-top: 150px;
-    background: url(mobile-home-banner-left.svg) no-repeat left bottom var(--color-secondary);
+    background: url(home-banner-left.svg) no-repeat left bottom var(--color-secondary);
     background-size: contain
   }
 }
