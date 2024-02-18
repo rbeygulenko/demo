@@ -9,6 +9,12 @@ var core = function () {
 		  core.initDefault(); 
 		  core.initResize(); 
 		},
+		isHasIOSline: function(){
+			const hasHomeIndicator = window.safeAreaInsets && window.safeAreaInsets.bottom > 0;
+			if (hasHomeIndicator) {
+				$body.classList.add('is-iosline');
+			} 
+		},
 		isTouchDevice: function() {
 		  try{
 			  document.createEvent("TouchEvent");
@@ -263,6 +269,7 @@ var core = function () {
 			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
 				menuApp.hoverIntent(); 
 			}
+			core.isHasIOSline();
 			core.loader('create'); // create loader in DOM
 			core.initFormRestrictRules(); // init custom restricts for inputs
 			core.initClearHandlers();
