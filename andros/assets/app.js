@@ -198,8 +198,9 @@ var core = function () {
 		getFormValidation: function(el){
 			 
 			const form = el;
-			const inputs = Array.from(form.querySelectorAll('input[data-required]'));
-			
+			const inputs = Array.from(form.querySelectorAll('[data-required]'));
+			const radioGroups = {};
+
 			let hasError = false;
 
 			inputs.forEach(input => {
@@ -216,12 +217,27 @@ var core = function () {
 					const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 					isError = isError || !emailRegex.test(value);
 				}
+  
+				
+				/*
+				if (type === 'tel') { 
+					const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+					isError = isError || !phoneRegex.test(value);
+				}
+				*/
 
 				if (isError) {
-					const errorElement = input.closest('.form__group').querySelector('.form__group_hint');
-					if(errorElement){
-						errorElement.textContent = errorText;
+					const hintContainer = input.closest('.form__group').querySelector('.form__group_hints'); 
+					const hintError = input.closest('.form__group').querySelector('.form__group_hints .hint__item--error');
+					if(hintContainer){
+						if(!hintError){ 
+							const errorContainer = document.createElement('div');
+							errorContainer.className = 'hint__item hint__item--error';
+							hintContainer.prepend(errorContainer);
+							errorContainer.textContent = errorText 
+						} 
 					}
+					
 					input.closest('.form__group').classList.add('is-error');
 					hasError = true; 
 				} else {
@@ -476,34 +492,61 @@ const componentsApp = function () {
 			});
 		},
 		tabs: function(){
-			/*
-			$('.js-tabs').each(function(){
-				const el = $(this);
-				const links = el.find('*[data-tab]');
-				let settings = {"type":"accordeon", "transform": true, "breakpoint": 576, "carousel": false }
-				
-				try { 
-					$.extend(settings, JSON.parse(el.attr('data-settings')));
-				} catch (error) { 
-					console.log('tabs component error: ', error)
-				}   
+		 
+			document.querySelectorAll('.js-tabs').forEach((el) => {
+				const links = el.querySelectorAll('*[data-tab]');
+				let settings = {"type": "tabs", "breakpoint": 576, "carousel": false };
+		  
+				try {
+					 const dataSettings = el.getAttribute('data-settings');
+					 if (dataSettings) {
+						  settings = { ...settings, ...JSON.parse(dataSettings) };
+					 }
+				} catch (error) {
+					 console.log('tabs component error: ', error);
+				}
+		  console.log(settings.type)
+				el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
+					const target = element.dataset.tab;
+					const newItem = document.createElement('div');
+					newItem.className = 'r_tabs__item_title';
+					newItem.setAttribute('data-tab', target);
+					newItem.textContent = element.textContent;
+		 
+					const existingChild = el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild;
+					el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(newItem, existingChild);
+			  });
+		  
+				el.querySelectorAll('*[data-tab]').forEach((tab) => {
+					 tab.addEventListener('click', () => {
+						  const id = tab.dataset.tab;
 
-				
-				
-				el.find('.js-tabs-links > *').each(function(){
-					let element = $(this);
-					console.log(element)
-					let target = element.data('tab');
-					el.find('*[data-tab-target=' + target + ']').prepend('<div class="r_tabs__item_title" data-tab="'+target+'">'+element.text()+'</div>');
+						  if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
+							tab.closest('.js-tabs').classList.toggle('is-selected');
+							el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
+						  }else{
+							el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
+									item.classList.remove('is-selected');
+							});
+							tab.closest('.js-tabs').classList.add('is-selected');
+							el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
+						  }
+						  /*
+						  if(settings.type == 'tabs' || core.getViewPort().width > settings.breakpoint){
+								el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
+										item.classList.remove('is-selected');
+								});
+								tab.closest('.js-tabs').classList.add('is-selected');
+								el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
+						}else{
+							tab.closest('.js-tabs').classList.toggle('is-selected');
+							el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
+						}
+						*/
+					 });
 				});
-
-				el.find('*[data-tab]').on('click', function(){
-					let id = $(this).data('tab');
-					el.find('[data-tab], [data-tab-target]').removeClass('is-selected');
-					$(this).add('*[data-tab-target=' + id + ']').addClass('is-selected');
-				});
-			});
-			*/
+		  });
+			 
 		},
 		/*
 		Tabs: function(element){
@@ -1074,32 +1117,18 @@ const appointmentApp = (function () {
 })();
 
 
-
-
-const callbackApp = (function () {
-	
-	const form = document.querySelector('.js-form-callback');
-	const successMsg = document.querySelector('.js-form-callback .form__group--complete');
+const formHandlerApp = (function () {
+	let form, formSelector; 
 	 
-	const initSubmit = () => { 
-		
-		form.addEventListener('submit', function (e) {
-			e.preventDefault();
+	const initSubmit = (el) => { 
+			form = document.querySelector(formSelector); // initialize form here 
+			if (core.getFormValidation(form)) return; 
+			core.uiFormBlock({'form': formSelector, 'button': '[type=submit]'}); 
 
-			// validate form
-			if (core.getFormValidation(form)) {
-				return;
-			} 
-			core.uiFormBlock({'form': '.js-form-callback', 'button': '.btn--submit'});
 			// DEMO: ajax simulation (DEL ME)
-			//core.loader();
+			setTimeout(initComplete, 2000);
 
-			setTimeout(() => {
-				initComplete(); 
-				//core.loader('hide');
-			}, 2000);
 			/*
-			// send form data example
 			const formData = new URLSearchParams(new FormData(form));
 
 			const requestOptions = {
@@ -1107,7 +1136,7 @@ const callbackApp = (function () {
 				body: formData,
 			};
 
-			fetch('/client_account/feedback.json', requestOptions)
+			fetch(address, requestOptions)
 				.then(response => {
 					if (!response.ok) {
 						throw new Error('Network response was not ok');
@@ -1125,29 +1154,49 @@ const callbackApp = (function () {
 					core.loader('hide');
 				});
 			*/
-		});
+		
 	};
 
 	const initComplete = () => {
+		form = document.querySelector(formSelector);
+		const successMsg = form.querySelector('.form__group--complete');
 		if(successMsg){
 			successMsg.classList.add('is-shown');
 		}
-		core.loader('hide');
-		core.uiFormBlock({'form': '.js-form-callback', 'block': false});
-		setTimeout(() => { 
-			core.getResetForm(form);
-		}, 4000);
+		core.uiFormBlock({'form': formSelector, 'block': false});
+		setTimeout(() => core.getResetForm(form), 4000);
 	};
-
+  
 	return {
-		init: function () { 
+		init: function (el, addr = '') {
+			formSelector = el;
 			initSubmit();
-		} 
-	};
+		},
+		initComplete
+	}
 })();
 
+document.addEventListener('DOMContentLoaded', function () {
 
- 
+	// init demo form
+	const demoForm = document.querySelector('.js-test-form');
+	if(demoForm){
+		demoForm.addEventListener('submit', function (e) {
+			e.preventDefault();
+			formHandlerApp.init('.js-test-form');
+		});
+	}
+	
+	// init callbackform
+	const formCallback = document.querySelector('.js-form-callback');
+	if(formCallback){
+		formCallback.addEventListener('submit', function (e) {
+			e.preventDefault();
+			formHandlerApp.init('.js-form-callback');
+		});
+	}
+
+})
 
 // init apps
 core.init(); 
@@ -1155,11 +1204,7 @@ menuApp.init();
 componentsApp.init();
 appointmentApp.init();
 
-if(document.querySelector('.js-form-callback')){
-	callbackApp.init()
-}
-
-
+ 
 
 const cardsCarousel = document.querySelectorAll('.js-cards-carousel');
 
@@ -1324,7 +1369,12 @@ document.addEventListener('keydown', (event) => {
 	}
 });
 
-
+const toastBtn = document.getElementById('show-toast-button');
+if(toastBtn){
+	toastBtn.addEventListener('click', () => { 
+		componentsApp.toast('This is a simple toast message!');
+	});
+}
 
 
  
