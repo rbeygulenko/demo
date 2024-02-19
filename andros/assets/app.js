@@ -375,80 +375,6 @@ var popupApp = function () {
 	};
 }();
 
-
- /*
-class TabsComponent {
-	constructor(element) {
-	  this.el = $(element);
-	  this.links = this.el.find('*[data-tab]');
-	  this.settings = { "type": "tabs", "transform": true, "breakpoint": 576, "carousel": false };
- 
-	  try {
-		 $.extend(this.settings, JSON.parse(this.el.attr('data-settings')));
-	  } catch (error) {
-		 console.log('tabs component error: ', error);
-	  }
- 
-	  this.init();
-	}
- 
-	setAccordion() {
-	  this.el.find('.js-tabs-links .r_tabs__item_title').each((index, element) => {
-		 let target = $(element).data('tab');
-		 this.el.find('*[data-tab-target=' + target + ']').prepend(element);
-	  });
-	}
- 
-	setTabs() {
-	  const tabsLinks = this.el.find('.js-tabs-links');
-	  if (tabsLinks.length === 0) {
-		 this.el.prepend('<div class="r_tabs__links js-tabs-links"></div>');
-	  }
-	  this.el.find('.js-tabs-links').html(this.links);
- 
-	  this.el.find('[data-tab], [data-tab-target]').removeClass('is-selected');
-	  let firstID = this.el.find('.js-tabs-links .r_tabs__item_title:first').attr('data-tab');
-	  this.el.find('*[data-tab-target=' + firstID + '],*[data-tab=' + firstID + ']').addClass('is-selected');
-	}
- 
-	tabClick() {
-	  this.el.find('*[data-tab]').off().on('click', (event) => {
-		 let id = $(event.currentTarget).data('tab');
-		 if (this.settings.type == 'tabs' && this.settings.transform && core.getViewPort().width > this.settings.breakpoint) {
-			this.el.find('[data-tab], [data-tab-target]').removeClass('is-selected');
-			this.el.find('*[data-tab-target=' + id + '],*[data-tab=' + id + ']').addClass('is-selected');
-		 } else {
-			this.el.find('*[data-tab-target=' + id + '],*[data-tab=' + id + ']').toggleClass('is-selected');
-		 }
-	  });
-	}
- 
-	init() {
-	  if (this.settings.type == 'tabs') {
-		 if (this.settings.transform) {
-			$(window).on('load resize', () => {
-			  (core.getViewPort().width > this.settings.breakpoint) ? this.setTabs() : this.setAccordion();
-			  this.tabClick();
-			});
-		 } else {
-			this.setTabs();
-			this.tabClick();
-		 }
-	  }
- 
-	  if (this.settings.type == 'accordeon') {
-		 this.tabClick();
-	  }
-	}
- }
- 
- $('.js-tabs').each((index, element) => {
-	new TabsComponent(element);
- });
- */
-
- 
-
  
 // components app
 const componentsApp = function () {  
@@ -461,17 +387,9 @@ const componentsApp = function () {
 			//componentsApp.accordeon();
 			componentsApp.qty();
 			componentsApp.tabs();
+			componentsApp.fancybox();
 			componentsApp.readProgress();
 			componentsApp.initFloatActions();
-
-
-			// UI: fancybox init
-			const uiFancyboxGallery = document.querySelectorAll('*[data-fancybox]')
-			if(uiFancyboxGallery.length){
-				Fancybox.bind("[data-fancybox]", {});
-			} 	
-
-
 		}, 
 		fixedHeader: function(){ 
 			const header = document.querySelector('.header');
@@ -491,246 +409,106 @@ const componentsApp = function () {
 				lastScrollTop = scrollTop;
 			});
 		},
+		fancybox: function(){
+			Array.from(document.querySelectorAll('*[data-fancybox]')).forEach(element => {
+				Fancybox.bind(element, {});
+		   });	
+		},
 		tabs: function(){
+
+	 
 		 
 			document.querySelectorAll('.js-tabs').forEach((el) => {
-				const links = el.querySelectorAll('*[data-tab]');
-				let settings = {"type": "tabs", "breakpoint": 576, "carousel": false };
-		  
-				try {
-					 const dataSettings = el.getAttribute('data-settings');
-					 if (dataSettings) {
-						  settings = { ...settings, ...JSON.parse(dataSettings) };
-					 }
-				} catch (error) {
-					 console.log('tabs component error: ', error);
-				}
-		  console.log(settings.type)
-				el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
-					const target = element.dataset.tab;
-					const newItem = document.createElement('div');
-					newItem.className = 'r_tabs__item_title';
-					newItem.setAttribute('data-tab', target);
-					newItem.textContent = element.textContent;
-		 
-					const existingChild = el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild;
-					el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(newItem, existingChild);
-			  });
-		  
-				el.querySelectorAll('*[data-tab]').forEach((tab) => {
-					 tab.addEventListener('click', () => {
-						  const id = tab.dataset.tab;
+					const links = el.querySelectorAll('*[data-tab]');
+					const settings = {
+						type: "tabs",
+						breakpoint: 576,
+						carousel: false,
+						...JSON.parse(el.getAttribute('data-settings') || '{}'),
+					}; 
+					if(settings.type == 'accordeon'){
+						el.classList.remove('r_tabs--tabs');
+						el.classList.add('r_tabs--accordeon')
+					}
+					el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
+						const target = element.dataset.tab;
+						const newItem = el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(
+							document.createElement('div'),
+							el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild
+						);
 
-						  if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
-							tab.closest('.js-tabs').classList.toggle('is-selected');
-							el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
-						  }else{
-							el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
-									item.classList.remove('is-selected');
-							});
-							tab.closest('.js-tabs').classList.add('is-selected');
-							el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
-						  }
-						  /*
-						  if(settings.type == 'tabs' || core.getViewPort().width > settings.breakpoint){
+						newItem.className = 'r_tabs__item_title';
+						newItem.setAttribute('data-tab', target);
+						newItem.textContent = element.textContent;
+					});
+ 
+					el.querySelectorAll('*[data-tab]').forEach((tab) => {
+						tab.addEventListener('click', () => {
+							const id = tab.dataset.tab; 
+							if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
+								tab.closest('[data-tab]').classList.toggle('is-selected');
+								el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
+							}else{
 								el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
-										item.classList.remove('is-selected');
+									item.classList.remove('is-selected');
+								});
+								tab.closest('[data-tab]').classList.add('is-selected');
+								el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
+							} 
+						});
+					});
+
+					if (settings.type === 'tabs' && core.getViewPort().width > settings.breakpoint) {
+						document.querySelector('.r_tabs__links [data-tab]:first-child').classList.add('is-selected');
+						document.querySelector('.r_tabs__wrapper [data-tab-target]:first-child').classList.add('is-selected');
+					}
+				});
+			 
+
+			/*
+			const tabsEl = document.querySelectorAll('.js-tabs');
+			if(tabsEl){ 
+				tabsEl.forEach((el) => {
+					const links = el.querySelectorAll('*[data-tab]');
+					let settings = {"type": "tabs", "breakpoint": 576, "carousel": false };
+				
+					try {
+						const dataSettings = el.getAttribute('data-settings');
+						if (dataSettings) {
+							settings = { ...settings, ...JSON.parse(dataSettings) };
+						}
+					} catch (error) {
+						console.log('tabs component error: ', error);
+					} 
+					el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
+						const target = element.dataset.tab;
+						const newItem = document.createElement('div');
+						newItem.className = 'r_tabs__item_title';
+						newItem.setAttribute('data-tab', target);
+						newItem.textContent = element.textContent; 
+						const existingChild = el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild;
+						el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(newItem, existingChild);
+					});
+				
+					el.querySelectorAll('*[data-tab]').forEach((tab) => {
+						tab.addEventListener('click', () => {
+							const id = tab.dataset.tab; 
+							if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
+								tab.closest('.js-tabs').classList.toggle('is-selected');
+								el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
+							}else{
+								el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
+									item.classList.remove('is-selected');
 								});
 								tab.closest('.js-tabs').classList.add('is-selected');
 								el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
-						}else{
-							tab.closest('.js-tabs').classList.toggle('is-selected');
-							el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
-						}
-						*/
-					 });
-				});
-		  });
-			 
-		},
-		/*
-		Tabs: function(element){
-			const el = document.querySelector(element);
-			const links = el.querySelectorAll('*[data-tab]');
-			const settings = { "type": "tabs", "transform": true, "breakpoint": 576, "carousel": false };
-
-			try {
-				Object.assign(settings, JSON.parse(el.getAttribute('data-settings')));
-			} catch (error) {
-				console.log('tabs component error: ', error);
-			}
-
-			const setAccordion = () => {
-				el.querySelectorAll('.js-tabs-links .r_tabs__item_title').forEach((element) => {
-					const target = element.dataset.tab;
-					el.querySelectorAll('*[data-tab-target=' + target + ']').forEach((targetElement) => {
-					targetElement.prepend(element.cloneNode(true));
-					});
-				});
-			};
-
-			const setTabs = () => {
-				const tabsLinks = el.querySelector('.js-tabs-links');
-				if (!tabsLinks) {
-					const tabsLinksContainer = document.createElement('div');
-					tabsLinksContainer.className = 'r_tabs__links js-tabs-links';
-					el.prepend(tabsLinksContainer);
-				}
-
-				tabsLinks.innerHTML = '';
-				links.forEach((link) => {
-					tabsLinks.appendChild(link.cloneNode(true));
-				});
-
-				el.querySelectorAll('[data-tab], [data-tab-target]').forEach((element) => {
-					element.classList.remove('is-selected');
-				});
-
-				const firstID = el.querySelector('.js-tabs-links .r_tabs__item_title:first-child').dataset.tab;
-				el.querySelectorAll('*[data-tab-target=' + firstID + '],*[data-tab=' + firstID + ']').forEach((element) => {
-					element.classList.add('is-selected');
-				});
-			};
-
-			const tabClick = (event) => {
-				const id = event.currentTarget.dataset.tab;
-				if (settings.type == 'tabs' && settings.transform && core.getViewPort().width > settings.breakpoint) {
-					el.querySelectorAll('[data-tab], [data-tab-target]').forEach((element) => {
-					element.classList.remove('is-selected');
-					});
-					el.querySelectorAll('*[data-tab-target=' + id + '],*[data-tab=' + id + ']').forEach((element) => {
-					element.classList.add('is-selected');
-					});
-				} else {
-					el.querySelectorAll('*[data-tab-target=' + id + '],*[data-tab=' + id + ']').forEach((element) => {
-					element.classList.toggle('is-selected');
-					});
-				}
-			};
-
-			const init = () => {
-				if (settings.type == 'tabs') {
-					if (settings.transform) {
-					window.addEventListener('load', handleResize);
-					window.addEventListener('resize', handleResize);
-					} else {
-					setTabs();
-					el.querySelectorAll('*[data-tab]').forEach((tab) => {
-						tab.addEventListener('click', tabClick);
-					});
-					}
-				}
-
-				if (settings.type == 'accordeon') {
-					el.querySelectorAll('*[data-tab]').forEach((tab) => {
-					tab.addEventListener('click', tabClick);
-					});
-				}
-			};
-
-			const handleResize = () => {
-				(core.getViewPort().width > settings.breakpoint) ? setTabs() : setAccordion();
-				el.querySelectorAll('*[data-tab]').forEach((tab) => {
-					tab.removeEventListener('click', tabClick);
-				});
-				el.querySelectorAll('*[data-tab]').forEach((tab) => {
-					tab.addEventListener('click', tabClick);
-				});
-			};
-
-			init();
-		},
-		*/
-		/*
-		Tabs: function(element){
-			this.el = $(element);
-			this.links = this.el.find('*[data-tab]');
-			this.settings = { "type": "tabs", "transform": true, "breakpoint": 576, "carousel": false };
-		 
-			try {
-			  $.extend(this.settings, JSON.parse(this.el.attr('data-settings')));
-			} catch (error) {
-			  console.log('tabs component error: ', error);
-			}
-		 
-			this.setAccordion = () => {
-			  this.el.find('.js-tabs-links .r_tabs__item_title').each((index, element) => {
-				 let target = $(element).data('tab');
-				 this.el.find('*[data-tab-target=' + target + ']').prepend(element);
-			  });
-			};
-		 
-			this.setTabs = () => {
-			  const tabsLinks = this.el.find('.js-tabs-links');
-			  if (tabsLinks.length === 0) {
-				 this.el.prepend('<div class="r_tabs__links js-tabs-links"></div>');
-			  }
-			  this.el.find('.js-tabs-links').html(this.links);
-		 
-			  this.el.find('[data-tab], [data-tab-target]').removeClass('is-selected');
-			  let firstID = this.el.find('.js-tabs-links .r_tabs__item_title:first').attr('data-tab');
-			  this.el.find('*[data-tab-target=' + firstID + '],*[data-tab=' + firstID + ']').addClass('is-selected');
-			};
-		 
-			this.tabClick = () => {
-			  this.el.find('*[data-tab]').off().on('click', (event) => {
-				 let id = $(event.currentTarget).data('tab');
-				 if (this.settings.type == 'tabs' && this.settings.transform && core.getViewPort().width > this.settings.breakpoint) {
-					this.el.find('[data-tab], [data-tab-target]').removeClass('is-selected');
-					this.el.find('*[data-tab-target=' + id + '],*[data-tab=' + id + ']').addClass('is-selected');
-				 } else {
-					this.el.find('*[data-tab-target=' + id + '],*[data-tab=' + id + ']').toggleClass('is-selected');
-				 }
-			  });
-			};
-		 
-			this.init = () => {
-			  if (this.settings.type == 'tabs') {
-				 if (this.settings.transform) {
-					$(window).on('load resize', () => {
-					  (core.getViewPort().width > this.settings.breakpoint) ? this.setTabs() : this.setAccordion();
-					  this.tabClick();
-					});
-				 } else {
-					this.setTabs();
-					this.tabClick();
-				 }
-			  }
-		 
-			  if (this.settings.type == 'accordeon') {
-				 this.tabClick();
-			  }
-			};
-		 
-			this.init();
-		}, 
-		*/
-		/*
-		accordeon: function(){  
-			const el = document.querySelectorAll('.js-accordeon');
-			if(el){
-				el.forEach((item) => {
-					let settings = { "close": false };
-				 
-					try {
-					  Object.assign(settings, JSON.parse(item.dataset.settings || '{}'));
-					} catch (error) {
-					  console.log('accordeon component error: ', error);
-					}
-				 
-					item.querySelectorAll('[data-acc]').forEach((title) => {
-					  title.addEventListener('click', () => {
-						 let id = title.dataset.acc;
-						 if (settings.close) {
-							item.querySelectorAll('[data-acc-target]').forEach((acc) => acc.classList.remove('is-selected'));
-						 }
-						 item.querySelector(`[data-acc-target="${id}"]`).classList.toggle('is-selected');
-					  });
+							} 
+						});
 					});
 				});
 			}  
-		},
-		*/ 
+			*/
+		}, 
 		scrollToTarget: function(){
 			const el =  document.querySelectorAll('*[data-scroll]')
 			if (el) {
@@ -839,7 +617,7 @@ const componentsApp = function () {
 
 			const floatActions = document.querySelector('.js-float-actions');
 			const hideFloat = () => {
-				//localStorage.setItem('float-actions', 'hide');
+				localStorage.setItem('float-actions', 'hide');
 				floatActions.classList.remove('is-shown');
 			};
 
@@ -1280,10 +1058,34 @@ if(benefitsCarousel){
 	})
 }
 
+const benefitsPlasticCarousel = document.querySelectorAll('.js-benefits-plastic-carousel');
 
+if(benefitsPlasticCarousel){ 
+	benefitsPlasticCarousel.forEach(card => { 
+		let carousel = card.querySelector('.swiper');
+		let btnNext = card.querySelector('.js-button-right');
+		let btnPrev = card.querySelector('.js-button-left');
 
+		const productsCarousel = new Swiper(carousel, { 
+			spaceBetween:20,
+			slidesPerView:1,
+			speed:600,  
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: true
+			},
+			breakpoints: { 
+			0: {spaceBetween:10},
+			576: {spaceBetween:20,slidesPerView:1},
+			992: {spaceBetween:20,slidesPerView:2},
+				1200: {slidesPerView:3}  
+			},
+			navigation: {nextEl: btnNext ,prevEl: btnPrev},
+		});
+	})
+}
 
-
+ 
 const beforeCarousel = document.querySelectorAll('.js-beforeafter-carousel');
 
 if(beforeCarousel){ 
