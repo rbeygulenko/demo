@@ -636,19 +636,19 @@ h6 {
 h1 {
   --min: 25px;
   --val: 3.12vw;
-  --max: 50px
+  --max: 38px
 }
 .h2,
 h2 {
   --min: 22px;
   --val: 2.5vw;
-  --max: 40px
+  --max: 30px
 }
 .h3,
 h3 {
   --min: 18px;
   --val: 1.875vw;
-  --max: 30px
+  --max: 24px
 }
 .h4,
 .h5,
@@ -671,6 +671,20 @@ h6 {
   --min: 16px;
   --val: 1.125vw;
   --max: 18px
+}
+@media(max-width:767.98px) {
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500
+  }
 }
 /*! base tags style */
 a {
@@ -914,7 +928,7 @@ FORMS
   transition: all .25s;
   font-size: 16px;
   padding: 0 24px;
-  height: 50px;
+  height: 44px;
   border: 0;
   border-radius: 10px;
   box-sizing: border-box
@@ -1628,26 +1642,26 @@ select.input {
 }
 .size--sm {
   font-size: inherit;
-  height: 40px
+  height: 38px
 }
 .size--md {
   font-size: inherit;
-  height: 50px
+  height: 44px
 }
 @media(min-width:576px) {
   .size--lg {
     font-size: 18px;
     padding: 0 clamp(1.3rem,2vw,2rem);
-    height: 60px
+    height: 52px
   }
   .size--xl,
   .size--xxl {
     font-size: 18px;
     padding: 0 clamp(1.5rem,2.2vw,2.5rem);
-    height: 70px
+    height: 62px
   }
   .size--xxl {
-    height: 80px
+    height: 72px
   }
 }
 /*!
@@ -1892,11 +1906,6 @@ HELPERS
   font-size: 16px;
   margin-bottom: var(--editor-margin)
 }
-@media(min-width:1200px) {
-  .r_table {
-    font-size: 20px
-  }
-}
 .r_table .items .item {
   display: flex;
   align-items: center;
@@ -1927,20 +1936,20 @@ HELPERS
 }
 .r_table--prices .items .prices .price {
   font-weight: 400;
-  font-size: 13px
+  font-size: 12px
 }
 @media(min-width:576px) {
   .r_table--prices .items .prices .price {
-    font-size: 16px
+    font-size: 14px
   }
 }
 .r_table--prices .items .prices .price--default {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500
 }
 @media(min-width:576px) {
   .r_table--prices .items .prices .price--default {
-    font-size: 20px
+    font-size: 16px
   }
 }
 .r_table--prices .items .prices + .price {
@@ -2563,7 +2572,7 @@ HEADER
 }
 @media(min-width:1200px)and (min-width:1480px) {
   .header .mainMenu {
-    font-size: 18px
+    font-size: 16px
   }
 }
 @media(min-width:1200px) {
@@ -2652,7 +2661,7 @@ HEADER
     }
   }
   .header .mainMenu .mainMenu__item .nav--level-1 .nav__item:not(:last-child) {
-    margin-bottom: 20px
+    margin-bottom: 15px
   }
   .header .mainMenu .mainMenu__item.is-dd {
     position: relative;
@@ -2677,15 +2686,16 @@ HEADER
     right: -38px
   }
   .header .mainMenu .mainMenu__item.is-dd--full .nav--level-1 .nav__inner {
+    width: 100%;
     display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
-    gap: 45px 160px
+    grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+    gap: 35px 30px
   }
   .header .mainMenu .mainMenu__item.is-dd--full .nav--level-1 .nav__item.is-dd > .nav__item_link {
-    font-size: min(max(1.125rem,1.875vw),1.875rem);
+    font-size: min(max(1.125rem,1.375vw),1.375rem);
+    font-weight: 500;
     line-height: 100%;
-    font-weight: 400;
     margin-bottom: 23px;
     transition: all .3s
   }
@@ -2848,8 +2858,7 @@ SECTIONS & Blocks
 ------------------------------------------
 */
 .content-wrap {
-  padding-top: 75px;
-  padding-bottom: min(max(3.125rem,4.375vw),4.375rem)
+  padding-top: 75px
 }
 @media(min-width:1200px) {
   .content-wrap {
@@ -2865,7 +2874,7 @@ SECTIONS & Blocks
 }
 .page .page__header {
   position: relative;
-  margin-bottom: min(max(1.25rem,3.125vw),3.125rem)
+  margin-bottom: min(max(1.25rem,2.5vw),2.5rem)
 }
 .page .page__header .page__header_title > * {
   margin-bottom: 0
@@ -2884,7 +2893,7 @@ SECTIONS & Blocks
 }
 @media(min-width:1200px) {
   .page .page__submenu {
-    margin-bottom: min(max(1.25rem,3.125vw),3.125rem);
+    margin-bottom: min(max(1.25rem,2.5vw),2.5rem);
     position: relative;
     transition: all .3s;
     min-height: 62px;
@@ -2898,7 +2907,7 @@ SECTIONS & Blocks
 }
 .section .section__header {
   position: relative;
-  margin-bottom: min(max(1.25rem,3.125vw),3.125rem)
+  margin-bottom: min(max(1.25rem,2.5vw),2.5rem)
 }
 .section .section__header .section__header_title > * {
   margin-bottom: 0
@@ -2990,14 +2999,11 @@ SECTIONS & Blocks
 }
 @media(min-width:1200px) {
   .cardsGrid .card .card__title {
-    margin-bottom: 20px
+    margin-bottom: 13px
   }
 }
 .cardsGrid .card .card__title > * {
   font-weight: 500;
-  --min: 1.25rem;
-  --val: 1.56vw;
-  --max: 1.5625rem;
   margin-bottom: 0
 }
 .cardsGrid .card .card__title a {
@@ -3022,7 +3028,7 @@ SECTIONS & Blocks
 }
 @media(min-width:1200px) {
   .cardsGrid .card .card__description p:not(:last-child) {
-    margin-bottom: 15px
+    margin-bottom: 10px
   }
 }
 .cardsGrid--default {
@@ -3161,8 +3167,8 @@ SECTIONS & Blocks
   font-weight: 400;
   line-height: normal;
   --min: 1.375rem;
-  --val: 2.5vw;
-  --max: 30px
+  --val: 1.62vw;
+  --max: 1.625rem
 }
 @media(max-width:991.98px) {
   .cardsGrid--appointments .card .card__description {
@@ -3348,10 +3354,14 @@ SECTIONS & Blocks
   height: 100%;
   padding: 25px 20px;
   border-radius: 20px;
-  border: 1px solid var(--body-text)
+  border: 1px solid var(--body-text);
+  font-size: 14px
 }
 .benefits .benefits__item .h3 {
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  --val: 1.25vw;
+  --max: 1.25rem;
+  font-weight: 500
 }
 .benefits .swiper__buttons {
   display: none
@@ -3606,7 +3616,7 @@ SECTIONS & Blocks
 }
 /*! search results */
 .search__results {
-  padding-top: min(max(1.25rem,3.125vw),3.125rem)
+  padding-top: min(max(1.25rem,2.5vw),2.5rem)
 }
 .search__results .search__results_label {
   color: var(--color-main);
@@ -3799,11 +3809,11 @@ SECTIONS & Blocks
   justify-content: center
 }
 .directions .directions__item {
-  margin: 0 10px 10px 0
+  margin: 0 6px 6px 0
 }
 @media(min-width:992px) {
   .directions .directions__item {
-    margin: 0 10px 20px 10px
+    margin: 0 6px 12px 6px
   }
 }
 .directions .directions__item .btn {
@@ -4028,8 +4038,13 @@ SECTIONS & Blocks
 }
 @media(min-width:768px) {
   .section--main-banner {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     margin-bottom: 50px
+  }
+}
+@media(min-width:992px) {
+  .section--main-banner {
+    padding-bottom: 50px
   }
 }
 .section--main-banner .logo__banner {
@@ -4058,7 +4073,7 @@ SECTIONS & Blocks
 }
 @media(min-width:1200px) {
   .section--main-banner .logo__banner {
-    left: 50%;
+    left: 50.5%;
     margin-top: 50px
   }
 }
@@ -4073,7 +4088,7 @@ SECTIONS & Blocks
 }
 @media(min-width:992px) {
   .section--main-banner .homeBanner {
-    height: min(max(580px,53vw),53.125rem)
+    height: min(max(580px,53vw),680px)
   }
 }
 @media(min-width:1200px) {
@@ -4136,7 +4151,7 @@ SECTIONS & Blocks
 }
 @media(min-width:1200px) {
   .section--main-banner .homeBanner::after {
-    width: 50%;
+    width: 49.5%;
     height: calc(100% + 50px)
   }
 }
@@ -4294,8 +4309,7 @@ SECTIONS & Blocks
 }
 @media(min-width:1480px) {
   .section--submenu .nav {
-    font-size: 18px;
-    font-weight: 600
+    font-weight: 500
   }
 }
 .section--submenu .nav .nav__item {
@@ -4308,7 +4322,7 @@ SECTIONS & Blocks
   position: absolute;
   font-size: 13px;
   right: 0;
-  top: 6px;
+  top: 4px;
   font-weight: 400;
   font-family: var(--font-icons);
   content: ""
@@ -4459,7 +4473,7 @@ body:not(.is-fixed-header) .section--submenu .container {
 .section--before-after .r_box {
   text-transform: uppercase;
   text-align: center;
-  font-size: min(max(17px,1.75vw),1.75rem)
+  font-size: 16px
 }
 /*! section directions-search */
 .section--directions-search .section__header {
@@ -4505,8 +4519,13 @@ body:not(.is-fixed-header) .section--submenu .container {
     font-weight: 500
   }
 }
-.section--callback .section__header .section__header_title br {
-  display: none
+@media(max-width:1479.98px) {
+  .section--callback .section__header .section__header_title br {
+    display: none
+  }
+}
+.section--callback .section__content {
+  flex: 1
 }
 @media(min-width:1480px) {
   .section--callback .section__inner {
@@ -4515,7 +4534,7 @@ body:not(.is-fixed-header) .section--submenu .container {
   }
   .section--callback .section__header {
     margin-bottom: 0;
-    flex: 0 0 560px;
+    flex: 0 0 460px;
     padding-right: 20px
   }
   .section--callback .section__header h3 {
@@ -4525,11 +4544,6 @@ body:not(.is-fixed-header) .section--submenu .container {
 @media(max-width:767.98px) {
   .section--callback .form .form__content {
     display: none
-  }
-}
-@media(min-width:1480px) {
-  .section--callback .form .form__content {
-    display: flex
   }
 }
 .section--callback .form .form__group {
@@ -4713,10 +4727,6 @@ body:not(.is-fixed-header) .section--submenu .container {
   top: 50%;
   margin-top: -37px
 }
-/*! section carousel */
-.section--carousel .section__header {
-  margin-bottom: 50px
-}
 /*! section grid mods */
 .section--no-padding {
   padding: 0
@@ -4783,19 +4793,19 @@ FOOTER
 }
 @media(min-width:1480px) {
   .footer .nav {
-    font-size: 1.125em
+    font-size: 17px
   }
 }
-.footer .nav .nav__item:not(:last-child):not(.nav__item--title) {
-  margin-bottom: 14px
+.footer .nav .nav__item:not(:first-child):not(.nav__item--title) {
+  padding-top: 10px
 }
 .footer .nav .nav__item--title {
-  font-size: min(max(1em,1.875vw),1.875em);
-  margin-bottom: 15px
+  font-size: min(max(1rem,1.4375vw),1.375rem);
+  margin-bottom: .9375rem
 }
 @media(min-width:1480px) {
   .footer .nav .nav__item--title {
-    margin-bottom: 20px
+    margin-bottom: 18px
   }
 }
 .footer .nav .nav__item .nav__item_link:hover {
@@ -4812,7 +4822,7 @@ FOOTER
   padding: 0 15px
 }
 .footer .footer__info {
-  font-size: 1.25em
+  font-size: 18px
 }
 .footer .footer__info .footer__info_item {
   margin-bottom: 20px
@@ -4909,7 +4919,7 @@ FOOTER
 }
 @media(min-width:992px) {
   .footer .footer__row--bottom {
-    padding-top: min(max(1.875rem,5vw),5rem)
+    padding-top: min(max(1.875rem,2.5vw),2.5rem)
   }
 }
 .footer .footer__row--bottom .footer__col--links {
@@ -4925,7 +4935,7 @@ FOOTER
 }
 @media(min-width:992px) {
   .footer .footer__row--bottom .footer__col--links {
-    margin-bottom: 35px
+    margin-bottom: 20px
   }
 }
 .footer .footer__row--bottom .footer__col--links .nav {
