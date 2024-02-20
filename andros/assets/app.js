@@ -128,11 +128,10 @@ var core = function () {
 				console.log('Settings error:', error.message);
 			}
 
-			const buttonElement = settings.button && document.querySelector(settings.form+' '+settings.button);
+			const buttonElement = settings.button && document.querySelector(settings.button);
 
 			if (buttonElement) {
-				buttonElement.disabled = settings.block;
-
+				buttonElement.disabled = settings.block; 
 				if (settings.block) {
 					const buttonText = buttonElement.textContent;
 					buttonElement.innerHTML = `
@@ -146,8 +145,8 @@ var core = function () {
 					buttonElement.classList.remove('is-loading');
 				}
 			} else if (!settings.block) {
-				//document.querySelector('.is-loading')?.classList.remove('is-loading');
-				document.querySelector('.is-loading').classList.remove('is-loading');
+				document.querySelector('.is-loading')?.classList.remove('is-loading');
+				//document.querySelector('.is-loading').classList.remove('is-loading');
 			}
 
 			if (settings.form) {
@@ -156,9 +155,8 @@ var core = function () {
 			}
   
 		}, 
-		getResetError : function(){ 
-			 
-			const handleEvent = (event) => {
+		getResetError : function(){  
+			const handleEvent = (event) => { 
 				const target = event.target; 
 				if (target.matches('div.is-error .input, .input.is-error')) {
 				  const errorParent = target.closest('.is-error');
@@ -205,7 +203,7 @@ var core = function () {
 
 			inputs.forEach(input => {
 				if (!input) {
-					return; 
+					return;
 				}
 
 				const { value, checked, type, dataset } = input;
@@ -216,9 +214,7 @@ var core = function () {
 				if (type === 'email') { 
 					const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 					isError = isError || !emailRegex.test(value);
-				}
-  
-				
+				} 
 				/*
 				if (type === 'tel') { 
 					const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
@@ -383,12 +379,11 @@ const componentsApp = function () {
 			popupApp.init();
 			componentsApp.scrollToTop();
 			componentsApp.scrollToTarget();
-			componentsApp.fixedHeader(); 
-			//componentsApp.accordeon();
+			componentsApp.fixedHeader();  
 			componentsApp.qty();
 			componentsApp.tabs();
 			componentsApp.fancybox();
-			componentsApp.readProgress();
+			//componentsApp.readProgress();
 			componentsApp.initFloatActions();
 		}, 
 		fixedHeader: function(){ 
@@ -409,105 +404,55 @@ const componentsApp = function () {
 				lastScrollTop = scrollTop;
 			});
 		},
-		fancybox: function(){
-			Array.from(document.querySelectorAll('*[data-fancybox]')).forEach(element => {
-				Fancybox.bind(element, {});
-		   });	
+		fancybox: function(){ 
+			Fancybox.bind('*[data-fancybox]', {});
 		},
 		tabs: function(){
-
-	 
-		 
 			document.querySelectorAll('.js-tabs').forEach((el) => {
-					const links = el.querySelectorAll('*[data-tab]');
-					const settings = {
-						type: "tabs",
-						breakpoint: 576,
-						carousel: false,
-						...JSON.parse(el.getAttribute('data-settings') || '{}'),
-					}; 
-					if(settings.type == 'accordeon'){
-						el.classList.remove('r_tabs--tabs');
-						el.classList.add('r_tabs--accordeon')
-					}
-					el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
-						const target = element.dataset.tab;
-						const newItem = el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(
-							document.createElement('div'),
-							el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild
-						);
+				const links = el.querySelectorAll('*[data-tab]');
+				const settings = {
+					type: "tabs",
+					breakpoint: 576,
+					carousel: false,
+					...JSON.parse(el.getAttribute('data-settings') || '{}'),
+				}; 
+				if(settings.type == 'accordeon'){
+					el.classList.remove('r_tabs--tabs');
+					el.classList.add('r_tabs--accordeon')
+				}
+				el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
+					const target = element.dataset.tab;
+					const newItem = el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(
+						document.createElement('div'),
+						el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild
+					);
 
-						newItem.className = 'r_tabs__item_title';
-						newItem.setAttribute('data-tab', target);
-						newItem.textContent = element.textContent;
-					});
- 
-					el.querySelectorAll('*[data-tab]').forEach((tab) => {
-						tab.addEventListener('click', () => {
-							const id = tab.dataset.tab; 
-							if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
-								tab.closest('[data-tab]').classList.toggle('is-selected');
-								el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
-							}else{
-								el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
-									item.classList.remove('is-selected');
-								});
-								tab.closest('[data-tab]').classList.add('is-selected');
-								el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
-							} 
-						});
-					});
-
-					if (settings.type === 'tabs' && core.getViewPort().width > settings.breakpoint) {
-						document.querySelector('.r_tabs__links [data-tab]:first-child').classList.add('is-selected');
-						document.querySelector('.r_tabs__wrapper [data-tab-target]:first-child').classList.add('is-selected');
-					}
+					newItem.className = 'r_tabs__item_title';
+					newItem.setAttribute('data-tab', target);
+					newItem.textContent = element.textContent;
 				});
-			 
 
-			/*
-			const tabsEl = document.querySelectorAll('.js-tabs');
-			if(tabsEl){ 
-				tabsEl.forEach((el) => {
-					const links = el.querySelectorAll('*[data-tab]');
-					let settings = {"type": "tabs", "breakpoint": 576, "carousel": false };
-				
-					try {
-						const dataSettings = el.getAttribute('data-settings');
-						if (dataSettings) {
-							settings = { ...settings, ...JSON.parse(dataSettings) };
-						}
-					} catch (error) {
-						console.log('tabs component error: ', error);
-					} 
-					el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
-						const target = element.dataset.tab;
-						const newItem = document.createElement('div');
-						newItem.className = 'r_tabs__item_title';
-						newItem.setAttribute('data-tab', target);
-						newItem.textContent = element.textContent; 
-						const existingChild = el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild;
-						el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(newItem, existingChild);
-					});
-				
-					el.querySelectorAll('*[data-tab]').forEach((tab) => {
-						tab.addEventListener('click', () => {
-							const id = tab.dataset.tab; 
-							if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
-								tab.closest('.js-tabs').classList.toggle('is-selected');
-								el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
-							}else{
-								el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
-									item.classList.remove('is-selected');
-								});
-								tab.closest('.js-tabs').classList.add('is-selected');
-								el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
-							} 
-						});
+				el.querySelectorAll('*[data-tab]').forEach((tab) => {
+					tab.addEventListener('click', () => {
+						const id = tab.dataset.tab; 
+						if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
+							tab.closest('[data-tab]').classList.toggle('is-selected');
+							el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
+						}else{
+							el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
+								item.classList.remove('is-selected');
+							});
+							tab.closest('[data-tab]').classList.add('is-selected');
+							el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
+						} 
 					});
 				});
-			}  
-			*/
+
+				if (settings.type === 'tabs' && core.getViewPort().width > settings.breakpoint) {
+					document.querySelector('.r_tabs__links [data-tab]:first-child').classList.add('is-selected');
+					document.querySelector('.r_tabs__wrapper [data-tab-target]:first-child').classList.add('is-selected');
+				}
+			}); 
 		}, 
 		scrollToTarget: function(){
 			const el =  document.querySelectorAll('*[data-scroll]')
@@ -515,12 +460,17 @@ const componentsApp = function () {
 				el.forEach(item => {
 					item.addEventListener('click', () => {
 					const header = document.querySelector('.header').offsetHeight;
+					const subheader = document.querySelector('.section--submenu').offsetHeight / 2;
+					let minusHeight = header;
+					if(subheader){
+						minusHeight = header + subheader;
+					}
 					const target = item.getAttribute('data-scroll');
 					const targetElement = document.querySelector(`.${target}`);
 				
 					if (targetElement) {
 						window.scrollTo({
-							top: targetElement.offsetTop - header,
+							top: targetElement.offsetTop - minusHeight,
 							behavior: 'smooth'
 						});
 					}
@@ -593,6 +543,7 @@ const componentsApp = function () {
 				}, 400);
 			 }, duration); 
 		},
+		/*
 		readProgress: function(){
 			if (document.querySelectorAll('.js-read-progress').length) {
 
@@ -613,6 +564,7 @@ const componentsApp = function () {
 				document.addEventListener('scroll', processScroll);
 			 } 
 		 },
+		 */
 		 initFloatActions: function(){
 
 			const floatActions = document.querySelector('.js-float-actions');
@@ -662,7 +614,7 @@ const componentsApp = function () {
 }();
 
  
-// menu app
+// menuApp
 const menuApp = function () {  
 	return {
 		init: function () { 
@@ -745,7 +697,6 @@ const menuApp = function () {
 }(); 
 
 
-
 function menuHandlerLevelOne(e) { 
 	e.preventDefault();  
 	let item = e.target.parentElement;  
@@ -786,11 +737,7 @@ function menuHandlerLevelTwo(e){
 	$body.classList.toggle('is-menu-show-2');
 }
 
-
-
-
-
-
+// appointmentApp
 const appointmentApp = (function () {
 	const selectors = {
 		sectionStart: '.section--appointment-order-start',
@@ -894,45 +841,83 @@ const appointmentApp = (function () {
 	};
 })();
 
-
+// formHandlerApp
 const formHandlerApp = (function () {
 	let form, formSelector; 
 	 
 	const initSubmit = (el) => { 
 			form = document.querySelector(formSelector); // initialize form here 
 			if (core.getFormValidation(form)) return; 
-			core.uiFormBlock({'form': formSelector, 'button': '[type=submit]'}); 
+			if(formSelector === '.js-form-search' || formSelector === '.js-form-search-popup'){
+				core.uiFormBlock({'form': formSelector}); 
+			}else{ 
+				core.uiFormBlock({'form': formSelector, 'button': '.btn--submit'}); 
+			} 
 
-			// DEMO: ajax simulation (DEL ME)
-			setTimeout(initComplete, 2000);
-
-			/*
 			const formData = new URLSearchParams(new FormData(form));
-
 			const requestOptions = {
 				method: 'POST',
 				body: formData,
-			};
+			}; 
 
-			fetch(address, requestOptions)
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Network response was not ok');
-					}
-					return response.json();
-				})
-				.then(data => {
-					// success
-				})
-				.catch(error => {
-					// console.error('Error:', error);
-				})
-				.finally(() => {
-					// done logic
-					core.loader('hide');
-				});
-			*/
-		
+			if(formSelector === '.js-form-search' || formSelector === '.js-form-search-popup'){
+				core.loader();
+				sendSearch('/search.json', requestOptions);
+			} 
+			if(formSelector === '.js-form-callback'){
+				core.loader();
+				sendCallback('/callback.json', requestOptions);
+			} 
+			if(formSelector === '.js-test-form'){
+				sendTestForm('/test.json', requestOptions);
+			} 
+
+			
+			
+	};
+
+	// send search data
+	const sendSearch = (addr, requestOptions) => {
+		setTimeout(function(){
+			initComplete();
+			core.loader('hide');
+		}, 2000); 
+
+ 		/*
+		!!!! EXAMPLE REQUEST
+		fetch(addr, requestOptions)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then(data => {
+				// success
+			})
+			.catch(error => {
+				// console.error('Error:', error);
+			})
+			.finally(() => {
+				// done logic
+				core.loader('hide');
+			});
+		*/
+	};
+
+	// send callback data
+	const sendCallback = (addr, requestOptions) => {
+		setTimeout(function(){
+			initComplete();
+			core.loader('hide');
+		}, 2000);  
+	};
+
+	// send callback data
+	const sendTestForm = (addr, requestOptions) => {
+		setTimeout(function(){
+			initComplete(); 
+		}, 2000);  
 	};
 
 	const initComplete = () => {
@@ -948,9 +933,9 @@ const formHandlerApp = (function () {
 	return {
 		init: function (el, addr = '') {
 			formSelector = el;
-			initSubmit();
+			initSubmit(); 
 		},
-		initComplete
+		initComplete 
 	}
 })();
 
@@ -974,6 +959,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
+	// init search forms
+	const formSearch = document.querySelectorAll('.js-form-search');
+	if(formSearch){
+		formSearch.forEach(search => { 
+			search.addEventListener('submit', function (e) {
+				e.preventDefault();
+				formHandlerApp.init('.js-form-search');
+			});
+		}) 
+	}
+
+	const formSearchPopup = document.querySelectorAll('.js-form-search-popup');
+	if(formSearchPopup){
+		formSearchPopup.forEach(search => { 
+			search.addEventListener('submit', function (e) {
+				e.preventDefault();
+				formHandlerApp.init('.js-form-search-popup');
+			});
+		}) 
+	}
+
 })
 
 // init apps
@@ -982,10 +988,32 @@ menuApp.init();
 componentsApp.init();
 appointmentApp.init();
 
+
+// mobile toggle sections
+const toggleSections = document.querySelectorAll('.section--toggle');
+if(toggleSections){
+	toggleSections.forEach((el) => {
+		let title = el.querySelector('[data-toggle-title]');
+		let content = el.querySelector('[data-toggle-content]');
+		title.addEventListener('click', function () {
+		  el.classList.toggle('is-open');
+		}); 
+	 });
+}
+
+// directions links
+const directionsLinks  = document.querySelectorAll('.section--direction');
+if(directionsLinks){
+	directionsLinks.forEach(item => {
+		let content = item.querySelector('.section__content');
+		content.addEventListener('click', () => {
+			content.classList.toggle('is-open');
+		}) 
+	})
+}
  
-
+// cards carousel
 const cardsCarousel = document.querySelectorAll('.js-cards-carousel');
-
 if(cardsCarousel){ 
 	cardsCarousel.forEach(card => { 
 		let carousel = card.querySelector('.swiper');
@@ -1006,9 +1034,8 @@ if(cardsCarousel){
 	})
 }
 
-
+// docs carousel
 const docsCarousel = document.querySelectorAll('.js-docs-carousel');
-
 if(docsCarousel){ 
 	docsCarousel.forEach(card => { 
 		let carousel = card.querySelector('.swiper');
@@ -1030,8 +1057,8 @@ if(docsCarousel){
 	})
 }
 
+// benefits carousel
 const benefitsCarousel = document.querySelectorAll('.js-benefits-carousel');
-
 if(benefitsCarousel){ 
 	benefitsCarousel.forEach(card => { 
 		let carousel = card.querySelector('.swiper');
@@ -1058,8 +1085,8 @@ if(benefitsCarousel){
 	})
 }
 
+// benefits Plastic Carousel
 const benefitsPlasticCarousel = document.querySelectorAll('.js-benefits-plastic-carousel');
-
 if(benefitsPlasticCarousel){ 
 	benefitsPlasticCarousel.forEach(card => { 
 		let carousel = card.querySelector('.swiper');
@@ -1085,9 +1112,8 @@ if(benefitsPlasticCarousel){
 	})
 }
 
- 
+// before carousel
 const beforeCarousel = document.querySelectorAll('.js-beforeafter-carousel');
-
 if(beforeCarousel){ 
 	beforeCarousel.forEach(card => { 
 		let carousel = card.querySelector('.swiper');
@@ -1102,10 +1128,8 @@ if(beforeCarousel){
 	})
 }
 
-
- 
+// top carousel
 const topCarousel = document.querySelectorAll('.js-top-carousel');
-
 if(topCarousel){ 
 	topCarousel.forEach(card => { 
 		let carousel = card.querySelector('.swiper');
@@ -1125,25 +1149,8 @@ if(topCarousel){
 		});
 	})
 }
- 
 
-// resize events
-window.addEventListener('resize', () => {
-	core.initResize();  
-	
-})  
-
-const directionsLinks  = document.querySelectorAll('.section--direction');
-if(directionsLinks){
-	directionsLinks.forEach(item => {
-		let content = item.querySelector('.section__content');
-		content.addEventListener('click', () => {
-			content.classList.toggle('is-open');
-		}) 
-	})
-	
-}
-
+// home main slider
 const homeSlider = new Swiper('.js-mainbanner-carousel.is-interactive .swiper', {
 	speed:600, 
 	//autoHeight: true,
@@ -1161,8 +1168,14 @@ const homeSlider = new Swiper('.js-mainbanner-carousel.is-interactive .swiper', 
 	}}, 
 });
  
- 
 
+// resize events
+window.addEventListener('resize', () => {
+	core.initResize();  
+	
+})  
+
+// ESC handler
 document.addEventListener('keydown', (event) => {
 	if (event.key === 'Escape') { 
 		if(document.querySelector('.js-popup-show')){
@@ -1170,20 +1183,3 @@ document.addEventListener('keydown', (event) => {
 		} 
 	}
 });
-
-const toastBtn = document.getElementById('show-toast-button');
-if(toastBtn){
-	toastBtn.addEventListener('click', () => { 
-		componentsApp.toast('This is a simple toast message!');
-	});
-}
-
-
- 
- document.querySelectorAll('.js-tabs').forEach((tab) => {
- 
-	// new componentsApp.Tabs(tab);
- });
-
- 
-
