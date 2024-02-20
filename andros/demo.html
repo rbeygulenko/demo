@@ -12,8 +12,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/base.min.css?_v=20240220095914">
-    <link rel="stylesheet" href="assets/page-demo.min.css?_v=20240220095914">
+<link rel="stylesheet" href="assets/base.min.css?_v=20240220134242">
+    <link rel="stylesheet" href="assets/page-demo.min.css?_v=20240220134242">
 </head>
 
 <body class="js-read-progress">
@@ -543,7 +543,7 @@
                             </div>
                         </div>
                         <div class="section__content">
-                            <div class="r_tabs r_tabs--tabs js-tabs">
+                            <div class="r_tabs r_tabs--tabs js-tabs" data-settings="{'type':'tabs'}">
    <div class="r_tabs__links js-tabs-links">
       <div class="r_tabs__links_title" data-tab="1">Вкладка 1</div>
       <div class="r_tabs__links_title" data-tab="2">Вкладка 2</div>
@@ -706,13 +706,13 @@
                             <div class="grid__item">
                                 <h3>Тестовые обработчики</h3>
                                 <div class="demo__btns">
-                                    <button class="btn" type="button" onclick="core.uiFormBlock({form: ".js-test-form"});">блок: форма</button>
-                                    <button class="btn" type="button" onclick="core.uiFormBlock({form: ".js-test-form", button: ".btn--submit"});">блок:
+                                    <button class="btn" type="button" onclick='core.uiFormBlock({form: ".js-test-form"});'>блок: форма</button>
+                                    <button class="btn" type="button" onclick='core.uiFormBlock({form: ".js-test-form", button: ".btn--submit"});'>блок:
                                         форма + аминация</button>
-                                    <button class="btn" type="button" onclick="core.uiFormBlock({form: ".js-test-form", block: false});">анблок: вся
+                                    <button class="btn" type="button" onclick='core.uiFormBlock({form: ".js-test-form", block: false});'>анблок: вся
                                         форма</button>
-                                    <button class="btn" type="button" onclick="core.uiFormBlock({button: ".btn--submit"});">блок: кнопка</button>
-                                    <button class="btn" type="button" onclick="core.uiFormBlock({button: ".btn--submit", block: false});">анблок:кнопка</button>
+                                    <button class="btn" type="button" onclick='core.uiFormBlock({button: ".btn--submit"});'>блок: кнопка</button>
+                                    <button class="btn" type="button" onclick='core.uiFormBlock({button: ".btn--submit", block: false});'>анблок:кнопка</button>
 
 
                                 </div>
@@ -1180,9 +1180,9 @@
     </div>
   </div>
 </noscript>
-    <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240220095914">
-<script src="assets/plugins.min.js?_v=20240220095914"></script> 
-<script src="assets/app.js?_v=20240220095914"></script>
+    <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240220134242">
+<script src="assets/plugins.min.js?_v=20240220134242"></script> 
+<script src="assets/app.js?_v=20240220134242"></script>
     <script>
         // demo open toast
         const toastBtn = document.getElementById('show-toast-button');

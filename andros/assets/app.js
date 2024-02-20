@@ -1046,7 +1046,7 @@ if(docsCarousel){
 			spaceBetween:20,
 			slidesPerView:1,
 			breakpoints: { 
-			0: {spaceBetween:10},
+			0: {slidesPerView:1,spaceBetween:10},
 			576: {spaceBetween:20,slidesPerView:2},
 			992: {spaceBetween:20,slidesPerView:3},
 				1200: {slidesPerView:2},
