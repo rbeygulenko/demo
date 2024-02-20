@@ -3510,12 +3510,6 @@ SECTIONS & Blocks
 .r_textblock--halign-center {
   align-items: center
 }
-/*! section video*/
-@media(max-width:767.98px) {
-  .index__page .section--video {
-    margin-bottom: 0
-  }
-}
 @media(max-width:1199.98px) {
   .section--toggle {
     margin-bottom: 35px
