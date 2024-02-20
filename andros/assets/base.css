@@ -2585,6 +2585,9 @@ HEADER
   .header .mainMenu .mainMenu__item:last-child {
     margin-right: 0
   }
+  .header .mainMenu .mainMenu__item .mainMenu__item_link {
+    transition: all .3s
+  }
   .header .mainMenu .mainMenu__item .badge {
     min-width: 46px;
     border: 1px solid var(--body-text);
@@ -3074,6 +3077,14 @@ SECTIONS & Blocks
     object-fit: cover
   }
 }
+.cardsGrid--action {
+  gap: 30px 20px
+}
+@media(min-width:1200px) {
+  .cardsGrid--action {
+    gap: 40px 30px
+  }
+}
 .cardsGrid--action .card .card__image {
   height: auto
 }
@@ -3086,9 +3097,9 @@ SECTIONS & Blocks
   letter-spacing: .7px
 }
 .cardsGrid--action .card .card__details {
-  min-height: 60px;
+  min-height: 44px;
   position: relative;
-  padding-right: 50px
+  padding-right: 60px
 }
 @media(max-width:575.98px) {
   .cardsGrid--action .card .card__details {
@@ -3111,6 +3122,8 @@ SECTIONS & Blocks
   margin-bottom: 0
 }
 .cardsGrid--action .card .card__title > * {
+  --val: 1.25vw;
+  --max: 1.25rem;
   font-weight: 400
 }
 @media(max-width:991.98px) {
@@ -3510,6 +3523,11 @@ SECTIONS & Blocks
 .r_textblock--halign-center {
   align-items: center
 }
+/*! section video */
+.section--video .swiper__buttons {
+  top: 38%
+}
+/*! section toggle */
 @media(max-width:1199.98px) {
   .section--toggle {
     margin-bottom: 35px
@@ -4334,7 +4352,7 @@ body:not(.is-fixed-header) .section--submenu .container {
   }
   .section--direction .directions {
     justify-content: flex-start;
-    height: 180px;
+    height: 210px;
     overflow: hidden;
     position: relative
   }

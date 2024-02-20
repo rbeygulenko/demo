@@ -1024,7 +1024,7 @@ if(cardsCarousel){
 			spaceBetween:20,
 			slidesPerView: 1,
 			breakpoints: {  
-			576: {slidesPerView: 2},
+			576: {slidesPerView: 2, spaceBetween:20},
 				992: {slidesPerView:3},
 				1200: {slidesPerView:4},
 				1400: {slidesPerView:4, spaceBetween:30}
