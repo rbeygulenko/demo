@@ -616,8 +616,11 @@ const componentsApp = function () {
 					}
 				}
 			};
-			swipeElement?.addEventListener('touchstart', handleTouchStart);
-			swipeElement?.addEventListener('touchend', handleTouchEnd);
+			
+			if (swipeElement !== null) {
+				swipeElement.addEventListener('touchstart', handleTouchStart);
+				swipeElement.addEventListener('touchend', handleTouchEnd);
+			}
 
 		}
 	};
