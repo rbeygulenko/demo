@@ -119,7 +119,12 @@ var core = function () {
 		},
 		uiFormBlock: function(obj){   
 
-			let settings = { form: null, button: null, block: true }; 
+			let settings = { 
+				form: 'form', 
+				button: '[type=submit]', 
+				animation: true,
+				block: true 
+			}; 
 
 			try {
 				if (typeof obj === 'object') Object.assign(settings, obj);
@@ -127,10 +132,13 @@ var core = function () {
 			} catch (error) {
 				console.log('Settings error:', error.message);
 			}
+			
+			const form = document.querySelector(settings.form); 
+			const formInputs = document.querySelectorAll(`${settings.form} input, ${settings.form} button, ${settings.form} textarea,${settings.form} select`);
+			const buttonElement = settings.button && form.querySelector(settings.button);
+			formInputs.forEach(element => (element.disabled = settings.block));
 
-			const buttonElement = settings.button && document.querySelector(settings.button);
-
-			if (buttonElement) {
+			if (settings.animation) {
 				buttonElement.disabled = settings.block; 
 				if (settings.block) {
 					const buttonText = buttonElement.textContent;
@@ -147,12 +155,7 @@ var core = function () {
 			} else if (!settings.block) {
 				document.querySelector('.is-loading')?.classList.remove('is-loading');
 				//document.querySelector('.is-loading').classList.remove('is-loading');
-			}
-
-			if (settings.form) {
-				const formElements = document.querySelectorAll(`${settings.form} input, ${settings.form} button, ${settings.form} textarea,${settings.form} select`);
-				formElements.forEach(element => (element.disabled = settings.block));
-			}
+			}	 
   
 		}, 
 		getResetError : function(){  
@@ -380,7 +383,7 @@ const componentsApp = function () {
 			componentsApp.scrollToTop();
 			componentsApp.scrollToTarget();
 			componentsApp.fixedHeader();  
-			componentsApp.qty();
+			//componentsApp.qty();
 			componentsApp.tabs();
 			componentsApp.fancybox();
 			//componentsApp.readProgress();
@@ -408,51 +411,54 @@ const componentsApp = function () {
 			Fancybox.bind('*[data-fancybox]', {});
 		},
 		tabs: function(){
-			document.querySelectorAll('.js-tabs').forEach((el) => {
-				const links = el.querySelectorAll('*[data-tab]');
-				const settings = {
-					type: "tabs",
-					breakpoint: 576,
-					carousel: false,
-					...JSON.parse(el.getAttribute('data-settings') || '{}'),
-				}; 
-				if(settings.type == 'accordeon'){
-					el.classList.remove('r_tabs--tabs');
-					el.classList.add('r_tabs--accordeon')
-				}
-				el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
-					const target = element.dataset.tab;
-					const newItem = el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(
-						document.createElement('div'),
-						el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild
-					);
+			const allTabs = document.querySelectorAll('.js-tabs');
+			if(allTabs){ 
+				allTabs.forEach((el) => { 
+					const settings = {
+						type: el.getAttribute('data-type') || 'tabs',
+						breakpoint: el.getAttribute('data-breakpoint') || 576,
+						carousel: false
+				   }; 
+ 
+					if(settings.type == 'accordeon'){
+						el.classList.remove('r_tabs--tabs');
+						el.classList.add('r_tabs--accordeon')
+					}
+					el.querySelectorAll('.js-tabs-links > *').forEach((element) => {
+						const target = element.dataset.tab;
+						const newItem = el.querySelector(`*[data-tab-target="${target}"]`).insertBefore(
+							document.createElement('div'),
+							el.querySelector(`*[data-tab-target="${target}"]`).firstElementChild
+						);
 
-					newItem.className = 'r_tabs__item_title';
-					newItem.setAttribute('data-tab', target);
-					newItem.textContent = element.textContent;
-				});
-
-				el.querySelectorAll('*[data-tab]').forEach((tab) => {
-					tab.addEventListener('click', () => {
-						const id = tab.dataset.tab; 
-						if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
-							tab.closest('[data-tab]').classList.toggle('is-selected');
-							el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
-						}else{
-							el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
-								item.classList.remove('is-selected');
-							});
-							tab.closest('[data-tab]').classList.add('is-selected');
-							el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
-						} 
+						newItem.className = 'r_tabs__item_title';
+						newItem.setAttribute('data-tab', target);
+						newItem.textContent = element.textContent;
 					});
-				});
 
-				if (settings.type === 'tabs' && core.getViewPort().width > settings.breakpoint) {
-					document.querySelector('.r_tabs__links [data-tab]:first-child').classList.add('is-selected');
-					document.querySelector('.r_tabs__wrapper [data-tab-target]:first-child').classList.add('is-selected');
-				}
-			}); 
+					el.querySelectorAll('*[data-tab]').forEach((tab) => {
+						tab.addEventListener('click', () => {
+							const id = tab.dataset.tab; 
+							if(settings.type == 'accordeon' || core.getViewPort().width < settings.breakpoint){
+								tab.closest('[data-tab]').classList.toggle('is-selected');
+								el.querySelector(`*[data-tab-target="${id}"]`).classList.toggle('is-selected');
+							}else{
+								el.querySelectorAll('[data-tab], [data-tab-target]').forEach((item) => {
+									item.classList.remove('is-selected');
+								});
+								tab.closest('[data-tab]').classList.add('is-selected');
+								el.querySelector(`*[data-tab-target="${id}"]`).classList.add('is-selected');
+							} 
+						});
+					});
+
+					if (settings.type === 'tabs' && core.getViewPort().width > settings.breakpoint) {
+						el.querySelector('.r_tabs__links [data-tab]:first-child').classList.add('is-selected'); 
+						el.querySelector('.r_tabs__wrapper [data-tab-target]:first-child').classList.add('is-selected');
+					}
+
+				}); 
+			}
 		}, 
 		scrollToTarget: function(){
 			const el =  document.querySelectorAll('*[data-scroll]')
@@ -521,6 +527,7 @@ const componentsApp = function () {
 			}
 		 
 		},
+		/*
 		toast: function(message, duration = 3000){ 
 			if(!document.querySelector('.r_toast')){
 				toasts = document.createElement('div');
@@ -543,7 +550,7 @@ const componentsApp = function () {
 				}, 400);
 			 }, duration); 
 		},
-		/*
+	
 		readProgress: function(){
 			if (document.querySelectorAll('.js-read-progress').length) {
 
@@ -846,14 +853,15 @@ const formHandlerApp = (function () {
 	let form, formSelector; 
 	 
 	const initSubmit = (el) => { 
-			form = document.querySelector(formSelector); // initialize form here 
-			if (core.getFormValidation(form)) return; 
+			form = document.querySelector(formSelector);  
+			if (core.getFormValidation(form)) return;  
+		 
 			if(formSelector === '.js-form-search' || formSelector === '.js-form-search-popup'){
-				core.uiFormBlock({'form': formSelector}); 
+				core.uiFormBlock({'form': formSelector, 'animation': false}); 
 			}else{ 
-				core.uiFormBlock({'form': formSelector, 'button': '.btn--submit'}); 
+				core.uiFormBlock({'form': formSelector}); 
 			} 
-
+			  
 			const formData = new URLSearchParams(new FormData(form));
 			const requestOptions = {
 				method: 'POST',
@@ -931,7 +939,7 @@ const formHandlerApp = (function () {
 	};
   
 	return {
-		init: function (el, addr = '') {
+		init: function (el) {
 			formSelector = el;
 			initSubmit(); 
 		},

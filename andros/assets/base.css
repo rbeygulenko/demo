@@ -349,7 +349,7 @@ svg {
   overflow: hidden;
   vertical-align: middle
 }
-input[type=text],
+input,
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -865,21 +865,43 @@ picture {
   max-height: 100%
 }
 .editor table:not(.custom) {
+  border-collapse: separate;
   border: 0;
   margin-bottom: var(--editor-margin);
-  width: 100%
+  width: 100%;
+  border-bottom: 1px solid var(--body-text)
+}
+.editor table:not(.custom) thead tr:first-child th:first-child {
+  border-top-left-radius: 20px
+}
+.editor table:not(.custom) thead tr:first-child th:last-child {
+  border-top-right-radius: 20px
 }
 .editor table:not(.custom) tr td,
 .editor table:not(.custom) tr th {
   transition: background .3s;
-  border: 1px solid var(--color-main);
-  padding: .5rem .75rem;
+  border: 1px solid var(--body-text);
+  border-left: 0;
+  border-bottom: 0;
+  padding: 8px 12px;
   vertical-align: middle
 }
+@media(min-width:768px) {
+  .editor table:not(.custom) tr td,
+  .editor table:not(.custom) tr th {
+    padding: 12px 20px
+  }
+}
+.editor table:not(.custom) tr td:first-child,
+.editor table:not(.custom) tr th:first-child {
+  border-left: 1px solid var(--body-text)
+}
 .editor table:not(.custom) tr th {
-  background: var(--color-main);
-  text-align: center;
-  color: #fff
+  background: var(--color-secondary);
+  font-weight: 500
+}
+.editor table:not(.custom) tr:last-child {
+  border-bottom: 1px solid var(--body-text)
 }
 .editor table:not(.custom) tr:hover td {
   background: var(--color-secondary)
@@ -926,12 +948,13 @@ FORMS
   font-family: var(--font-main);
   margin: 0;
   transition: all .25s;
-  font-size: 16px;
-  padding: 0 24px;
+  font-size: 1rem;
+  padding: 0 1.5rem;
   height: 44px;
   border: 0;
   border-radius: 10px;
-  box-sizing: border-box
+  box-sizing: border-box;
+  vertical-align: middle
 }
 .btn.is-disabled,
 .btn[disabled],
@@ -970,7 +993,7 @@ select.input {
   position: relative;
   z-index: 1;
   cursor: pointer;
-  padding-right: 55px;
+  padding-right: 3.4375rem;
   background-image: linear-gradient(45deg,transparent 50%,gray 50%),linear-gradient(135deg,gray 50%,transparent 50%),linear-gradient(to right,#ccc,#ccc);
   background-position: calc(100% - 20px) center,calc(100% - 15px) center,calc(100% - 2.5em) center;
   background-size: 5px 5px,5px 5px,1px 70%;
@@ -979,7 +1002,7 @@ select.input {
 .btn {
   align-items: center;
   width: auto;
-  min-width: 140px;
+  min-width: 8.75rem;
   justify-content: center;
   text-decoration: none;
   display: inline-flex;
@@ -2012,6 +2035,24 @@ HELPERS
     padding-right: 0
   }
 }
+/*! box style */
+.r_box {
+  background: var(--color-secondary);
+  border-radius: 25px;
+  padding: 30px 20px
+}
+.r_box .r_box__title {
+  margin-bottom: 30px
+}
+.r_box .r_box__title > * {
+  font-weight: 500;
+  margin-bottom: 0
+}
+@media(min-width:768px) {
+  .r_box {
+    padding: 35px 45px
+  }
+}
 /*! item thumb */
 .r_thumbitem {
   position: relative;
@@ -2248,6 +2289,30 @@ HELPERS
 .pagination .pagination__item--next .pagination__item_link:hover,
 .pagination .pagination__item--prev .pagination__item_link:hover {
   color: var(--color-main)
+}
+/*! 
+minigrid cols
+NOTE: to activate full bootstrap grid change variable "$use-columns" to "true" in "__settings.scss".
+*/
+.r_cols {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+  margin-bottom: var(--editor-margin)
+}
+@media(min-width:1200px) {
+  .r_cols--2 {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2,1fr)
+  }
+  .r_cols--3 {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr)
+  }
+  .r_cols--4 {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4,1fr)
+  }
 }
 /*! sticky */
 .is-sticky {
@@ -3419,6 +3484,17 @@ SECTIONS & Blocks
   -ms-grid-row-span: 3;
   grid-row-end: span 3
 }
+@media(min-width:1200px) {
+  .specialist .specialist__image {
+    position: relative;
+    margin-bottom: 0!important
+  }
+}
+@media(min-width:1200px) {
+  .specialist .specialist__image .specialist__image_wrap {
+    top: 100px
+  }
+}
 .specialist .specialist__image img {
   border-radius: 25px;
   overflow: hidden
@@ -4032,17 +4108,6 @@ SECTIONS & Blocks
 @media(min-width:1200px) {
   .actionsFloat.is-shown {
     right: 12px
-  }
-}
-/*! section box style */
-.r_box {
-  background: var(--color-secondary);
-  border-radius: 25px;
-  padding: 30px 20px
-}
-@media(min-width:768px) {
-  .r_box {
-    padding: 35px 45px
   }
 }
 /*! section contacts */
@@ -4693,7 +4758,11 @@ body:not(.is-fixed-header) .section--submenu .container {
   }
 }
 .section--404 .page404 .page404__sign {
-  margin-bottom: min(max(1.25rem,2.5vw),2.5rem)
+  padding: 25px 0;
+  margin-bottom: min(max(1.875rem,3.75vw),3.75rem)
+}
+.section--404 .page404 .page404__sign img {
+  max-height: 256px
 }
 .section--404 .page404 .page404__text {
   font-size: .875em;
@@ -5142,16 +5211,31 @@ COMPONENTS
   position: relative;
   cursor: pointer
 }
+@media(min-width:1200px) {
+  .r_tabs .r_tabs__item .r_tabs__item_title {
+    padding-top: 23px;
+    padding-bottom: 23px;
+    font-size: 20px
+  }
+}
 .r_tabs .r_tabs__item .r_tabs__item_title {
   padding-right: 15px
 }
 .r_tabs .r_tabs__item .r_tabs__item_title::after {
   position: absolute;
   right: 10px;
-  top: 7px;
+  top: 50%;
   font-weight: 400;
-  font-size: 30px;
-  content: "+"
+  font-size: 20px;
+  font-family: var(--font-icons);
+  content: "";
+  transition: all .3s;
+  -webkit-transform: rotate(45deg) translate(-4px,-50%);
+  transform: rotate(45deg) translate(-4px,-50%)
+}
+.r_tabs .r_tabs__item .r_tabs__item_title.is-selected::after {
+  -webkit-transform: rotate(0) translate(4px,-50%);
+  transform: rotate(0) translate(4px,-50%)
 }
 .r_tabs .r_tabs__item .r_tabs__item_content {
   font-size: 13px;
@@ -5162,11 +5246,22 @@ COMPONENTS
   visibility: hidden;
   overflow: hidden
 }
+@media(min-width:1200px) {
+  .r_tabs .r_tabs__item .r_tabs__item_content {
+    font-size: 16px;
+    line-height: normal
+  }
+}
 .r_tabs .r_tabs__item.is-selected .r_tabs__item_content {
   padding-bottom: 20px;
   opacity: 1;
   visibility: visible;
   height: auto
+}
+@media(min-width:1200px) {
+  .r_tabs .r_tabs__item.is-selected .r_tabs__item_content {
+    padding-bottom: 25px
+  }
 }
 .r_tabs--accordeon .r_tabs__links {
   display: none
@@ -5540,6 +5635,9 @@ POPUPS
 }
 .js-popup-show.is-no-touchdevice .header {
   right: var(--scrollbar-width)
+}
+.js-popup-show.is-no-touchdevice .mobile__userbar .userbar {
+  padding-right: var(--scrollbar-width)
 }
 .js-popup-show .popup .popup__inner {
   margin-bottom: 0
