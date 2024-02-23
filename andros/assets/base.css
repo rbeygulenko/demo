@@ -2089,9 +2089,11 @@ HELPERS
   align-items: center;
   font-size: 48px
 }
-.r_thumbitem:hover img {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05)
+@media(hover:hover) {
+  .r_thumbitem:hover img {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
+  }
 }
 /*! default nav */
 .nav--arrows .nav__item:not(:last-child) {

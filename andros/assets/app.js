@@ -32,14 +32,10 @@ var core = function () {
 			} 
 		},
 		initWebPcheck: function(){
-			const elem = document.createElement('canvas'); 
-			if (elem.getContext && elem.getContext('2d')) {
-			  document.documentElement.classList.add('is-webp');
-			  return elem.toDataURL('image/webp').startsWith('data:image/webp');
-			} else {
-			  document.documentElement.classList.add('is-no-webp');
-			  return false;
-			}
+			const canvas = document.createElement('canvas');
+			const supportsWebP = !!(canvas.getContext && canvas.getContext('2d')) &&
+			canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+			$body.classList.add(supportsWebP ? 'is-webp' : 'is-no-webp');
 		},
 		initResize: function(){   
 			menuApp.default(); 
@@ -277,13 +273,9 @@ var core = function () {
 		},   
 		initDefault: function(){
 
-			$html.classList.remove('no-js')	  
-
-			if(core.isTouchDevice()){
-				$body.classList.add('is-touchdevice'); 
-			}else{
-				$body.classList.add('is-no-touchdevice')
-			}
+			$html.classList.remove('no-js'); // check js support   
+			$body.classList.add(core.isTouchDevice() ? 'is-touchdevice' : 'is-no-touchdevice'); // check touchdevice support
+ 
 			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
 				menuApp.hoverIntent(); 
 			}
