@@ -3031,10 +3031,11 @@ SECTIONS & Blocks
   overflow: hidden
 }
 .cardsGrid .card .card__image {
+  overflow: hidden;
   background: #fafafa;
-  border-radius: 20px;
   margin-bottom: 10px;
-  overflow: hidden
+  overflow: hidden;
+  border-radius: 20px
 }
 @media(max-width:575.98px) {
   .cardsGrid .card .card__image {
@@ -3053,9 +3054,8 @@ SECTIONS & Blocks
     margin-bottom: 20px
   }
 }
-.cardsGrid .card .card__image .card__image_src {
-  will-change: transform;
-  transition: all .2s linear;
+.cardsGrid .card .card__image .card__image_link {
+  overflow: hidden;
   border-radius: 20px
 }
 .cardsGrid .card .card__image picture {
@@ -3063,9 +3063,19 @@ SECTIONS & Blocks
   height: 100%;
   width: 100%
 }
-.cardsGrid .card .card__image:hover .card__image_src {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05)
+.cardsGrid .card .card__image .card__image_src {
+  overflow: hidden;
+  border-radius: 20px
+}
+@media(hover:hover) {
+  .cardsGrid .card .card__image .card__image_src {
+    will-change: transform;
+    transition: all .2s linear
+  }
+  .cardsGrid .card .card__image:hover .card__image_src {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
+  }
 }
 .cardsGrid .card .card__title {
   margin-bottom: 5px
