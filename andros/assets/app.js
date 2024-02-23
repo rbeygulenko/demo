@@ -153,7 +153,10 @@ var core = function () {
 					buttonElement.classList.remove('is-loading');
 				}
 			} else if (!settings.block) {
-				document.querySelector('.is-loading')?.classList.remove('is-loading');
+				const loadingElement = document.querySelector('.is-loading');
+				if (loadingElement !== null) {
+					loadingElement.classList.remove('is-loading');
+				}
 				//document.querySelector('.is-loading').classList.remove('is-loading');
 			}	 
   
