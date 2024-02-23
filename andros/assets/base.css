@@ -3055,7 +3055,8 @@ SECTIONS & Blocks
 }
 .cardsGrid .card .card__image .card__image_src {
   will-change: transform;
-  transition: all .2s linear
+  transition: all .2s linear;
+  border-radius: 20px
 }
 .cardsGrid .card .card__image picture {
   display: block;
