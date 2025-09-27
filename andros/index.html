@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<link rel="stylesheet" href="assets/base.min.css?_v=20240223161603">
+<link rel="stylesheet" href="assets/base.min.css?_v=20240315125044">
 </head>
 
 <body class="index__page">
@@ -218,17 +218,34 @@
  
 <div class="section section--main-banner js-mainbanner-carousel is-interactive">
     <div class="homeBanner">
+
         <div class="logo__banner">
             <img class="lazyload" src="assets/blank.png" data-src="assets/logo-banner-2.svg" alt> 
         </div>
-       
+         <div class="side__img" data-id="1">
+            <picture>
+                <source srcset="assets/blank.png" data-srcset="assets/home-banner-right.webp" type="image/webp" media="(min-width: 576px)">
+                <source class="lazyload" srcset="assets/blank.png" data-srcset="assets/mobile-home-banner-right.webp" media="(max-width: 575px)" type="image/webp">
+                <source srcset="assets/blank.png" data-srcset="assets/home-banner-right.jpg" media="(min-width: 575px)">
+                <img class="lazyload" src="assets/blank.png" data-srcset="assets/mobile-home-banner-right.jpg" alt>
+            </picture>
+         </div>
+         <div class="side__img" data-id="2">
+            <picture>
+                <source srcset="assets/blank.png" data-srcset="assets/home-banner2-right.webp" type="image/webp" media="(min-width: 576px)">
+                <source class="lazyload" srcset="assets/blank.png" data-srcset="assets/mobile-home-banner2-right.webp" media="(max-width: 575px)" type="image/webp">
+                <source srcset="assets/blank.png" data-srcset="assets/home-banner2-right.jpg" media="(min-width: 575px)">
+                <img class="lazyload" src="assets/blank.png" data-srcset="assets/mobile-home-banner2-right.jpg" alt>
+            </picture>
+         </div>
+        
             <div class="container">
         
                 <div class="homeBanner__column"> 
                     <div class="swiper ">
                         <div class="swiper-wrapper">
                            
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" data-sideimg="1">
                                 <div class="slide">
                                     <div class="slide__title">
                                         <div class="h1">Скидка -30% на процедуру с аппаратом Emsella</div>
@@ -241,8 +258,9 @@
                                         <a href="/" class="btn btn--bordered btn--bordered-second size--lg">Подробнее</a>
                                     </div> 
                                 </div>
+                               
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" data-sideimg="2">
                                 <div class="slide">
                                     <div class="slide__title">
                                         <div class="h1">Второй слайд заголовок</div>
@@ -1573,9 +1591,9 @@
     </div>
   </div>
 </noscript>
-    <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240223161603">
-<script src="assets/plugins.min.js?_v=20240223161603"></script> 
-<script src="assets/app.js?_v=20240223161603"></script>
+    <link rel="stylesheet" type="text/css" href="assets/custom.css?_v=20240315125044">
+<script src="assets/plugins.min.js?_v=20240315125044"></script> 
+<script src="assets/app.js?_v=20240315125044"></script>
 </body>
 
 </html>

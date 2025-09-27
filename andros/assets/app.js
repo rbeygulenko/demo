@@ -4,11 +4,10 @@ const $html = document.querySelector('html');
 // core app
 var core = function () { 
 	return {
-		init: function () { 
-		  core.initWebPcheck(); 
+		init: function () {  
 		  core.initDefault(); 
 		  core.initResize(); 
-		},
+		}, 
 		isHasIOSline: function(){
 			const hasHomeIndicator = window.safeAreaInsets && window.safeAreaInsets.bottom > 0;
 			if (hasHomeIndicator) {
@@ -275,16 +274,18 @@ var core = function () {
 
 			$html.classList.remove('no-js'); // check js support   
 			$body.classList.add(core.isTouchDevice() ? 'is-touchdevice' : 'is-no-touchdevice'); // check touchdevice support
- 
-			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
-				menuApp.hoverIntent(); 
-			}
-			core.isHasIOSline();
+			core.initWebPcheck(); // check webp support 
+			core.isHasIOSline(); // check for ios bottom line
 			core.loader('create'); // create loader in DOM
-			core.initFormRestrictRules(); // init custom restricts for inputs
+			core.initFormRestrictRules(); // init custom restricts for inputs 
+			core.initPhoneMask(); // set phone masks
+			core.getResetError(); // reset form errors
 			core.initClearHandlers();
-			core.initPhoneMask(); 
-			core.getResetError(); 
+
+			if(core.isTouchDevice() == false && core.getViewPort().width > 1199){
+				menuApp.hoverIntent(); // menu hover intent init
+			}
+
 		}
 	};
 }();
@@ -299,7 +300,7 @@ var popupApp = function () {
 			const uiPopupLinks = document.querySelectorAll('*[data-popup]');
 			if(uiPopupLinks.length){
 				uiPopupLinks.forEach(link => {
-					link.addEventListener('click', () => {
+					link.addEventListener('click', () => { 
 						let linkData = link.dataset.popup; 
 						popupApp.open(linkData);
 						return false;
@@ -1158,21 +1159,46 @@ if(topCarousel){
 
 // home main slider
 const homeSlider = new Swiper('.js-mainbanner-carousel.is-interactive .swiper', {
-	speed:600, 
-	//autoHeight: true,
-	//effect: 'fade',
+	speed: 600,
 	slidesPerView: 1,
 	spaceBetween: 0,
 	autoplay: {
 		delay: 3000,
 		disableOnInteraction: true
 	},
-	navigation: {nextEl: '.js-mainbanner-carousel .js-button-right',prevEl: '.js-mainbanner-carousel .js-button-left'},
-	pagination: {el: '.js-mainbanner-carousel .js-pagination',clickable: true,
-	renderBullet: function (index, className) {
-	  return '<span class="' + className + '">' + (index + 1) + '</span>';
-	}}, 
+	navigation: {
+		nextEl: '.js-mainbanner-carousel .js-button-right',
+		prevEl: '.js-mainbanner-carousel .js-button-left'
+	},
+	pagination: {
+		el: '.js-mainbanner-carousel .js-pagination',
+		clickable: true,
+		renderBullet: function (index, className) {
+			return '<span class="' + className + '">' + (index + 1) + '</span>';
+		}
+	},
+	on: {
+		init: function () {
+			updateSlide(this);
+		},
+		slideChange: function () {
+			updateSlide(this);
+		}
+	}
 });
+
+function updateSlide(swiperInstance) {
+	let index = swiperInstance.realIndex;
+	let id = swiperInstance.slides[index].dataset.sideimg;
+	let sideImgs = document.querySelectorAll('.homeBanner .side__img');
+	let currSlide = document.querySelector('.homeBanner .side__img[data-id="' + id + '"]');
+	sideImgs.forEach(item => {
+		item.classList.remove('is-shown');
+	});
+	currSlide.classList.add('is-shown');
+}
+
+ 
  
 
 // resize events
